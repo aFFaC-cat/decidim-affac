@@ -1,6 +1,6 @@
 # DECIDIM.CLEAN.APP
 
-This is a Decidim app to use as a starting point for other projects that use Decidim.
+This is a clean Decidim app to use as a starting point for other Decidim app projects.
 
 ## Fork the repository
 
@@ -10,21 +10,21 @@ In the top-right corner of the page, click **Fork**.
 
 ## Keep your fork synced
 
-To keep your fork up-to-date with the upstream repository, you must configure a remote that points to the upstream repository in Git.
+To keep your fork up-to-date with the upstream repository, i.e., to upgrade decidim, you must configure a remote that points to the upstream repository in Git.
 
-```bash
+```console
 # List the current configured remote repository for your fork.
 $ git remote -v
-# Specify a new remote upstream repository that will be synced with the fork.
+# Specify the new remote upstream repository that will be synced with the fork.
 $ git remote add decidim-clean https://github.com/CodiTramuntana/decidim-clean-app
 # Verify the new decidim-clean repository you've specified for your fork.
 $ git remote -v
 ```
 Syncing a fork
-```bash
+```console
 # Check out your fork's local master branch.
 $ git checkout master
-# Incorporate changes from the upstream repository into the current branch.
+# Incorporate changes from the decidim-clean repository into the current branch.
 $ git pull decidim-clean
 ```
 
