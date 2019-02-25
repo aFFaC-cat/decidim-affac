@@ -16,8 +16,8 @@ To keep your fork up-to-date with the upstream repository, you must configure a 
 # List the current configured remote repository for your fork.
 $ git remote -v
 # Specify a new remote upstream repository that will be synced with the fork.
-$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
-# Verify the new upstream repository you've specified for your fork.
+$ git remote add decidim-clean https://github.com/CodiTramuntana/decidim_clean_app
+# Verify the new decidim-clean repository you've specified for your fork.
 $ git remote -v
 ```
 Syncing a fork
@@ -25,7 +25,7 @@ Syncing a fork
 # Check out your fork's local master branch.
 $ git checkout master
 # Incorporate changes from the upstream repository into the current branch.
-$ git pull upstream
+$ git pull decidim-clean
 ```
 
 ## Customize your fork
