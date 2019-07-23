@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = '~> 0.17.1'
+DECIDIM_VERSION = '~> 0.18.0'
 
 gem 'daemons'
 gem 'delayed_job_active_record'
