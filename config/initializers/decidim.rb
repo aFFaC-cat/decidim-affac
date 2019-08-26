@@ -7,7 +7,7 @@ Decidim.configure do |config|
 
   # Change these lines to set your preferred locales
   config.default_locale = :ca
-  config.available_locales = %i[ca en es]
+  config.available_locales = %i[ca]
 
   config.enable_html_header_snippets = true
   config.track_newsletter_links = true
