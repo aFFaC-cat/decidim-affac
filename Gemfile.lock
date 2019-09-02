@@ -7,8 +7,8 @@ GIT
       decidim-core (>= 0.17.0)
 
 GIT
-  remote: https://github.com/decidim/decidim.git
-  revision: ac5f14373283fd0607f44f6dbbc2f800bacbf1cb
+  remote: https://github.com/CodiTramuntana/decidim.git
+  revision: bf23076f7ebdf705d10b2606188a89fe2b7ad7dc
   branch: improvements_participatory_space_private_users
   specs:
     decidim (0.19.0.dev)
@@ -303,7 +303,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.6)
-    childprocess (1.0.1)
+    childprocess (2.0.0)
       rake (< 13.0)
     chronic (0.10.2)
     coderay (1.1.2)
@@ -407,7 +407,7 @@ GEM
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
-    graphql (1.9.10)
+    graphql (1.9.11)
     hashdiff (1.0.0)
     hashie (3.6.0)
     highline (2.0.2)
@@ -435,7 +435,7 @@ GEM
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     ice_nine (0.11.2)
-    invisible_captcha (0.12.1)
+    invisible_captcha (0.12.2)
       rails (>= 3.2.0)
     jaro_winkler (1.5.3)
     jquery-rails (4.3.5)
@@ -499,7 +499,7 @@ GEM
     multipart-post (2.1.1)
     mustache (1.1.0)
     netrc (0.11.0)
-    nio4r (2.4.0)
+    nio4r (2.5.1)
     nobspw (0.6.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -537,7 +537,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.17.0)
-    parser (2.6.3.0)
+    parser (2.6.4.0)
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_search (2.3.0)
@@ -676,8 +676,8 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    selenium-webdriver (3.142.3)
-      childprocess (>= 0.5, < 2.0)
+    selenium-webdriver (3.142.4)
+      childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
     simplecov (0.17.0)
       docile (~> 1.1)
@@ -740,7 +740,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.6.2)
+    webmock (3.7.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)

@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 
 # DECIDIM_VERSION = '~> 0.18.0'
 # We are pointing to this branch, because we need the new developments of the branch
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'improvements_participatory_space_private_users' }
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'improvements_participatory_space_private_users' }
 
 gem 'daemons'
 gem 'delayed_job_active_record'
