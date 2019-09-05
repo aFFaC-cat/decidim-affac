@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = 'Decidim Fapac APP'
+  config.application_name = 'Participa Fapac'
 
-  config.mailer_sender = 'decidim@decideix.com'
+  config.mailer_sender = 'participa@fapac.cat'
 
   # Change these lines to set your preferred locales
   config.default_locale = :ca
