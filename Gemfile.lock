@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git
-  revision: 0c405b8dd7f067238b7164ccd27a7dea33bb2120
+  revision: ee315109ee9fcf73f1230f6274b3262faa02bcb6
   specs:
     decidim-verifications-custom_csv_census (0.0.1)
       decidim (>= 0.15.0)
