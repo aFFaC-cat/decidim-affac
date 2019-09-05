@@ -7,9 +7,18 @@ GIT
       decidim-core (>= 0.17.0)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git
+  revision: 0c405b8dd7f067238b7164ccd27a7dea33bb2120
+  specs:
+    decidim-verifications-custom_csv_census (0.0.1)
+      decidim (>= 0.15.0)
+      decidim-admin (>= 0.15.0)
+      decidim-verifications (>= 0.15.0)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
-  revision: bf23076f7ebdf705d10b2606188a89fe2b7ad7dc
-  branch: improvements_participatory_space_private_users
+  revision: 23e1658412150fa3805975522e849ef674d72059
+  branch: fapac-stable
   specs:
     decidim (0.19.0.dev)
       decidim-accountability (= 0.19.0.dev)
@@ -246,8 +255,8 @@ GEM
       tzinfo (~> 1.1)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (8.6.5)
@@ -279,7 +288,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.28.0)
+    capybara (3.29.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -483,9 +492,9 @@ GEM
       mixlib-cli (~> 1.7, >= 1.7.0)
       mixlib-config (~> 2.2, >= 2.2.1)
     method_source (0.9.2)
-    mime-types (3.2.2)
+    mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types-data (3.2019.0904)
     mimemagic (0.3.3)
     mini_magick (4.9.5)
     mini_mime (1.0.2)
@@ -550,7 +559,7 @@ GEM
     premailer-rails (1.10.3)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (3.1.1)
+    public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
     rack-attack (6.1.0)
@@ -685,7 +694,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
     smart_properties (1.15.0)
-    social-share-button (1.2.0)
+    social-share-button (1.2.1)
       coffee-rails
     spreadsheet (1.2.4)
       ruby-ole (>= 1.0)
@@ -740,7 +749,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.7.1)
+    webmock (3.7.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -765,6 +774,7 @@ DEPENDENCIES
   decidim!
   decidim-dev!
   decidim-term_customizer!
+  decidim-verifications-custom_csv_census!
   delayed_job_active_record
   faker (~> 1.8.4)
   figaro (>= 1.1.1)
