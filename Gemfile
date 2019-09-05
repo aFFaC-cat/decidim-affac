@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 
 # DECIDIM_VERSION = '~> 0.18.0'
 # We are pointing to this branch, because we need the new developments of the branch
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'improvements_participatory_space_private_users' }
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'fapac-stable' }
 
 gem 'daemons'
 gem 'delayed_job_active_record'
@@ -18,6 +18,7 @@ gem 'figaro', '>= 1.1.1'
 gem 'openssl'
 
 gem 'decidim', DECIDIM_VERSION
+gem 'decidim-verifications-custom_csv_census', git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git"
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
 group :development, :test do

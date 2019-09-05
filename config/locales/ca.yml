@@ -1,0 +1,11 @@
+---
+ca:
+  activemodel:
+    attributes:
+      custom_csv_census_authorization_handler:
+        id_document: Document d'identitat (DNI)
+        nif_document: Número d'identificació fiscal (NIF)
+  errors:
+    messages:
+      id_document_format: ha d'estar en majúscules i contenir lletres i/o nombres
+      nif_document_format: ha d'estar en majúscules i contenir lletres i/o nombres

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_090450) do
+ActiveRecord::Schema.define(version: 2019_09_05_114406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1267,6 +1267,27 @@ ActiveRecord::Schema.define(version: 2019_08_26_090450) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
+  create_table "decidim_verifications_custom_csv_census_census_data", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.string "id_document"
+    t.string "nif_document"
+    t.datetime "created_at", null: false
+    t.index ["decidim_organization_id"], name: "census_data_org_id_index"
+    t.index ["id_document", "nif_document", "decidim_organization_id"], name: "index", unique: true
+  end
+
+  create_table "decidim_verifications_custom_csv_census_census_data_reports", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.bigint "decidim_user_id"
+    t.integer "num_invalid", default: 0
+    t.integer "num_inserts", default: 0
+    t.integer "num_deleted", default: 0
+    t.integer "num_revoked", default: 0
+    t.datetime "created_at", null: false
+    t.index ["decidim_organization_id"], name: "census_data_reports_org_id_index"
+    t.index ["decidim_user_id"], name: "census_data_reports_user_id_index"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
