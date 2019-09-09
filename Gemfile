@@ -18,7 +18,7 @@ gem 'figaro', '>= 1.1.1'
 gem 'openssl'
 
 gem 'decidim', DECIDIM_VERSION
-gem 'decidim-verifications-custom_csv_census', git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git"
+gem 'decidim-verifications-custom_csv_census', git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git", tag: "v0.0.1"
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
 group :development, :test do
