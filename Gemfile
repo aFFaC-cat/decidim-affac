@@ -4,9 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-# DECIDIM_VERSION = '~> 0.18.0'
-# We are pointing to this branch, because we need the new developments of the branch
-DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'fapac-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: '0.19-stable' }
 
 gem 'daemons'
 gem 'delayed_job_active_record'
