@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: d8983146c53f46841e857be45b32d4da50749e7c
+  revision: b8ef312335fbda056d37ba41f04f1df91fc68a2d
   branch: 0.19-stable
   specs:
     decidim (0.19.0)
@@ -395,7 +395,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     figaro (1.1.1)
@@ -443,7 +443,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.5.3)
+    icalendar (2.6.0)
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     ice_nine (0.11.2)
