@@ -14,8 +14,8 @@ Decidim::Verifications::CustomCsvCensus.configure do |config|
       search: true,
       # format: /\A[A-Z0-9]*\z/
     },
-    # DNI
-    nif_document: {
+    # DNI sòcia
+    dni_document: {
       type: String,
       search: true,
       format: /\A[A-Z0-9]*\z/
@@ -23,7 +23,7 @@ Decidim::Verifications::CustomCsvCensus.configure do |config|
     # data de naixement de la persona designada per l'AMPA/AFA per assistir a l'assemblea.
     # format dd/mm/yyyy
     birth_date: {
-      type: Date,
+      type: String,
       search: true,
       format: %r{\d{2}\/\d{2}\/\d{4}},
       parse: proc { |s| s.to_date }

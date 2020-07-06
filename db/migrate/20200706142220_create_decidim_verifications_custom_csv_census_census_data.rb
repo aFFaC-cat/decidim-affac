@@ -8,9 +8,9 @@ class CreateDecidimVerificationsCustomCsvCensusCensusData < ActiveRecord::Migrat
       # custom fields
       t.string :nif_afa
       t.string :membership_number
-      t.string :nif_document
-      t.date :birth_date
-      t.index [:nif_afa, :membership_number, :nif_document, :birth_date, :decidim_organization_id], unique: true, name: 'index'
+      t.string :dni_document
+      t.string :birth_date
+      t.index [:nif_afa, :membership_number, :dni_document, :birth_date, :decidim_organization_id], unique: true, name: 'index'
       # custom fields
 
       # The rows in this table are immutable (insert or delete, not update)
