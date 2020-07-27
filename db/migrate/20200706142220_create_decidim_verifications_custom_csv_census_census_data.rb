@@ -9,7 +9,7 @@ class CreateDecidimVerificationsCustomCsvCensusCensusData < ActiveRecord::Migrat
       t.string :nif_afa
       t.string :membership_number
       t.string :dni_document
-      t.string :birth_date
+      t.date :birth_date
       t.index [:nif_afa, :membership_number, :dni_document, :birth_date, :decidim_organization_id], unique: true, name: 'index'
       # custom fields
 
