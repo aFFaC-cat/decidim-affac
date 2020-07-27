@@ -3,9 +3,12 @@ ca:
   activemodel:
     attributes:
       custom_csv_census_authorization_handler:
-        id_document: Document d'identitat (DNI)
-        nif_document: Número d'identificació fiscal (NIF)
+        birth_date: Data de naixement de la sòcia
+        dni_document: DNI sòcia
+        membership_number: Número de sòcia
+        nif_afa: NIF de l'AFA/AMPA
   errors:
     messages:
-      id_document_format: ha d'estar en majúscules i contenir lletres i/o nombres
-      nif_document_format: ha d'estar en majúscules i contenir lletres i/o nombres
+      birth_date_format: Ha de seguir el format dd/mm/aaa
+      dni_document_format: Ha d'estar en majúscules i contenir lletres i/o nombres
+      nif_afa_format: Ha d'estar en majúscules i contenir lletres i/o nombres
