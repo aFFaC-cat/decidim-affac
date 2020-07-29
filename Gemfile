@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'release/0.20-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'release/0.21-stable' }
 
 gem 'daemons'
 gem 'delayed_job_active_record'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever'
 
