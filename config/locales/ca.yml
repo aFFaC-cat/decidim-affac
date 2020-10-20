@@ -3,10 +3,10 @@ ca:
   activemodel:
     attributes:
       custom_csv_census_authorization_handler:
-        birth_date: Data de naixement de la sòcia
-        dni_document: DNI sòcia
-        membership_number: Número de sòcia
-        nif_afa: NIF de l'AFA/AMPA
+        birth_date: Data de naixement de la persona representant autoritzada
+        dni_document: DNI del representant autoritzat
+        membership_number: Número de sòcia d'aFFaC
+        nif_afa: NIF de l'AFA
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa
