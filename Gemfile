@@ -12,7 +12,6 @@ gem 'puma', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever'
 
-gem 'geocoder', '~> 1.5.2'
 gem 'figaro', '>= 1.1.1'
 gem 'openssl'
 
