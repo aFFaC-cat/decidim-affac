@@ -11,10 +11,18 @@ Decidim.configure do |config|
 
   config.enable_html_header_snippets = true
   config.track_newsletter_links = true
+
+  # Geocoder configuration
+  config.maps = {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:api_key],
+    static: {
+      url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+    }
+  }
   config.geocoder = {
-    static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview',
-    here_app_id: Rails.application.secrets.geocoder[:here_app_id],
-    here_app_code: Rails.application.secrets.geocoder[:here_app_code]
+    timeout: 5,
+    units: :km
   }
 end
 
