@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = '~> 0.18.0'
+DECIDIM_VERSION = '~> 0.19.0'
 
 gem 'daemons'
 gem 'delayed_job_active_record'
@@ -20,7 +20,7 @@ gem 'decidim', DECIDIM_VERSION
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'byebug', platform: :mri
+  gem 'byebug'
 end
 
 group :development do
