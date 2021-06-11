@@ -16,7 +16,7 @@ To keep your fork up-to-date with the upstream repository, i.e., to upgrade deci
 # List the current configured remote repository for your fork.
 $ git remote -v
 # Specify the new remote upstream repository that will be synced with the fork.
-$ git remote add decidim-clean https://github.com/CodiTramuntana/decidim-clean-app
+$ git remote add decidim-clean git@gitlab.coditdev.net:decidim/decidim-clean-app.git
 # Verify the new decidim-clean repository you've specified for your fork.
 $ git remote -v
 ```
