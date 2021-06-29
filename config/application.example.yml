@@ -20,7 +20,6 @@ development:
   <<: *default
 
 integration:
-  <<: *default
   # secrets
   SECRET_KEY_BASE: <%= ENV['SECRET_KEY_BASE'] %>
 
