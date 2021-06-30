@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'release/0.23-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'release/0.23-stable' }
 
 gem 'daemons'
 gem 'delayed_job_active_record'
@@ -23,7 +23,7 @@ gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-m
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'byebug', platform: :mri
+  gem 'byebug'
 end
 
 group :development do
