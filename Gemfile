@@ -25,8 +25,8 @@ end
 
 group :development do
   gem 'decidim-dev', DECIDIM_VERSION
-  gem 'faker', '~> 1.8.4'
-  gem 'letter_opener_web', '~> 1.3.0'
+  gem 'faker'
+  gem 'letter_opener_web'
   gem 'listen', '~> 3.1.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
