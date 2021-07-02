@@ -27,3 +27,8 @@ The following files should be modified:
 - package.json
 - config/application.rb
 - config/initializers/decidim.rb
+
+ 	
+## Upgrades with clean-app
+	
+Documentation in `docs/upgrade_apps.md`.
