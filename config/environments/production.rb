@@ -3,8 +3,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.active_job.queue_adapter = :delayed_job
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -92,8 +90,7 @@ Rails.application.configure do
     password: Rails.application.secrets.smtp_password,
     domain: Rails.application.secrets.smtp_domain,
     enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
-    openssl_verify_mode: 'none',
-    ssl: true
+    openssl_verify_mode: 'none'
   }
 
   if Rails.application.secrets.sendgrid

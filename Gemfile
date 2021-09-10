@@ -10,8 +10,6 @@ gem 'puma'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever'
 
-gem 'openssl'
-
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-consultations', DECIDIM_VERSION
 gem 'decidim-verifications-custom_csv_census', git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git", tag: "v0.0.2"
