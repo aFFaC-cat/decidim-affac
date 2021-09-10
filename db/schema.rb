@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_072447) do
+ActiveRecord::Schema.define(version: 2021_09_10_103706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -467,6 +467,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_072447) do
     t.jsonb "instructions"
     t.integer "response_groups_count", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
+    t.integer "follows_count", default: 0, null: false
     t.index ["decidim_consultation_id"], name: "index_consultations_questions_on_consultation_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_question_slug_and_organization", unique: true
     t.index ["decidim_scope_id"], name: "index_decidim_consultations_questions_on_decidim_scope_id"
@@ -655,6 +656,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_072447) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "salt"
     t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
   end
 
@@ -779,6 +781,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_072447) do
     t.string "decidim_author_type"
     t.integer "decidim_user_group_id"
     t.integer "comments_count", default: 0, null: false
+    t.string "salt"
     t.string "online_meeting_url"
     t.string "type_of_meeting", default: "in_person"
     t.string "registration_type", default: "registration_disabled", null: false
