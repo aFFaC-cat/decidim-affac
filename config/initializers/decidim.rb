@@ -3,7 +3,7 @@
 Decidim.configure do |config|
   config.application_name = 'Participa Fapac'
 
-  config.mailer_sender = 'participa@fapac.cat'
+  config.mailer_sender = Rails.application.secrets.mail_from
 
   # Change these lines to set your preferred locales
   config.default_locale = :ca
