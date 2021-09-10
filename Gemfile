@@ -6,13 +6,10 @@ ruby RUBY_VERSION
 
 DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'release/0.24-stable' }
 
-gem 'daemons'
-gem 'delayed_job_active_record'
 gem 'puma'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever'
 
-gem 'figaro', '>= 1.1.1'
 gem 'openssl'
 
 gem 'decidim', DECIDIM_VERSION
@@ -34,4 +31,18 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'
+
+  gem "capistrano", "~> 3.14"
+  gem "capistrano-rails-console"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rbenv"
+end
+
+group :production do
+  gem "daemons", "~> 1.3"
+  gem "delayed_job_active_record", "~> 4.1"
+  gem "figaro", "~> 1.2"
+  gem "passenger", "~> 6.0"
 end
