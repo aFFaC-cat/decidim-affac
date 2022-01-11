@@ -18,8 +18,8 @@ GIT
       decidim-verifications (>= 0.15.0)
 
 GIT
-  remote: https://github.com/CodiTramuntana/decidim.git
-  revision: 1457d715b003780705b727562e3c328a1e565d5c
+  remote: https://github.com/decidim/decidim.git
+  revision: 1c93317cb30e761e0c81081458d9a66eda622768
   branch: release/0.24-stable
   specs:
     decidim (0.24.3)
@@ -719,7 +719,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rainbow (3.1.0)
+    rainbow (3.1.1)
     rake (13.0.6)
     ransack (2.1.1)
       actionpack (>= 5.0)
