@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'release/0.24-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/Platoniq/decidim.git', branch: 'temp/0.24' }
 
 gem 'puma'
 gem 'uglifier', '>= 1.3.0'
