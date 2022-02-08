@@ -6,9 +6,11 @@ ruby RUBY_VERSION
 
 DECIDIM_VERSION = { git: 'https://github.com/Platoniq/decidim.git', branch: 'temp/0.24' }
 
-gem 'puma'
-gem 'uglifier', '>= 1.3.0'
 gem 'whenever'
+gem "puma", ">= 5.0.0"
+gem "uglifier", "~> 4.1"
+# bug in version 1.9
+gem "i18n", "~> 1.8.1"
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-consultations', DECIDIM_VERSION
@@ -17,13 +19,12 @@ gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-m
 gem "decidim-decidim_awesome", "~> 0.7.2"
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'byebug'
+
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
-  gem 'decidim-dev', DECIDIM_VERSION
   gem 'faker'
   gem 'letter_opener_web'
   gem 'listen', '~> 3.1.0'
