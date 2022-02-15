@@ -13,7 +13,7 @@ Decidim::Verifications::CustomCsvCensus.configure do |config|
     membership_number: {
       type: String,
       search: true,
-      encoded: false,
+      encoded: false
       # format: /\A[A-Z0-9]*\z/
     },
     # DNI sòcia
@@ -29,7 +29,7 @@ Decidim::Verifications::CustomCsvCensus.configure do |config|
       type: Date,
       search: true,
       encoded: false,
-      format: %r{\d{2}\/\d{2}\/\d{4}},
+      format: %r{\d{2}/\d{2}/\d{4}},
       parse: proc { |s| s.to_date }
     }
   }
