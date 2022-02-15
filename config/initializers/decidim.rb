@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = 'Participa Fapac'
+  config.application_name = 'Participa Affac'
 
   config.mailer_sender = Rails.application.secrets.mail_from
 
   # Change these lines to set your preferred locales
   config.default_locale = :ca
-  config.available_locales = %i[ca]
+  config.available_locales = %i[ca en]
 
   config.enable_html_header_snippets = true
   config.track_newsletter_links = true
