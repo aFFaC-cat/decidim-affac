@@ -392,11 +392,6 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
-    delayed_job (4.1.10)
-      activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.7)
-      activerecord (>= 3.0, < 8.0)
-      delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -922,7 +917,6 @@ DEPENDENCIES
   decidim-dev!
   decidim-term_customizer!
   decidim-verifications-custom_csv_census!
-  delayed_job_active_record (~> 4.1)
   faker (~> 2.14)
   figaro (~> 1.2)
   i18n (~> 1.8.1)
