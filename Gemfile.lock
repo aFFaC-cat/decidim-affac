@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer.git
-  revision: 03ba3bc60a8416a236ab7c1f84f91649ed46b9e8
-  specs:
-    decidim-term_customizer (0.18.0)
-      decidim-admin (>= 0.18.0)
-      decidim-core (>= 0.18.0)
-
-GIT
   remote: https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git
   revision: 5465409afed7911546b688f27182bc57e8880a47
   tag: v0.0.2
@@ -229,6 +221,15 @@ GIT
     decidim-verifications (0.24.3)
       decidim-core (= 0.24.3)
 
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
+  branch: 0.24-stable
+  specs:
+    decidim-term_customizer (0.24.0)
+      decidim-admin (~> 0.24.0)
+      decidim-core (~> 0.24.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -370,6 +371,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
+    connection_pool (2.4.0)
     cookiejar (0.3.3)
     crack (0.4.5)
       rexml
@@ -441,6 +443,8 @@ GEM
     erbse (0.1.4)
       temple
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     etherpad-lite (0.3.0)
       rest-client (>= 1.6)
     eventmachine (1.2.7)
@@ -482,6 +486,9 @@ GEM
       activesupport (>= 4.1, < 6.0)
       railties (>= 4.1, < 6.0)
       tzinfo (~> 1.2, >= 1.2.2)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     geocoder (1.7.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -574,6 +581,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.15.0)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
@@ -589,6 +597,9 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.8)
     nobspw (0.6.2)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.8)
@@ -652,6 +663,7 @@ GEM
       multi_json
     puma (5.6.1)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-attack (6.6.0)
@@ -798,6 +810,13 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     seven_zip_ruby (1.3.0)
+    sidekiq (6.5.8)
+      connection_pool (>= 2.2.5, < 3)
+      rack (~> 2.0)
+      redis (>= 4.5.0, < 5)
+    sidekiq-cron (1.9.1)
+      fugit (~> 1.8)
+      sidekiq (>= 4.2.1)
     simplecov (0.19.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -885,6 +904,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -911,6 +931,8 @@ DEPENDENCIES
   passenger (~> 6.0)
   puma (>= 5.0.0)
   rubocop-faker
+  sidekiq (~> 6.0)
+  sidekiq-cron
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier (~> 4.1)
