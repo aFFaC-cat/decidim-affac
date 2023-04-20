@@ -1,0 +1,11 @@
+#config/schedule.yml
+
+metrics_job:
+  cron: "0 2 * * *"
+  class: "MetricsGenerationWorker"
+  queue: metrics
+
+data_job:
+  cron: "30 3 * * *"
+  class: "DataPortabilityWorker"
+  queue: default

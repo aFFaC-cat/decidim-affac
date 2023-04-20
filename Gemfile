@@ -8,14 +8,13 @@ DECIDIM_VERSION = { git: "https://github.com/Platoniq/decidim.git", branch: "tem
 
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
-gem "whenever"
 # bug in version 1.9
 gem "i18n", "~> 1.8.1"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.7.2"
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "0.24-stable"
 gem "decidim-verifications-custom_csv_census", git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git", tag: "v0.0.2"
 
 group :development, :test do
@@ -44,7 +43,8 @@ end
 
 group :production do
   gem "daemons", "~> 1.3"
-  gem "delayed_job_active_record", "~> 4.1"
   gem "figaro", "~> 1.2"
   gem "passenger", "~> 6.0"
+  gem "sidekiq", "~> 6.0"
+  gem "sidekiq-cron"
 end
