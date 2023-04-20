@@ -8,7 +8,6 @@ DECIDIM_VERSION = { git: "https://github.com/Platoniq/decidim.git", branch: "tem
 
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
-gem "whenever"
 # bug in version 1.9
 gem "i18n", "~> 1.8.1"
 
