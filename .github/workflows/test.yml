@@ -36,8 +36,7 @@ jobs:
           bundler-cache: true
 
       - name: Setup & create Database
-        run: |
-          run: bundle exec rake db:test:prepare
+        run: bundle exec rake db:test:prepare
         env:
           RAILS_ENV: test
           DATABASE_USERNAME: postgres
