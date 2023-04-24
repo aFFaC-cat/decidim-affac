@@ -20,6 +20,11 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
 # Ignore application configuration
 /config/application.yml
 
