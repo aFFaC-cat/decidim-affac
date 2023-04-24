@@ -8,7 +8,6 @@ DECIDIM_VERSION = "0.25.2"
 
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
-gem "whenever"
 # bug in version 1.9
 gem "i18n", "~> 1.8.1"
 
@@ -44,7 +43,8 @@ end
 
 group :production do
   gem "daemons", "~> 1.3"
-  gem "delayed_job_active_record", "~> 4.1"
   gem "figaro", "~> 1.2"
   gem "passenger", "~> 6.0"
+  gem "sidekiq", "~> 6.0"
+  gem "sidekiq-cron"
 end
