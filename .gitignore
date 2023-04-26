@@ -42,3 +42,6 @@ node_modules/
 yarn-debug.log*
 .yarn-integrity
 .idea
+
+public/sw.js
+public/sw.js.map
