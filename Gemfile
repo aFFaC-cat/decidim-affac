@@ -17,7 +17,6 @@ gem "decidim-custom_csv_census", git: "https://github.com/Platoniq/decidim-verif
 gem "decidim-decidim_awesome", "~> 0.8"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.25-stable"
 
-
 group :development, :test do
   gem "faker", "~> 2.14"
   gem "rubocop-faker"
