@@ -7,6 +7,14 @@ ca:
         dni_document: DNI del representant autoritzat
         membership_number: Número de sòcia d'aFFaC
         nif_afa: NIF de l'AFA
+  decidim:
+    authorization_handlers:
+      admin:
+        custom_csv_census_authorization_handler:
+          help:
+          - Els administradors carreguen un CSV i creen un cens amb dades acceptades.
+          - Només es poden verificar les participants que hagin omplert la informació
+            requerida que figuri en el cens.
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa
