@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Decidim::Verifications::CustomCsvCensus.configure do |config|
+Decidim::CustomCsvCensus.configure do |config|
   config.fields = {
     # NIF de l'afa/ampa
     nif_afa: {

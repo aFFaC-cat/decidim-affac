@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/Platoniq/decidim.git", branch: "temp/0.24" }.freeze
+DECIDIM_VERSION = "0.25.2"
 
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
@@ -13,9 +13,9 @@ gem "i18n", "~> 1.8.1"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-decidim_awesome", "~> 0.7.2"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "0.24-stable"
-gem "decidim-verifications-custom_csv_census", git: "https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census.git", tag: "v0.0.2"
+gem "decidim-custom_csv_census", git: "https://github.com/Platoniq/decidim-verifications-custom_csv_census", branch: "release/0.25-stable"
+gem "decidim-decidim_awesome", "~> 0.8"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.25-stable"
 
 group :development, :test do
   gem "faker", "~> 2.14"

@@ -20,9 +20,25 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
 # Ignore application configuration
 /config/application.yml
 
 # Ignore deploy secrets
 /config/deploy*
 /Capfile
+
+.rubocop*
+
+/public/decidim-packs
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+.idea
