@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/Platoniq/decidim-verifications-custom_csv_census
+  revision: 80b57b2da35978fd9dfc97469023f744a226b740
+  branch: master
+  specs:
+    decidim-custom_csv_census (0.2.0)
+      decidim (>= 0.27.0, < 0.28)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+      decidim-verifications (>= 0.27.0, < 0.28)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: a5fb3423cb09379e2cbf40e001e44325834b31c2
   branch: main
@@ -879,6 +890,7 @@ DEPENDENCIES
   daemons (~> 1.3)
   decidim!
   decidim-consultations!
+  decidim-custom_csv_census!
   decidim-decidim_awesome!
   decidim-dev!
   decidim-term_customizer!

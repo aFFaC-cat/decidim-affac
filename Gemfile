@@ -14,9 +14,9 @@ gem "i18n", "~> 1.8.1"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-custom_csv_census", git: "https://github.com/Platoniq/decidim-verifications-custom_csv_census", branch: "master"
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
-# gem "decidim-verifications-custom_csv_census", git: "https://github.com/Platoniq/decidim-verifications-custom_csv_census", branch: "chore/upgrade-0.25"
 
 group :development, :test do
   gem "faker", "~> 2.14"
