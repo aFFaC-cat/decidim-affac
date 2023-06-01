@@ -37,8 +37,11 @@ public/uploads
 /public/decidim-packs
 /public/packs
 /public/packs-test
-/node_modules
+node_modules/
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 .idea
+
+public/sw.js
+public/sw.js.map
