@@ -20,3 +20,8 @@ ca:
       birth_date_format: Ha de seguir el format dd/mm/aaa
       dni_document_format: Ha d'estar en majúscules i contenir lletres i/o nombres
       nif_afa_format: Ha d'estar en majúscules i contenir lletres i/o nombres
+
+  decidim:
+    system:
+      custom_template:
+        new_from_template: Nou desde template

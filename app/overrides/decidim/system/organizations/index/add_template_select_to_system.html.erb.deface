@@ -1,0 +1,18 @@
+<!-- insert_after ".title" -->
+
+<form>
+  <div class="template-select-container">
+    <select>
+        <option value="husker">Husker</option>
+    </select>
+    <button type="button" class="alert button medium-down-expanded"><%= t("decidim.system.custom_templates.new_from_template") %></button>
+  </div>
+</form>
+
+<style>
+  .template-select-container {
+    border: 1px solid #cacaca;
+    padding: 10px;
+    background-color: #e6e6e6;
+  }
+</style>
