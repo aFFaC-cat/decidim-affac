@@ -4,8 +4,11 @@
   <div class="template-select-container">
     <select>
         <option value="husker">Husker</option>
+        <option value="two">Second</option>   
     </select>
-    <button type="button" class="alert button medium-down-expanded"><%= t("decidim.system.custom_templates.new_from_template") %></button>
+    <a href="#" class="alert button medium-down-expanded" id="templateLink">
+      <%= t("decidim.system.custom_templates.new_from_template") %>
+    </a>
   </div>
 </form>
 
@@ -16,3 +19,14 @@
     background-color: #e6e6e6;
   }
 </style>
+
+<script>
+  const selectElement = document.querySelector(".template-select-container");
+  const templateLink = document.getElementById("templateLink");
+
+  selectElement.addEventListener("change", (event) => {
+    console.log("Hola")
+    const selectedValue = event.target.value;
+    templateLink.href = `<%= decidim_system.new_custom_template_path(template: "${selectedValue}") %>`;
+  });
+</script>
