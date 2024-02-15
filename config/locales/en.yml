@@ -3,3 +3,4 @@ en:
     system:
       custom_templates:
         new_from_template: New from template
+        select_default_text: Choose a template
