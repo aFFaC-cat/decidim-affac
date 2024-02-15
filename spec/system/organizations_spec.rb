@@ -7,9 +7,9 @@ describe "Organizations", type: :system do
 
   context "when an admin authenticated" do
     before do
-        login_as admin, scope: :admin
-        visit decidim_system.root_path
-        click_link "Organizations"
+      login_as admin, scope: :admin
+      visit decidim_system.root_path
+      click_link "Organizations"
     end
 
     it "shows the template selector" do
