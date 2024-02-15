@@ -1,0 +1,3 @@
+<!-- insert_after ".title" -->
+
+<%= render partial: "decidim/system/organizations/custom_template_select"%>

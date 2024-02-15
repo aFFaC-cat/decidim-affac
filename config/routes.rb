@@ -12,3 +12,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 end
+
+Decidim::System::Engine.routes.draw do
+  authenticate(:admin) do
+    resources :custom_templates, only: [:new, :create]
+  end
+end

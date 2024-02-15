@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_26_102249) do
+ActiveRecord::Schema.define(version: 2024_02_15_112720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -199,8 +199,8 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.string "youtube_handler"
     t.string "github_handler"
     t.bigint "decidim_assemblies_type_id"
-    t.integer "follows_count", default: 0, null: false
     t.integer "weight", default: 1, null: false
+    t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
@@ -321,6 +321,23 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.datetime "updated_at", null: false
     t.index ["decidim_author_id"], name: "decidim_awesome_editor_images_author"
     t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
+  end
+
+  create_table "decidim_awesome_proposal_extra_fields", force: :cascade do |t|
+    t.bigint "decidim_proposal_id", null: false
+    t.jsonb "vote_weight_totals"
+    t.integer "weight_total", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_proposal_id"], name: "decidim_awesome_extra_fields_on_proposal"
+  end
+
+  create_table "decidim_awesome_vote_weights", force: :cascade do |t|
+    t.bigint "proposal_vote_id", null: false
+    t.integer "weight", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["proposal_vote_id"], name: "decidim_awesome_proposals_weights_vote"
   end
 
   create_table "decidim_blogs_posts", id: :serial, force: :cascade do |t|
@@ -655,7 +672,7 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.bigint "resource_id"
     t.string "decidim_author_type"
     t.bigint "decidim_author_id"
-    t.integer "decidim_user_group_id"
+    t.integer "decidim_user_group_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_author_type", "decidim_author_id"], name: "idx_endorsements_authors"
@@ -892,12 +909,12 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.string "decidim_author_type"
     t.integer "decidim_user_group_id"
     t.integer "comments_count", default: 0, null: false
+    t.string "salt"
     t.string "online_meeting_url"
     t.string "type_of_meeting", default: "in_person"
     t.string "registration_type", default: "registration_disabled", null: false
     t.string "registration_url"
     t.integer "follows_count", default: 0, null: false
-    t.string "salt"
     t.boolean "customize_registration_email", default: false
     t.jsonb "registration_email_custom_content"
     t.datetime "published_at"
@@ -1221,8 +1238,8 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
-    t.integer "follows_count", default: 0, null: false
     t.integer "weight", default: 1, null: false
+    t.integer "follows_count", default: 0, null: false
     t.bigint "decidim_participatory_process_type_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
@@ -1578,6 +1595,18 @@ ActiveRecord::Schema.define(version: 2023_04_26_102249) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_decidim_system_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "decidim_templates_templates", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "templatable_type"
+    t.bigint "templatable_id"
+    t.jsonb "name", null: false
+    t.jsonb "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
+    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
   end
 
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|

@@ -1,0 +1,34 @@
+<form>
+  <div class="template-select-container">
+    <select>
+        <option value="one"><%= t("decidim.system.custom_templates.select_default_text") %></option>
+        <option value="husker">Husker</option>
+        <option value="two">Second</option>   
+    </select>
+    <a href="<%= decidim_system.new_custom_template_path(template: "one") %>" class="template-link alert button medium-down-expanded" id="templateLink">
+      <%= t("decidim.system.custom_templates.new_from_template") %>
+    </a>
+  </div>
+</form>
+
+<style>
+  .template-select-container {
+    border: 1px solid #cacaca;
+    padding: 10px;
+    background-color: #e6e6e6;
+  }
+
+  a.template-link {
+    color: #FEFEFE !important;
+  }
+</style>
+
+<script>
+  const selectElement = document.querySelector(".template-select-container");
+  const templateLink = document.getElementById("templateLink");
+
+  selectElement.addEventListener("change", (event) => {
+    const selectedValue = event.target.value;
+    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
+  });
+</script>

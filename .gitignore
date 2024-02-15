@@ -33,6 +33,7 @@ public/uploads
 /Capfile
 
 .rubocop*
+.rspec-failures
 
 /public/decidim-packs
 /public/packs
