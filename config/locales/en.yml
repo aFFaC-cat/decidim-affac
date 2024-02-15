@@ -4,3 +4,4 @@ en:
       custom_templates:
         new_from_template: New from template
         select_default_text: Consultation for aFFas
+        no_template: Template does not exist
