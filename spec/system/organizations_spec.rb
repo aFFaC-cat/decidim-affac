@@ -13,7 +13,7 @@ describe "Organizations", type: :system do
     end
 
     it "shows the template selector" do
-      expect(page).to have_content("Choose a template")
+      expect(page).to have_content("Consultation for aFFas")
       expect(page).to have_content("New from template")
     end
   end

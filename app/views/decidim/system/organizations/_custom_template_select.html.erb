@@ -1,11 +1,11 @@
 <form>
   <div class="template-select-container">
     <select>
-        <option value=""><%= t("decidim.system.custom_templates.select_default_text") %></option>
+        <option value="one"><%= t("decidim.system.custom_templates.select_default_text") %></option>
         <option value="husker">Husker</option>
         <option value="two">Second</option>   
     </select>
-    <a class="template-link alert button medium-down-expanded" id="templateLink">
+    <a href="<%= decidim_system.new_custom_template_path(template: "one") %>" class="template-link alert button medium-down-expanded" id="templateLink">
       <%= t("decidim.system.custom_templates.new_from_template") %>
     </a>
   </div>
@@ -29,6 +29,6 @@
 
   selectElement.addEventListener("change", (event) => {
     const selectedValue = event.target.value;
-    templateLink.href = `<%= decidim_system.new_custom_template_path(template: "${selectedValue}") %>`;
+    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
   });
 </script>
