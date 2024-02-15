@@ -1,1 +1,12 @@
-test
+<h2>Organization form</h2>
+
+<%= decidim_form_for(@form, url:  decidim_system.custom_templates_path(template: template)) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
