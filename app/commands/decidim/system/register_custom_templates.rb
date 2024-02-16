@@ -20,7 +20,28 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if form.invalid?
+
+        @organization = nil
+        transaction do
+          @organization = create_organization
+          CreateDefaultPages.call(@organization)
+          PopulateHelp.call(@organization)
+          CreateDefaultContentBlocks.call(@organization)
+        end
+      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
+      end
+
+      private
+
+      attr_reader :form
+
+      def create_organization
+        Decidim::Organization.create!(
+          name: form.name,
+          host: form.host
+        )
       end
     end
   end

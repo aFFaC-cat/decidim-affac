@@ -7,3 +7,4 @@ en:
         no_template: Template does not exist
         button_save: Save
         invalid_message: It's invalid
+        success_message: Great done

@@ -14,7 +14,7 @@ module Decidim
       attribute :organization_admin_name, String
       attribute :name, String
 
-      validates :organization_admin_email, :organization_admin_name, :name, presence: true
+      validates :organization_admin_email, :organization_admin_name, :name, :host, presence: true
     end
   end
 end
