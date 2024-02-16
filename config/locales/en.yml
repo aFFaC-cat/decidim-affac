@@ -6,3 +6,4 @@ en:
         select_default_text: Consultation for aFFas
         no_template: Template does not exist
         button_save: Save
+        invalid_message: It's invalid

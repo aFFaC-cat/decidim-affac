@@ -15,7 +15,7 @@ module Decidim
 
         RegisterCustomTemplates.call(@form) do
           on(:invalid) do
-            flash.now[:alert] = "Is invalid"
+            flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message")
             render :new
           end
         end
