@@ -29,6 +29,7 @@ module Decidim
           PopulateHelp.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
         end
+        broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
       end

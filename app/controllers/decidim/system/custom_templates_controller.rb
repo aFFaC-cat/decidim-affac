@@ -14,6 +14,11 @@ module Decidim
         @form = form(RegisterCustomTemplatesForm).from_params(params)
 
         RegisterCustomTemplates.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("decidim.system.custom_templates.success_message")
+            redirect_to organizations_path
+          end
+
           on(:invalid) do
             flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message")
             render :new
