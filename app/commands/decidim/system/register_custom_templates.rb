@@ -23,12 +23,21 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         @organization = nil
+        invite_form = nil
+        invitation_failed = false
+
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
           PopulateHelp.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
+          invite_form = invite_user_form(@organization)
+          invitation_failed = invite_form.invalid?
         end
+        return broadcast(:invalid) if invitation_failed
+
+        Decidim::InviteUser.call(invite_form) if @organization && invite_form
+
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
@@ -43,10 +52,22 @@ module Decidim
           name: form.name,
           host: form.host,
           reference_prefix: form.reference_prefix,
-          organization_admin_name: form.organization_admin_name,
-          organization_admin_email: form.organization_admin_email,
           available_locales: form.available_locales,
-          default_locale: form.default_locale
+          default_locale: form.default_locale,
+          users_registration_mode: form.users_registration_mode,
+          force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization
+        )
+      end
+
+      def invite_user_form(organization)
+        Decidim::InviteUserForm.from_params(
+          name: form.organization_admin_name,
+          email: form.organization_admin_email,
+          role: "admin",
+          invitation_instructions: "organization_admin_invitation_instructions"
+        ).with_context(
+          current_user: form.current_user,
+          current_organization: organization
         )
       end
     end
