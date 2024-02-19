@@ -4,3 +4,11 @@ en:
       custom_templates:
         new_from_template: New from template
         select_default_text: Consultation for aFFas
+        no_template: Template does not exist
+        button_save: Save
+        invalid_message: It's invalid
+        success_message: Great done
+        new: 
+          locale: Locale
+          enabled: Enabled
+          default: Default

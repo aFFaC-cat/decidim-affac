@@ -15,7 +15,7 @@ Bundler.require(*Rails.groups)
 module DecidimFapacApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 6.1
 
     # initializer 'add named route overrides' do |app|
     #   app.routes_reloader.paths << File.expand_path('../named_routes_overrides.rb',__FILE__)
