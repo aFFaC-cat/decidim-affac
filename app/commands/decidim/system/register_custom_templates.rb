@@ -41,7 +41,12 @@ module Decidim
       def create_organization
         Decidim::Organization.create!(
           name: form.name,
-          host: form.host
+          host: form.host,
+          reference_prefix: form.reference_prefix,
+          organization_admin_name: form.organization_admin_name,
+          organization_admin_email: form.organization_admin_email,
+          available_locales: form.available_locales,
+          default_locale: form.default_locale
         )
       end
     end
