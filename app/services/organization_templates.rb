@@ -1,0 +1,4 @@
+class OrganizationTemplates
+
+    
+end
