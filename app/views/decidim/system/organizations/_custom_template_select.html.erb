@@ -24,11 +24,11 @@
 </style>
 
 <script>
-  const selectElement = document.querySelector(".template-select-container");
+  const selectElement = document.getElementById("customTemplateSelect");
   const templateLink = document.getElementById("templateLink");
 
-  selectElement.addEventListener("click", (event) => {
-    const selectedValue = event.target.value;
-    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue); 
+  templateLink.addEventListener("click", () => {
+    const selectedValue = selectElement.value;
+    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
   });
 </script>
