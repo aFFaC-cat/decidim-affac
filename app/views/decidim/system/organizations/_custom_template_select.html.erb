@@ -1,10 +1,9 @@
 <form>
   <div class="template-select-container">
-    <select id="customTemplateSelect">
-        <option value="one"><%= t("decidim.system.custom_templates.select_default_text") %></option>
-        <option value="husker">Husker</option>
-        <option value="two">Second</option>   
-    </select>
+    <%= select :template, 
+                { include_blank: true }, 
+                [[t("decidim.system.custom_templates.select_default_text"),'one']] + OrganizationTemplates.all.map { |template| [template["name"], template["id"]] }, 
+                { id: 'customTemplateSelect' } %>
     <a href="<%= decidim_system.new_custom_template_path(template: "one") %>" class="template-link alert button medium-down-expanded" id="templateLink">
       <%= t("decidim.system.custom_templates.new_from_template") %>
     </a>
