@@ -1,11 +1,11 @@
 <form>
   <div class="template-select-container">
-    <select id="customTemplateSelect">
-        <option value="one"><%= t("decidim.system.custom_templates.select_default_text") %></option>
-        <option value="husker">Husker</option>
-        <option value="two">Second</option>   
-    </select>
-    <a href="<%= decidim_system.new_custom_template_path(template: "one") %>" class="template-link alert button medium-down-expanded" id="templateLink">
+    <%= select :template, 
+                'customTemplateSelect', 
+                OrganizationTemplates.all.map { |template| [template["name"], template["id"]] },
+                { include_blank: false }, 
+                { id: 'customTemplateSelect' } %>
+    <a class="template-link alert button medium-down-expanded" id="templateLink">
       <%= t("decidim.system.custom_templates.new_from_template") %>
     </a>
   </div>
@@ -24,11 +24,11 @@
 </style>
 
 <script>
-  const selectElement = document.querySelector(".template-select-container");
+  const selectElement = document.getElementById("customTemplateSelect");
   const templateLink = document.getElementById("templateLink");
 
-  selectElement.addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
+  templateLink.addEventListener("click", () => {
+    const selectedValue = selectElement.value;
     templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
   });
 </script>

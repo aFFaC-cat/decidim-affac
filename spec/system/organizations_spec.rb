@@ -13,14 +13,15 @@ describe "Organizations", type: :system do
     end
 
     it "shows the template selector" do
-      expect(page).to have_content("Consultation for aFFas")
+      expect(page).to have_content("Votacions AFFaC")
       expect(page).to have_content("New from template")
     end
 
     it "shows templates available to create an organization" do
       select "Second", from: "customTemplateSelect"
-      click_link "New from template"
+      find("#templateLink").click
 
+      expect(current_url).to include("/new?template=two")
       expect(page).to have_content("Organization form")
 
       fill_in "Name", with: "Citizen Corp"
