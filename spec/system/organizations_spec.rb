@@ -18,9 +18,10 @@ describe "Organizations", type: :system do
     end
 
     it "shows templates available to create an organization" do
-      select "Votacions AFFaC", from: "customTemplateSelect"
+      select "Second", from: "customTemplateSelect"
       find("#templateLink").click
 
+      expect(current_url).to include("/new?template=two")
       expect(page).to have_content("Organization form")
 
       fill_in "Name", with: "Citizen Corp"
