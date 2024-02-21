@@ -29,6 +29,6 @@
 
   selectElement.addEventListener("click", (event) => {
     const selectedValue = event.target.value;
-    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
+    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue); 
   });
 </script>
