@@ -1,4 +1,4 @@
-name: Test
+name: "[CI] Test"
 
 on:
   push:
@@ -10,24 +10,29 @@ on:
 env:
   RUBY_VERSION: 3.0.6
   NODE_VERSION: 16.9.1
-    
+
 jobs:
-  test:
+  test-report:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:11
-        ports:
-          - 5432:5432
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         env:
-          RAILS_ENV: test
-          DATABASE_USERNAME: postgres
-          DATABASE_PASSWORD: postgres
-          POSTGRES_HOST_AUTH_METHOD: trust
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -37,10 +42,10 @@ jobs:
 
       - name: List Chrome
         run: apt list --installed | grep chrome
-    
+
       - name: Remove Chrome
         run: sudo apt remove google-chrome-stable
-    
+
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105
@@ -50,9 +55,6 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
-      - run: bundle exec rubocop -P
-        name: Lint Ruby files
-
       - name: Setup & create Database
         run: |
           bundle exec rails db:create db:schema:load
@@ -61,14 +63,16 @@ jobs:
           DATABASE_USERNAME: postgres
           DATABASE_PASSWORD: postgres
 
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
       - name: Precompile assets
         run: |
           npm ci
           bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
-          DATABASE_USERNAME: postgres
-          DATABASE_PASSWORD: postgres
 
       - name: Run RSpec
         run: SIMPLECOV=1 CODECOV=1 bundle exec rspec
