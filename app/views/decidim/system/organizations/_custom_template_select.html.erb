@@ -27,8 +27,9 @@
   const selectElement = document.getElementById("customTemplateSelect");
   const templateLink = document.getElementById("templateLink");
 
-  templateLink.addEventListener("click", () => {
+  templateLink.addEventListener("click", (event) => {
+    event.preventDefault();
     const selectedValue = selectElement.value;
-    templateLink.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
+    location.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
   });
 </script>
