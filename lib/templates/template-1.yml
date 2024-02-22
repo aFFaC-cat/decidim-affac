@@ -3,14 +3,20 @@ name: Votacions AFFaC
 organization: 
   default_locale: ca
   users_registration_mode: enabled
+content_blocks:
+  hero: hero
+  sub_hero: sub_hero
+  highlighted_content_banner: highlighted_content_banner
+  highlighted_consultations: highlighted_consultations
+  upcoming_meetings: upcoming_meetings
 participatory_spaces:
   - manifest: consultations
     title: 
-      ca: Consulta per %{organization_title}
-      es: Consulta para %{organization_title}
+      ca: Consulta per %{organization_name}
+      es: Consulta para %{organization_name}
     cover: template-1/file1.png
 vars:
-  organization_title: translated_string
+  organization_name: translated_string
   ref: string
   host: string
   organization_admin_name: string

@@ -1,6 +1,6 @@
 <form>
   <div class="template-select-container">
-    <%= select :template, 
+    <%= select :template_id, 
                 'customTemplateSelect', 
                 OrganizationTemplates.all.map { |template| [template["name"], template["id"]] },
                 { include_blank: false }, 
@@ -30,6 +30,6 @@
   templateLink.addEventListener("click", (event) => {
     event.preventDefault();
     const selectedValue = selectElement.value;
-    location.href = "<%= decidim_system.new_custom_template_path(template: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
+    location.href = "<%= decidim_system.new_custom_template_path(template_id: "_PLACEHOLDER_") %>".replace("_PLACEHOLDER_", selectedValue);
   });
 </script>

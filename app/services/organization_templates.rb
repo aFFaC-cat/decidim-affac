@@ -2,9 +2,18 @@
 
 class OrganizationTemplates
   def self.all
-    @all || Dir.glob(Rails.root.join(Rails.application.secrets.affac[:templates_folder], "*.yml")).map do |file|
-      content = YAML.load_file(file)
-      { "name" => content["name"], "id" => content["id"] }
+    @all ||= Dir.glob(Rails.root.join(Rails.application.secrets.affac[:templates_folder], "*.yml")).map do |file|
+      YAML.load_file(file)
     end
+  end
+
+  attr_reader :template_id
+
+  def initialize(template_id)
+    @template_id = template_id
+  end
+
+  def template
+    @template ||= OrganizationTemplates.all.detect { |item| item[:id] == template_id }
   end
 end

@@ -30,7 +30,7 @@ module Decidim
           @organization = create_organization
           CreateDefaultPages.call(@organization)
           PopulateHelp.call(@organization)
-          CreateDefaultContentBlocks.call(@organization)
+          CreateTemplateFields.call(@organization, form.template)
           invite_form = invite_user_form(@organization)
           invitation_failed = invite_form.invalid?
         end
