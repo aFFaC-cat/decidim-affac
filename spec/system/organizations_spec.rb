@@ -29,7 +29,6 @@ describe "Organizations", type: :system do
       fill_in "Host", with: "www.example.org"
       fill_in "Organization admin name", with: "City Mayor"
       fill_in "Organization admin email", with: "mayor@example.org"
-      choose "Allow participants to register and login"
       click_button "Create Organization"
 
       expect(page).to have_css("div.flash.success")

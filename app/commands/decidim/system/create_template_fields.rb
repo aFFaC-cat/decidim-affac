@@ -9,8 +9,9 @@ module Decidim::System
     # Public: Initializes the command.
     #
     # form - A form object with the params.
-    def initialize(organization)
+    def initialize(organization, form)
       @organization = organization
+      @form = form
     end
 
     # Executes the command.

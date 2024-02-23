@@ -24,7 +24,7 @@ module Decidim
       end
 
       def users_registration_mode
-        template.fields.dig(:organization, :users_registration_mode) || Decidim::Organization.users_registration_modes
+        "enabled"
       end
 
       def available_locales
