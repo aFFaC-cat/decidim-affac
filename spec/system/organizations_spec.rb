@@ -21,7 +21,7 @@ describe "Organizations", type: :system do
       select "Second", from: "customTemplateSelect"
       find("#templateLink").click
 
-      expect(current_url).to include("/new?template=two")
+      expect(current_url).to include("/new?template_id=two")
       expect(page).to have_content("Organization form")
 
       fill_in "Name", with: "Citizen Corp"

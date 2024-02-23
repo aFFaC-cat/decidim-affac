@@ -1,18 +1,2 @@
 id: affac-votings
 name: Votacions AFFaC
-organization: 
-  default_locale: ca
-  users_registration_mode: enabled
-participatory_spaces:
-  - manifest: consultations
-    title: 
-      ca: Consulta per %{organization_title}
-      es: Consulta para %{organization_title}
-    cover: template-1/file1.png
-vars:
-  organization_title: translated_string
-  ref: string
-  host: string
-  organization_admin_name: string
-  organization_admin_email: string
-  force_users_to_authenticate_before_access_organization: boolean
