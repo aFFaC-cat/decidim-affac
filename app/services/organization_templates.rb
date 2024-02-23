@@ -13,7 +13,7 @@ class OrganizationTemplates
     @template_id = template_id
   end
 
-  def template
-    @template ||= OrganizationTemplates.all.detect { |item| item[:id] == template_id }
+  def fields
+    @fields ||= OrganizationTemplates.all.detect { |item| item[:id] == template_id }
   end
 end

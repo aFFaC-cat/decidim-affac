@@ -15,15 +15,20 @@ module Decidim
       attribute :organization_admin_name, String
       attribute :name, String
       attribute :reference_prefix
-      attribute :available_locales, Array
-
-      attribute :users_registration_mode, String
       attribute :force_users_to_authenticate_before_access_organization, Boolean
 
       validates :organization_admin_email, :organization_admin_name, :reference_prefix, :name, :host, presence: true
 
       def default_locale
-        template.template.dig(:organization, :default_locale)
+        template.fields.dig(:organization, :default_locale) || Decidim.default_locale
+      end
+
+      def users_registration_mode
+        template.fields.dig(:organization, :users_registration_mode) || Decidim::Organization.users_registration_modes
+      end
+
+      def available_locales
+        template.fields.dig(:organization, :available_locales) || Decidim.available_locales
       end
 
       def template

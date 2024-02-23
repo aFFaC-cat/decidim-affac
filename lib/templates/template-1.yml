@@ -3,6 +3,9 @@ name: Votacions AFFaC
 organization: 
   default_locale: ca
   users_registration_mode: enabled
+  available_locales: 
+    - ca
+    - es
 content_blocks:
   hero: hero
   sub_hero: sub_hero
