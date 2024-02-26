@@ -54,7 +54,8 @@ describe "Organizations", type: :system do
         fill_in "Organization admin email", with: "mayor@example.org"
         click_button "Create Organization"
 
-        expect(Decidim::ContentBlock.last.settings).eq({"ca" => "Hola!", "es" => "Hola!"})
+        block_hero = Decidim::ContentBlock.find_by(manifest_name: :hero)
+        expect(block_hero.settings).eq({"ca" => "Hola!", "es" => "Hola!"})        
       end
     end
   end
