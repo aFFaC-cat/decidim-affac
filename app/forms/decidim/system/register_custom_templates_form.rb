@@ -15,7 +15,6 @@ module Decidim
       attribute :organization_admin_name, String
       attribute :name, String
       attribute :reference_prefix
-      attribute :force_users_to_authenticate_before_access_organization, Boolean
 
       validates :organization_admin_email, :organization_admin_name, :reference_prefix, :name, :host, presence: true
 
@@ -25,6 +24,10 @@ module Decidim
 
       def users_registration_mode
         "enabled"
+      end
+
+      def force_users_to_authenticate_before_access_organization
+        false
       end
 
       def available_locales

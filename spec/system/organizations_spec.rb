@@ -55,7 +55,9 @@ describe "Organizations", type: :system do
         click_button "Create Organization"
 
         block_hero = Decidim::ContentBlock.find_by(manifest_name: :hero)
-        expect(block_hero.settings).eq({"ca" => "Hola!", "es" => "Hola!"})        
+        expect(block_hero.settings.welcome_text).to eq({ "ca" => "Hola!", "es" => "Hola!" })
+        block_highlighted_consultations = Decidim::ContentBlock.find_by(manifest_name: :highlighted_consultations)
+        expect(block_highlighted_consultations.settings.max_results).to eq(4)
       end
     end
   end

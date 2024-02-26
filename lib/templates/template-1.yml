@@ -6,6 +6,7 @@ organization:
   available_locales: 
     - ca
     - es
+  force_users_to_authenticate_before_access_organization: false
 content_blocks:
   - manifest_name: hero
     weight: 1
@@ -18,10 +19,20 @@ content_blocks:
       welcome_text:
         ca: Hola!
         es: Hola!
-  # sub_hero: sub_hero
-  # highlighted_content_banner: highlighted_content_banner
-  # highlighted_consultations: highlighted_consultations
-  # upcoming_meetings: upcoming_meetings
+  - manifest_name: footer_sub_hero
+    weight: 2
+    scope_name: homepage
+  - manifest_name: highlighted_content_banner
+    weight: 3
+    scope_name: homepage
+  - manifest_name: highlighted_consultations
+    weight: 4
+    scope_name: homepage
+    settings:
+      max_results: 4
+  - manifest_name: upcoming_meetings
+    weight: 5
+    scope_name: homepage
 participatory_spaces:
   - manifest: consultations
     title: 
@@ -34,4 +45,3 @@ vars:
   host: string
   organization_admin_name: string
   organization_admin_email: string
-  force_users_to_authenticate_before_access_organization: boolean

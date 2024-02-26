@@ -18,6 +18,8 @@ module Decidim::System
     #
     # Returns nothing.
     def call
+      return unless template.fields["content_blocks"]
+
       template.fields["content_blocks"].each do |content_block|
         block = Decidim::ContentBlock.create!(
           decidim_organization_id: organization.id,
@@ -37,11 +39,9 @@ module Decidim::System
             block.images_container.send("#{container["name"]}=", blob)
           end
         end
-        if content_block["settings"]
-          block.settings = content_block["settings"]
-        end
+        block.settings = content_block["settings"] if content_block["settings"]
         block.save!
-        byebug
+        # byebug
       end
     end
 
