@@ -11,7 +11,7 @@ content_blocks:
     weight: 1
     scope_name: homepage
     image_container:
-      background_image: 
+      - name: background_image
         file: template-1/hero_background.png
         content_type: image/png
     settings:

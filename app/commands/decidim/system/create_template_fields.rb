@@ -27,14 +27,14 @@ module Decidim::System
           published_at: Time.current
         )
         if content_block["images_container"]
-          content_block["images_container"].each do |image_field|
+          content_block["images_container"].each do |container|
             blob = ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(templates_root, content_block[image_field]["file"])),
-              filename: content_block[image_field]["file"],
-              content_type: content_block[image_field]["content_type"],
+              io: File.open(File.join(templates_root, content_block[container]["file"])),
+              filename: content_block[container]["file"],
+              content_type: content_block[container]["content_type"],
               metadata: nil
             )
-            block.images_container.send("#{image_field}=", blob)
+            block.images_container.send("#{container["name"]}=", blob)
           end
         end
         if content_block["settings"]
