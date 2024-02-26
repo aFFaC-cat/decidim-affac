@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
 class OrganizationTemplates
+  def self.template_root
+    @template_root ||= Rails.application.secrets.affac[:templates_folder]
+  end
+
+  def self.template_root=(value)
+    @template_root = value
+    @all = nil
+  end
+
   def self.all
-    @all ||= Dir.glob(Rails.root.join(Rails.application.secrets.affac[:templates_folder], "*.yml")).map do |file|
+    @all ||= Dir.glob(Rails.root.join(template_root, "*.yml")).map do |file|
       YAML.load_file(file)
     end
   end
@@ -14,6 +23,6 @@ class OrganizationTemplates
   end
 
   def fields
-    @fields ||= OrganizationTemplates.all.detect { |item| item[:id] == template_id }
+    @fields ||= OrganizationTemplates.all.detect { |item| item["id"] == template_id }
   end
 end

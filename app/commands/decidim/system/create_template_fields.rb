@@ -18,22 +18,37 @@ module Decidim::System
     #
     # Returns nothing.
     def call
-      content_blocks.each_with_index do |manifest, index|
-        weight = (index + 1) * 10
-        Decidim::ContentBlock.create(
+      template.fields["content_blocks"].each do |content_block|
+        block = Decidim::ContentBlock.create!(
           decidim_organization_id: organization.id,
-          weight: weight,
-          scope_name: :homepage,
-          manifest_name: manifest.name,
+          weight: content_block["weight"],
+          scope_name: content_block["scope_name"],
+          manifest_name: content_block["manifest_name"],
           published_at: Time.current
         )
+        if content_block["images_container"]
+          content_block["images_container"].each do |image_field|
+            blob = ActiveStorage::Blob.create_and_upload!(
+              io: File.open(File.join(templates_root, content_block[image_field]["file"])),
+              filename: content_block[image_field]["file"],
+              content_type: content_block[image_field]["content_type"],
+              metadata: nil
+            )
+            block.images_container.send("#{image_field}=", blob)
+          end
+        end
+        if content_block["settings"]
+          block.settings = content_block["settings"]
+        end
+        block.save!
+        byebug
       end
     end
 
     private
 
-    def content_blocks
-      Decidim.content_blocks.for(:homepage).select(&:default)
+    def templates_root
+      OrganizationTemplates.templates_root
     end
 
     attr_reader :organization, :template

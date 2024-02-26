@@ -1,6 +1,6 @@
 <h2>Organization form</h2>
 
-<%= decidim_form_for(@form, url:  decidim_system.custom_templates_path(template: template_id)) do |f| %>
+<%= decidim_form_for(@form, url:  decidim_system.custom_templates_path(template_id: template_id)) do |f| %>
   <div class="field">
     <%= f.text_field :name, autofocus: true %>
   </div>

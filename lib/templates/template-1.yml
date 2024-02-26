@@ -7,13 +7,21 @@ organization:
     - ca
     - es
 content_blocks:
-  hero: 
-    background_image: ./capcalera_ecod.png
-    welcome_text: translated_string
-  sub_hero: sub_hero
-  highlighted_content_banner: highlighted_content_banner
-  highlighted_consultations: highlighted_consultations
-  upcoming_meetings: upcoming_meetings
+  - manifest_name: hero
+    weight: 1
+    scope_name: homepage
+    image_container:
+      background_image: 
+        file: template-1/hero_background.png
+        content_type: image/png
+    settings:
+      welcome_text:
+        ca: Hola!
+        es: Hola!
+  # sub_hero: sub_hero
+  # highlighted_content_banner: highlighted_content_banner
+  # highlighted_consultations: highlighted_consultations
+  # upcoming_meetings: upcoming_meetings
 participatory_spaces:
   - manifest: consultations
     title: 
