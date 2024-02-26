@@ -7,7 +7,9 @@ organization:
     - ca
     - es
 content_blocks:
-  hero: hero
+  hero: 
+    background_image: ./capcalera_ecod.png
+    welcome_text: translated_string
   sub_hero: sub_hero
   highlighted_content_banner: highlighted_content_banner
   highlighted_consultations: highlighted_consultations

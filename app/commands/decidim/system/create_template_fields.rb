@@ -9,9 +9,9 @@ module Decidim::System
     # Public: Initializes the command.
     #
     # form - A form object with the params.
-    def initialize(organization, form)
+    def initialize(organization, template)
       @organization = organization
-      @form = form
+      @template = template
     end
 
     # Executes the command.
@@ -36,6 +36,6 @@ module Decidim::System
       Decidim.content_blocks.for(:homepage).select(&:default)
     end
 
-    attr_reader :organization
+    attr_reader :organization, :template
   end
 end

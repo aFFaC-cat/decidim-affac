@@ -12,7 +12,7 @@ module Decidim
       def initialize(form)
         @form = form
       end
-      
+
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
