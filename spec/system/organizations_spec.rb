@@ -60,6 +60,10 @@ describe "Organizations", type: :system do
         expect(block_hero.settings.welcome_text).to eq({ "ca" => "Hola!", "es" => "Hola!" })
         block_highlighted_consultations = Decidim::ContentBlock.find_by(manifest_name: :highlighted_consultations)
         expect(block_highlighted_consultations.settings.max_results).to eq(4)
+        expect(Decidim::Organization.first.default_locale).to eq("ca")
+        expect(Decidim::Organization.first.users_registration_mode).to eq("enabled")
+        expect(Decidim::Organization.first.available_locales).to eq(%w(ca es))
+        expect(Decidim::Organization.first.force_users_to_authenticate_before_access_organization).to be(false)
       end
     end
   end
