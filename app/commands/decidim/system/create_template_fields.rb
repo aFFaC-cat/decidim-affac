@@ -18,7 +18,7 @@ module Decidim::System
     #
     # Returns nothing.
     def call
-      return unless template.fields["content_blocks"]
+      return unless template.fields && template.fields["content_blocks"]
 
       template.fields["content_blocks"].each do |content_block|
         block = Decidim::ContentBlock.create!(

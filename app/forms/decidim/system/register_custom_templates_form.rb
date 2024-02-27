@@ -19,7 +19,7 @@ module Decidim
       validates :organization_admin_email, :organization_admin_name, :reference_prefix, :name, :host, presence: true
 
       def default_locale
-        template.fields.dig("organization", "default_locale") || Decidim.default_locale
+        template.fields&.dig("organization", "default_locale") || Decidim.default_locale
       end
 
       def users_registration_mode
@@ -31,7 +31,7 @@ module Decidim
       end
 
       def available_locales
-        template.fields.dig("organization", "available_locales") || Decidim.available_locales
+        template.fields&.dig("organization", "available_locales") || Decidim.available_locales
       end
 
       def template
