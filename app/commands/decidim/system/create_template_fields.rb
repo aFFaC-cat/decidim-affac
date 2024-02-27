@@ -4,7 +4,7 @@ module Decidim::System
   # A command with all the business logic to create the default content blocks
   # for a newly-created organization.
   class CreateTemplateFields < Decidim::Command
-    DEFAULT_CONTENT_BLOCKS = [:hero, :sub_hero, :highlighted_content_banner, :highlighted_consultations, :upcoming_meetings].freeze
+    DEFAULT_CONTENT_BLOCKS = [:hero, :footer_sub_hero, :highlighted_content_banner, :highlighted_consultations, :upcoming_meetings].freeze
 
     # Public: Initializes the command.
     #
