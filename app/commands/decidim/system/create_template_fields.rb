@@ -28,6 +28,7 @@ module Decidim::System
       return unless template.fields && template.fields["participatory_spaces"]
 
       template.fields["participatory_spaces"].each do |participatory_space|
+        # byebug
         manifest = Decidim.find_resource_manifest(participatory_space["manifest"])
         next unless manifest
 
@@ -49,6 +50,7 @@ module Decidim::System
           )
           klass.images_container.send("#{container["name"]}=", blob)
         end
+        klass.save!
       end
     end
 
@@ -80,8 +82,12 @@ module Decidim::System
     end
 
     def interpolate(string)
-      string.replace("%{year}", Time.current.year)
-      string.replace("%{organization_name}", organization.name)
+      string.gsub!("%{year}", Time.current.year)
+      string.gsub!("%{organization_name}", organization.name)
+      start_date = Time.current
+      string.gsub!("%{start_date}", start_date.strftime("%Y-%m-%d"))
+      end_date = start_date + 1.month
+      string.gsub!("%{end_date}", end_date.strftime("%Y-%m-%d"))
     end
 
     def templates_root
