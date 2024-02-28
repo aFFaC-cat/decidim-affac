@@ -34,12 +34,19 @@ content_blocks:
     weight: 5
     scope_name: homepage
 participatory_spaces:
-  - manifest: consultations
+  - manifest: consultation
+    model_class_name: Decidim::Consultation
     slug: consulta-%{year}
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}
-    cover: template-1/file1.png
+    image_container:
+      - name: banner_image
+        file: template-1/file1.png
+        content_type: image/png
+    introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
+    start_voting_date: Time.zone.today,
+    end_voting_date: Time.zone.today + 1.month,
 vars:
   organization_name: translated_string
   ref: string

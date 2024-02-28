@@ -35,11 +35,21 @@ module Decidim::System
 
         klass.create!(
           organization: organization,
-          name: interpolate(participatory_space["name"]),
+          name: interpolate((participatory_space["name"]).to_s),
           published_at: Time.now.utc
         )
-      end
+        next unless participatory_space["images_container"]
 
+        participatory_space["images_container"].each do |container|
+          blob = ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(templates_root, participatory_space[container]["file"])),
+            filename: participatory_space[container]["file"],
+            content_type: participatory_space[container]["content_type"],
+            metadata: nil
+          )
+          klass.images_container.send("#{container["name"]}=", blob)
+        end
+      end
     end
 
     def create_content_blocks!
@@ -66,14 +76,12 @@ module Decidim::System
         end
         block.settings = content_block["settings"] if content_block["settings"]
         block.save!
-        # byebug
       end
     end
 
     def interpolate(string)
-      string = sring.replace("%{year}", Time.current.year)
-      string = sring.replace("%{organization_name}", organization.name)
-      string
+      string.replace("%{year}", Time.current.year)
+      string.replace("%{organization_name}", organization.name)
     end
 
     def templates_root
