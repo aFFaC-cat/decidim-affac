@@ -61,12 +61,15 @@ describe "Organizations", type: :system do
         block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)
         expect(block_highlighted_consultations.settings.max_results).to eq(4)
         first_organization = Decidim::Organization.first
-        expect(first_organization.first.default_locale).to eq("ca")
-        expect(first_organization.first.users_registration_mode).to eq("enabled")
-        expect(first_organization.first.available_locales).to eq(%w(ca es))
-        expect(first_organization.first.force_users_to_authenticate_before_access_organization).to be(false)
+        expect(first_organization.default_locale).to eq("ca")
+        expect(first_organization.users_registration_mode).to eq("enabled")
+        expect(first_organization.available_locales).to eq(%w(ca es))
+        expect(first_organization.force_users_to_authenticate_before_access_organization).to be(false)
         consultations = Decidim::Consultation.first
-        # check consultation
+        expect(consultations.slug).to eq("consulta-2024")
+        expect(consultations.title).to eq({ "ca" => "Consulta per Citizen Corp", "es" => "Consulta para Citizen Corp" })
+        expect(consultations.subtitle).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
+        expect(consultations.description).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
       end
     end
   end

@@ -31,7 +31,7 @@ module Decidim::System
       template.fields["scopes"].each do |scope|
         Decidim::Scope.create!(
           organization: organization,
-          name: scope["name"].to_h {|lang, val| [lang, interpolate(val)] },
+          name: scope["name"].transform_values { |val| interpolate(val) },
           code: scope["code"]
         )
       end
@@ -49,12 +49,12 @@ module Decidim::System
         params = {
           organization: organization,
           slug: interpolate(participatory_space["slug"]),
-          title: participatory_space["title"].to_h {|lang, val| [lang, interpolate(val)] },
-          description: participatory_space["description"].to_h {|lang, val| [lang, interpolate(val)] },
-          subtitle: participatory_space["subtitle"].to_h {|lang, val| [lang, interpolate(val)] },
+          title: participatory_space["title"].transform_values { |val| interpolate(val) },
+          description: participatory_space["description"].transform_values { |val| interpolate(val) },
+          subtitle: participatory_space["subtitle"].transform_values { |val| interpolate(val) },
           highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"]),
-          start_voting_date: Time.current + 1.month,
-          end_voting_date: Time.current + 2.months,
+          start_voting_date: 1.month.from_now,
+          end_voting_date: 2.months.from_now,
           published_at: Time.now.utc
         }
         if participatory_space["banner_image"]
