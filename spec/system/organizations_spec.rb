@@ -58,6 +58,8 @@ describe "Organizations", type: :system do
         expect(blocks.count).to eq(5)
         block_hero = blocks.find_by(manifest_name: :hero)
         expect(block_hero.settings.welcome_text).to eq({ "ca" => "Hola!", "es" => "Hola!" })
+        expect(block_hero.images_container.background_image.attached?).to be true
+        expect(block_hero.images_container.attached_uploader(:background_image).path).not_to be_nil
         block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)
         expect(block_highlighted_consultations.settings.max_results).to eq(4)
         first_organization = Decidim::Organization.first
@@ -70,6 +72,8 @@ describe "Organizations", type: :system do
         expect(consultations.title).to eq({ "ca" => "Consulta per Citizen Corp", "es" => "Consulta para Citizen Corp" })
         expect(consultations.subtitle).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
         expect(consultations.description).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
+        expect(consultations.banner_image.attached?).to be true
+        expect(consultations.banner_image).to be_attached
       end
     end
   end
