@@ -52,7 +52,7 @@ consultations:
       ca: Et donem la benvinguda a la teva primera consulta! 
       es: Te damos la bienvenida a tu primera consulta!
     banner_image:
-      file: template-1/file1.png
+      file: template-1/consultation_image.png
       content_type: image/png
     introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
 vars:
