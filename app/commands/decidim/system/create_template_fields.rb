@@ -18,6 +18,12 @@ module Decidim::System
     #
     # Returns nothing.
     def call
+      create_content_blocks!
+    end
+
+    private
+
+    def create_content_blocks!
       return unless template.fields && template.fields["content_blocks"]
 
       template.fields["content_blocks"].each do |content_block|
@@ -44,8 +50,6 @@ module Decidim::System
         # byebug
       end
     end
-
-    private
 
     def templates_root
       OrganizationTemplates.templates_root
