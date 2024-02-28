@@ -35,6 +35,7 @@ content_blocks:
     scope_name: homepage
 participatory_spaces:
   - manifest: consultations
+    slug: consulta-%{year}
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}

@@ -19,9 +19,28 @@ module Decidim::System
     # Returns nothing.
     def call
       create_content_blocks!
+      create_participatory_spaces!
     end
 
     private
+
+    def create_participatory_spaces!
+      return unless template.fields && template.fields["participatory_spaces"]
+
+      template.fields["participatory_spaces"].each do |participatory_space|
+        manifest = Decidim.find_resource_manifest(participatory_space["manifest"])
+        next unless manifest
+
+        klass = manifest.model_class_name.constantize
+
+        klass.create!(
+          organization: organization,
+          name: interpolate(participatory_space["name"]),
+          published_at: Time.now.utc
+        )
+      end
+
+    end
 
     def create_content_blocks!
       return unless template.fields && template.fields["content_blocks"]
@@ -49,6 +68,12 @@ module Decidim::System
         block.save!
         # byebug
       end
+    end
+
+    def interpolate(string)
+      string = sring.replace("%{year}", Time.current.year)
+      string = sring.replace("%{organization_name}", organization.name)
+      string
     end
 
     def templates_root
