@@ -16,7 +16,7 @@ content_blocks:
   - manifest_name: hero
     weight: 1
     scope_name: homepage
-    image_container:
+    images_container:
       - name: background_image
         file: template-1/hero_background.png
         content_type: image/png
