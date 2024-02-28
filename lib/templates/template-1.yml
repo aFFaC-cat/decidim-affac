@@ -7,6 +7,11 @@ organization:
     - ca
     - es
   force_users_to_authenticate_before_access_organization: false
+scopes:
+  - code: type
+    name:
+      ca: Tipus de consulta
+      es: Tipo de consulta
 content_blocks:
   - manifest_name: hero
     weight: 1
@@ -33,23 +38,23 @@ content_blocks:
   - manifest_name: upcoming_meetings
     weight: 5
     scope_name: homepage
-participatory_spaces:
-  - manifest: consultation
+consultations:
+  - manifest: consultations
     slug: consulta-%{year}
+    highlighted_scope: type
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}
+    subtitle:
+      ca: Et donem la benvinguda a la teva primera consulta! 
+      es: Te damos la bienvenida a tu primera consulta!
     description:
       ca: Et donem la benvinguda a la teva primera consulta! 
       es: Te damos la bienvenida a tu primera consulta!
-    image_container:
-      - name: banner_image
-        file: template-1/file1.png
-        content_type: image/png
+    banner_image:
+      file: template-1/file1.png
+      content_type: image/png
     introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
-    start_voting_date: consulta-%{start_date}
-    end_voting_date: consulta-%{end_date}
-    decidim_highlighted_scope_id: 01-voto
 vars:
   organization_name: translated_string
   ref: string

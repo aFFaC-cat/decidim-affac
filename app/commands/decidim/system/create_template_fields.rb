@@ -19,38 +19,53 @@ module Decidim::System
     # Returns nothing.
     def call
       create_content_blocks!
-      create_participatory_spaces!
+      create_scopes!
+      create_consultations!
     end
 
     private
 
-    def create_participatory_spaces!
-      return unless template.fields && template.fields["participatory_spaces"]
+    def create_scopes!
+      return unless template.fields && template.fields["scopes"]
 
-      template.fields["participatory_spaces"].each do |participatory_space|
-        # byebug
+      template.fields["scopes"].each do |scope|
+        Decidim::Scope.create!(
+          organization: organization,
+          name: scope["name"].to_h {|lang, val| [lang, interpolate(val)] },
+          code: scope["code"]
+        )
+      end
+    end
+
+    def create_consultations!
+      return unless template.fields && template.fields["consultations"]
+
+      template.fields["consultations"].each do |participatory_space|
         manifest = Decidim.find_resource_manifest(participatory_space["manifest"])
         next unless manifest
 
         klass = manifest.model_class_name.constantize
 
-        klass.create!(
+        params = {
           organization: organization,
-          name: interpolate((participatory_space["name"]).to_s),
+          slug: interpolate(participatory_space["slug"]),
+          title: participatory_space["title"].to_h {|lang, val| [lang, interpolate(val)] },
+          description: participatory_space["description"].to_h {|lang, val| [lang, interpolate(val)] },
+          subtitle: participatory_space["subtitle"].to_h {|lang, val| [lang, interpolate(val)] },
+          highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"]),
+          start_voting_date: Time.current + 1.month,
+          end_voting_date: Time.current + 2.months,
           published_at: Time.now.utc
-        )
-        next unless participatory_space["images_container"]
-
-        participatory_space["images_container"].each do |container|
-          blob = ActiveStorage::Blob.create_and_upload!(
-            io: File.open(File.join(templates_root, participatory_space[container]["file"])),
-            filename: participatory_space[container]["file"],
-            content_type: participatory_space[container]["content_type"],
+        }
+        if participatory_space["banner_image"]
+          params[:banner_image] = ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(templates_root, participatory_space["banner_image"]["file"])),
+            filename: participatory_space["banner_image"]["file"],
+            content_type: participatory_space["banner_image"]["content_type"],
             metadata: nil
           )
-          klass.images_container.send("#{container["name"]}=", blob)
         end
-        klass.save!
+        klass.create!(params)
       end
     end
 
@@ -81,17 +96,19 @@ module Decidim::System
       end
     end
 
-    def interpolate(string)
-      string.gsub!("%{year}", Time.current.year)
+    def interpolate(str)
+      string = str.dup
+      string.gsub!("%{year}", Time.current.year.to_s)
       string.gsub!("%{organization_name}", organization.name)
       start_date = Time.current
       string.gsub!("%{start_date}", start_date.strftime("%Y-%m-%d"))
       end_date = start_date + 1.month
       string.gsub!("%{end_date}", end_date.strftime("%Y-%m-%d"))
+      string
     end
 
     def templates_root
-      OrganizationTemplates.templates_root
+      OrganizationTemplates.template_root
     end
 
     attr_reader :organization, :template

@@ -54,17 +54,19 @@ describe "Organizations", type: :system do
         fill_in "Organization admin email", with: "mayor@example.org"
         click_button "Create Organization"
 
-        blocks = Decidim::ContentBlock.all
+        blocks = Decidim::ContentBlock
         expect(blocks.count).to eq(5)
-        block_hero = Decidim::ContentBlock.find_by(manifest_name: :hero)
+        block_hero = blocks.find_by(manifest_name: :hero)
         expect(block_hero.settings.welcome_text).to eq({ "ca" => "Hola!", "es" => "Hola!" })
-        block_highlighted_consultations = Decidim::ContentBlock.find_by(manifest_name: :highlighted_consultations)
+        block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)
         expect(block_highlighted_consultations.settings.max_results).to eq(4)
         first_organization = Decidim::Organization.first
         expect(first_organization.first.default_locale).to eq("ca")
         expect(first_organization.first.users_registration_mode).to eq("enabled")
         expect(first_organization.first.available_locales).to eq(%w(ca es))
         expect(first_organization.first.force_users_to_authenticate_before_access_organization).to be(false)
+        consultations = Decidim::Consultation.first
+        # check consultation
       end
     end
   end
