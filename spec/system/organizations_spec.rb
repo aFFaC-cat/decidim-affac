@@ -18,6 +18,7 @@ describe "Organizations", type: :system do
     end
 
     it "selects a template and creates an organization" do
+      OrganizationTemplates.template_root = "spec/fixtures/templates"
       select "Second", from: "customTemplateSelect"
       find("#templateLink").click
 
