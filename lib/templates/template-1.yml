@@ -18,7 +18,7 @@ content_blocks:
     scope_name: homepage
     images_container:
       - name: background_image
-        file: template-1/hero_background.png
+        file: template-1/hero_background_image.png
         content_type: image/png
     settings:
       welcome_text:
@@ -61,3 +61,4 @@ vars:
   host: string
   organization_admin_name: string
   organization_admin_email: string
+  year: string
