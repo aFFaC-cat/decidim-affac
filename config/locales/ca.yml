@@ -50,6 +50,8 @@ ca:
           view: Accedeix
           view_results: Veure resultats
           vote: Vota
+    menu:
+      help: Més informació
     pages:
       home:
         footer_sub_hero:
