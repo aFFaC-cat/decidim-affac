@@ -2,12 +2,37 @@
 ca:
   activemodel:
     attributes:
+      consultation:
+        banner_image: Imatge de la consulta (mida recomanada 1280x720)
+        decidim_highlighted_scope_id: Tipus de consulta
+        description: Descripció *
+        subtitle: Subtítol *
+        title: Títol *
       custom_csv_census_authorization_handler:
         birth_date: Data de naixement de la persona representant autoritzada
         dni_document: DNI del representant autoritzat
         membership_number: Número de sòcia d'aFFaC
         nif_afa: NIF de l'AFA
+      question:
+        decidim_scope_id: Apartat
+        participatory_scope: Àmbit participatiu
+        promoter_group: Grup promotor
+        scope: Apartat
+        subtitle: Subtítol *
   decidim:
+    admin:
+      consultations:
+        deprecation_warning: Si acabes d'arribar, et convidem a crear la teva primera consulta. Per a facilitar-te l'aterratge, ja l'hem creat i només cal que la modifiquis i l'adaptis a les teves necessitats i requisits. Les següents consultes les podràs crear fent ús del botó "Nova consulta".
+      menu:
+        scopes: Opcions de consulta
+        static_pages: Pàgines d'ajuda
+      models:
+        question:
+          fields:
+            title: Títol *
+      titles: 
+        scopes: Opcions de consulta
+        static_pages: Pàgines d'ajuda
     authorization_handlers:
       admin:
         custom_csv_census_authorization_handler:
@@ -15,13 +40,27 @@ ca:
           - Els administradors carreguen un CSV i creen un cens amb dades acceptades.
           - Només es poden verificar les participants que hagin omplert la informació
             requerida que figuri en el cens.
+    consultations:
+      show:
+        badge_name:
+          open: Programada
+        footer_button_text: 
+          debate: Accedeix
+        footer_button_text:
+          view: Accedeix
+          view_results: Veure resultats
+          vote: Vota
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body: Per una educació pública, de qualitat, catalana, laica, equitativa, inclusiva, gratuïta, democràtica, coeducativa, ambientalment sostenible i feminista
+      index: 
+        title: Més informació
+    system:
+      custom_template:
+        new_from_template: Nou desde template
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa
       dni_document_format: Ha d'estar en majúscules i contenir lletres i/o nombres
       nif_afa_format: Ha d'estar en majúscules i contenir lletres i/o nombres
-
-  decidim:
-    system:
-      custom_template:
-        new_from_template: Nou desde template
