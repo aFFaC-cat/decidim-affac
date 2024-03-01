@@ -28,7 +28,7 @@ module Decidim
 
         transaction do
           @organization = create_organization
-          CreateDefaultPages.call(@organization)
+          CreateCustomDefaultPages.call(@organization)
           PopulateHelp.call(@organization)
           CreateTemplateFields.call(@organization, form.template)
           invite_form = invite_user_form(@organization)

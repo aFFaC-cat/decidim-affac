@@ -18,12 +18,12 @@ content_blocks:
     scope_name: homepage
     images_container:
       - name: background_image
-        file: template-1/hero_background_image.png
+        file: template-consultations/hero_background_image.png
         content_type: image/png
     settings:
       welcome_text:
-        ca: Hola!
-        es: Hola!
+        ca: %{organization_name}
+        es: %{organization_name}
   - manifest_name: footer_sub_hero
     weight: 2
     scope_name: homepage
@@ -52,7 +52,7 @@ consultations:
       ca: Et donem la benvinguda a la teva primera consulta! 
       es: Te damos la bienvenida a tu primera consulta!
     banner_image:
-      file: template-1/consultation_image.png
+      file: template-consultations/consultation_image.png
       content_type: image/png
     introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
 vars:
