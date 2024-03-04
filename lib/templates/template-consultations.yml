@@ -57,28 +57,12 @@ consultations:
     introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
 page_topics: 
   - title:
-      ca: Ajuda general
-      es: Ayuda general
-    description:
-      ca: Llegeix més sobre %{organization_name} Template
-      es: Leer más sobre %{organization_name} Template
-    weight: 1  
-    pages: 
-      - slug: terms-and-conditions
-        title:
-          ca: Termes i condicions d'ús
-          es: Términos y condiciones de uso
-        content: 
-          ca: Contingut predeterminat aquí
-          es: Contenido predeterminado aquí
-        weight: 1
-  - title:
       ca: Informació General
       es: Información General
     description:
       ca: Llegeix més sobre %{organization_name} Template
       es: Leer más sobre %{organization_name} Template
-    weight: 2 
+    weight: 1 
     pages: 
       - slug: help
         title:
@@ -112,6 +96,22 @@ page_topics:
           ca: Contingut predeterminat aquí
           es: Contenido predeterminado aquí
         weight: 4  
+  - title:
+      ca: Ajuda general
+      es: Ayuda general
+    description:
+      ca: Llegeix més sobre %{organization_name} Template
+      es: Leer más sobre %{organization_name} Template
+    weight: 2  
+    pages: 
+      - slug: terms-and-conditions
+        title:
+          ca: Termes i condicions d'ús
+          es: Términos y condiciones de uso
+        content: 
+          ca: Contingut predeterminat aquí
+          es: Contenido predeterminado aquí
+        weight: 1
 vars:
   organization_name: translated_string
   ref: string

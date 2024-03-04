@@ -102,7 +102,7 @@ module Decidim::System
       template.fields["page_topics"].each do |page_topic|
         topic = Decidim::StaticPageTopic.create!(
           title: page_topic["title"],
-          description: page_topic["description"],
+          description: page_topic["description"].transform_values { |val| interpolate(val) },
           organization: organization,
           weight: page_topic["weight"]
         )
@@ -110,7 +110,7 @@ module Decidim::System
         page_topic["pages"].each do |page|
           Decidim::StaticPage.create!(
             slug: page["slug"],
-            title: page["title"],
+            title: page["title"].transform_values { |val| interpolate(val) },
             content: page["content"],
             topic: topic,
             organization: organization,
