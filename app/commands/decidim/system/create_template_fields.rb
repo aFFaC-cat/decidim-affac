@@ -20,6 +20,9 @@ module Decidim::System
       create_scopes!
       create_consultations!
       create_default_pages!
+      broadcast(:ok)
+    rescue StandardError => e
+      broadcast(:invalid, e.message)
     end
 
     private
