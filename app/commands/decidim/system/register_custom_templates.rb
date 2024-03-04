@@ -28,8 +28,6 @@ module Decidim
 
         transaction do
           @organization = create_organization
-          CreateCustomDefaultPages.call(@organization)
-          PopulateHelp.call(@organization)
           CreateTemplateFields.call(@organization, form.template)
           invite_form = invite_user_form(@organization)
           invitation_failed = invite_form.invalid?

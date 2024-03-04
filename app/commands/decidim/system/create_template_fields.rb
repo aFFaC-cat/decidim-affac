@@ -19,6 +19,7 @@ module Decidim::System
       create_content_blocks!
       create_scopes!
       create_consultations!
+      create_default_pages!
     end
 
     private
@@ -91,6 +92,28 @@ module Decidim::System
         end
         block.settings = content_block["settings"] if content_block["settings"]
         block.save!
+      end
+    end
+
+    def create_default_pages!
+      template.fields["page_topics"].each do |page_topic|
+        topic = Decidim::StaticPageTopic.create!(
+          title: page_topic["title"],
+          description: page_topic["description"],
+          organization: organization,
+          weight: page_topic["weight"]
+        )
+
+        page_topic["pages"].each do |page|
+          Decidim::StaticPage.create!(
+            slug: page["slug"],
+            title: page["title"],
+            content: page["content"],
+            topic: topic,
+            organization: organization,
+            weight: page["weight"]
+          )
+        end
       end
     end
 

@@ -55,6 +55,51 @@ consultations:
       file: template-consultations/consultation_image.png
       content_type: image/png
     introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA"
+page_topics: 
+  - title:
+      ca: Ajuda general
+      es: Ayuda general
+    description:
+      ca: Llegeix més sobre %{organization_name} Template
+      es: Leer más sobre %{organization_name} Template
+    weight: 1  
+    pages: 
+      - slug: terms-and-conditions
+        title:
+          ca: Termes i condicions d'ús
+          es: Términos y condiciones de uso
+        content: Default content here
+        weight: 1
+  - title:
+      ca: Informació General
+      es: Información General
+    description:
+    weight: 2 
+    pages: 
+      - slug: help
+        title:
+          ca: Què puc fer a %{organization_name} Template?
+          es: Qué puedo hacer en %{organization_name} Template?
+        content: Default content here
+        weight: 1 
+      - slug: participatory_processes
+        title: 
+          ca: Què és un procés participatiu?
+          es: ¿Qué es un proceso participativo?
+        content: Default content here
+        weight: 2 
+      - slug: assemblies
+        title: 
+          ca: Què són les coordinadores?
+          es: ¿Qué son las coordinadoras?
+        content: Default content here
+        weight: 3
+      - slug: consultations
+        title:
+          ca: Què són les consultes?
+          es: ¿Qué son las consultas?
+        content: Default content here
+        weight: 4  
 vars:
   organization_name: translated_string
   ref: string
