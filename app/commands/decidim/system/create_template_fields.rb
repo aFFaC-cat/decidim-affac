@@ -93,8 +93,7 @@ module Decidim::System
             block.images_container.send("#{container["name"]}=", blob)
           end
         end
-        block.settings = content_block["settings"] if content_block["settings"]
-
+        block.settings = interpolate_settings(content_block["settings"]) if content_block["settings"]
         block.save!
       end
     end
@@ -130,6 +129,19 @@ module Decidim::System
       end_date = start_date + 1.month
       string.gsub!("%{end_date}", end_date.strftime("%Y-%m-%d"))
       string
+    end
+
+    def interpolate_settings
+      block["settings"].map do |setting|
+        case setting
+        when Hash
+          setting.transform_values { |val| interpolate(val) }
+        when String
+          interpolate(setting)
+        else
+          setting
+        end
+      end
     end
 
     def templates_root
