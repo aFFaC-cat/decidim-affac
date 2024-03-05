@@ -94,6 +94,7 @@ module Decidim::System
           end
         end
         block.settings = content_block["settings"] if content_block["settings"]
+
         block.save!
       end
     end
