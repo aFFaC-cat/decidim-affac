@@ -111,7 +111,7 @@ module Decidim::System
           Decidim::StaticPage.create!(
             slug: page["slug"],
             title: page["title"].transform_values { |val| interpolate(val) },
-            content: page["content"],
+            content: page["content"].transform_values { |val| interpolate(val) },
             topic: topic,
             organization: organization,
             weight: page["weight"]
