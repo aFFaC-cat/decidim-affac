@@ -131,15 +131,15 @@ module Decidim::System
       string
     end
 
-    def interpolate_settings
-      block["settings"].map do |setting|
-        case setting
+    def interpolate_settings(settings)
+      settings.transform_values do |value|
+        case value
         when Hash
-          setting.transform_values { |val| interpolate(val) }
+          interpolate_settings(value)
         when String
-          interpolate(setting)
+          interpolate(value)
         else
-          setting
+          value
         end
       end
     end
