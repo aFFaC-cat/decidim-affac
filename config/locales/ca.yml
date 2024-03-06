@@ -59,7 +59,7 @@ ca:
       index: 
         title: Més informació
     system:
-      custom_template:
+      custom_templates:
         new_from_template: Nou desde template
         new_organization_template: Crearàs una nova organització utilitzant %{template}
   errors:
