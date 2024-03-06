@@ -23,7 +23,7 @@ describe "Organizations", type: :system do
       find("#templateLink").click
 
       expect(current_url).to include("/new?template_id=two")
-      expect(page).to have_content("Organization form")
+      expect(page).to have_content("You will create new organization")
 
       fill_in "Name", with: "Citizen Corp"
       fill_in "Reference prefix", with: "CCORP"
