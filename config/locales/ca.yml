@@ -61,6 +61,7 @@ ca:
     system:
       custom_template:
         new_from_template: Nou desde template
+        new_organization_template: Crearàs una nova organització utilitzant %{template}
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa

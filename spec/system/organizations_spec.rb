@@ -36,8 +36,6 @@ describe "Organizations", type: :system do
     end
 
     context "when a real template" do
-      let(:organization) { Decidim::Organization.first }
-
       before do
         OrganizationTemplates.template_root = "lib/templates"
         visit decidim_system.organizations_path
@@ -48,7 +46,7 @@ describe "Organizations", type: :system do
         find("#templateLink").click
 
         expect(current_url).to include("/new?template_id=affac-votings")
-        expect(page).to have_content("Organization form")
+        expect(page).to have_content("You will create new organization")
 
         fill_in "Name", with: "Citizen Corp"
         fill_in "Reference prefix", with: "CCORP"
@@ -65,11 +63,11 @@ describe "Organizations", type: :system do
         expect(block_hero.images_container.attached_uploader(:background_image).path).not_to be_nil
         block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)
         expect(block_highlighted_consultations.settings.max_results).to eq(4)
-        first_organization = Decidim::Organization.first
-        expect(first_organization.default_locale).to eq("ca")
-        expect(first_organization.users_registration_mode).to eq("enabled")
-        expect(first_organization.available_locales).to eq(%w(ca es))
-        expect(first_organization.force_users_to_authenticate_before_access_organization).to be(false)
+        organization = Decidim::Organization.first
+        expect(organization.default_locale).to eq("ca")
+        expect(organization.users_registration_mode).to eq("enabled")
+        expect(organization.available_locales).to eq(%w(ca es))
+        expect(organization.force_users_to_authenticate_before_access_organization).to be(false)
         consultations = Decidim::Consultation.first
         expect(consultations.slug).to eq("consulta-2024")
         expect(consultations.title).to eq({ "ca" => "Consulta per Citizen Corp", "es" => "Consulta para Citizen Corp" })
@@ -78,7 +76,6 @@ describe "Organizations", type: :system do
         expect(consultations.banner_image.attached?).to be true
         expect(consultations.banner_image).to be_attached
 
-        organization = Decidim::Organization.first
         switch_to_host(organization.host)
         visit decidim.root_path
         click_link "Més informació"

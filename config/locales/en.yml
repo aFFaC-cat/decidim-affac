@@ -3,6 +3,7 @@ en:
     system:
       custom_templates:
         new_from_template: New from template
+        new_organization_template: You will create new organization using %{template}
         select_default_text: Consultation for aFFas
         no_template: Template does not exist
         button_save: Save

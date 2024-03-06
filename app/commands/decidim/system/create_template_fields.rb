@@ -54,6 +54,7 @@ module Decidim::System
           title: participatory_space["title"].transform_values { |val| interpolate(val) },
           description: participatory_space["description"].transform_values { |val| interpolate(val) },
           subtitle: participatory_space["subtitle"].transform_values { |val| interpolate(val) },
+          introductory_video_url: participatory_space["introductory_video_url"],
           highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"]),
           start_voting_date: 1.month.from_now,
           end_voting_date: 2.months.from_now,

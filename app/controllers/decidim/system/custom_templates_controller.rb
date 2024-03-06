@@ -4,7 +4,7 @@ module Decidim
   module System
     class CustomTemplatesController < Decidim::System::ApplicationController
       before_action :ensure_template_exists, only: [:new]
-      helper_method :template_id
+      helper_method :template_id, :template
 
       def new
         @form = form(RegisterCustomTemplatesForm).instance
@@ -32,8 +32,12 @@ module Decidim
         params[:template_id]
       end
 
+      def template
+        @template ||= OrganizationTemplates.new(template_id)
+      end
+
       def ensure_template_exists
-        return if template_id.present?
+        return if template.present?
 
         flash.alert = I18n.t("decidim.system.custom_templates.no_template")
         redirect_to decidim_system.root_path
