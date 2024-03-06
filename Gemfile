@@ -8,9 +8,6 @@ DECIDIM_BRANCH = "release/0.27-stable"
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: DECIDIM_BRANCH }.freeze
 
 gem "puma", ">= 5.0.0"
-gem "uglifier", "~> 4.1"
-# bug in version 1.9
-gem "i18n", "~> 1.8.1"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
@@ -46,7 +43,6 @@ group :development do
 end
 
 group :production do
-  gem "daemons", "~> 1.3"
   gem "figaro", "~> 1.2"
   gem "passenger", "~> 6.0"
   gem "sidekiq", "~> 6.0"
