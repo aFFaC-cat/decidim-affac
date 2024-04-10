@@ -22,7 +22,10 @@ ca:
   decidim:
     admin:
       consultations:
-        deprecation_warning: Si acabes d'arribar, et convidem a crear la teva primera consulta. Per a facilitar-te l'aterratge, ja l'hem creat i només cal que la modifiquis i l'adaptis a les teves necessitats i requisits. Les següents consultes les podràs crear fent ús del botó "Nova consulta".
+        deprecation_warning: Si acabes d'arribar, et convidem a crear la teva primera
+          consulta. Per a facilitar-te l'aterratge, ja l'hem creat i només cal que
+          la modifiquis i l'adaptis a les teves necessitats i requisits. Les següents
+          consultes les podràs crear fent ús del botó "Nova consulta".
       menu:
         scopes: Opcions de consulta
         static_pages: Pàgines d'ajuda
@@ -30,7 +33,7 @@ ca:
         question:
           fields:
             title: Títol *
-      titles: 
+      titles:
         scopes: Opcions de consulta
         static_pages: Pàgines d'ajuda
     authorization_handlers:
@@ -44,8 +47,6 @@ ca:
       show:
         badge_name:
           open: Programada
-        footer_button_text: 
-          debate: Accedeix
         footer_button_text:
           view: Accedeix
           view_results: Veure resultats
@@ -55,13 +56,18 @@ ca:
     pages:
       home:
         footer_sub_hero:
-          footer_sub_hero_body: Per una educació pública, de qualitat, catalana, laica, equitativa, inclusiva, gratuïta, democràtica, coeducativa, ambientalment sostenible i feminista
-      index: 
+          footer_sub_hero_body: Per una educació pública, de qualitat, catalana, laica,
+            equitativa, inclusiva, gratuïta, democràtica, coeducativa, ambientalment
+            sostenible i feminista
+      index:
         title: Més informació
     system:
       custom_templates:
-        new_from_template: Nou desde template
+        invalid_message: Hi ha algun error al formulari
+        new_from_template: Nou desde plantilla
         new_organization_template: Crearàs una nova organització utilitzant %{template}
+        no_template: La plantilla no existeix
+        success_message: Nova organització creada correctament
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa

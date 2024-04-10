@@ -23,7 +23,7 @@ describe "Organizations", type: :system do
       find("#templateLink").click
 
       expect(current_url).to include("/new?template_id=two")
-      expect(page).to have_content("You will create new organization")
+      expect(page).to have_content("You will create a new organization using Second")
 
       fill_in "Name", with: "Citizen Corp"
       fill_in "Reference prefix", with: "CCORP"
@@ -46,7 +46,7 @@ describe "Organizations", type: :system do
         find("#templateLink").click
 
         expect(current_url).to include("/new?template_id=affac-votings")
-        expect(page).to have_content("You will create new organization")
+        expect(page).to have_content("You will create a new organization using Votacions AFFaC")
 
         fill_in "Name", with: "Citizen Corp"
         fill_in "Reference prefix", with: "CCORP"

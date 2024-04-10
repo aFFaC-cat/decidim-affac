@@ -1,15 +1,75 @@
+---
 en:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Consultation image (recommended size 1280x720)
+        decidim_highlighted_scope_id: Type of consultation
+        description: Description *
+        subtitle: Subtitle *
+        title: Title *
+      custom_csv_census_authorization_handler:
+        birth_date: Birth date of the authorized representative
+        dni_document: DNI of the authorized representative
+        membership_number: aFFaC member number
+        nif_afa: AFA NIF
+      question:
+        decidim_scope_id: Section
+        participatory_scope: Participatory scope
+        promoter_group: Promoter group
+        scope: Section
+        subtitle: Subtitle *
   decidim:
+    admin:
+      consultations:
+        deprecation_warning: If you just arrived, we invite you to create your first
+          consultation. To facilitate your landing, we have already created it and
+          only need you to modify it and adapt it to your needs and requirements.
+          You can create subsequent consultations using the "New consultation" button.
+      menu:
+        scopes: Consultation options
+        static_pages: Help pages
+      models:
+        question:
+          fields:
+            title: Title *
+      titles:
+        scopes: Consultation options
+        static_pages: Help pages
+    authorization_handlers:
+      admin:
+        custom_csv_census_authorization_handler:
+          help:
+          - Administrators upload a CSV and create a census with accepted data.
+          - Only participants who have filled in the required information that appears
+            in the census can be verified.
+    consultations:
+      show:
+        badge_name:
+          open: Scheduled
+        footer_button_text:
+          view: Access
+          view_results: View results
+          vote: Vote
+    menu:
+      help: More information
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body: For a public, quality, Catalan, secular, equitable,
+            inclusive, free, democratic, coeducational, environmentally sustainable,
+            and feminist education
+      index:
+        title: More information
     system:
       custom_templates:
+        invalid_message: There's an error in the form
         new_from_template: New from template
-        new_organization_template: You will create new organization using %{template}
-        select_default_text: Consultation for aFFas
+        new_organization_template: You will create a new organization using %{template}
         no_template: Template does not exist
-        button_save: Save
-        invalid_message: It's invalid
-        success_message: Great done
-        new: 
-          locale: Locale
-          enabled: Enabled
-          default: Default
+        success_message: New organization successfully created
+  errors:
+    messages:
+      birth_date_format: Must follow the format dd/mm/yyyy
+      dni_document_format: Must be in uppercase and contain letters and/or numbers
+      nif_afa_format: Must be in uppercase and contain letters and/or numbers

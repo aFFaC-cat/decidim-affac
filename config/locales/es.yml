@@ -1,1 +1,75 @@
-es: 
+---
+es:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Imagen de la consulta (tamaño recomendado 1280x720)
+        decidim_highlighted_scope_id: Tipo de consulta
+        description: Descripción *
+        subtitle: Subtítulo *
+        title: Título *
+      custom_csv_census_authorization_handler:
+        birth_date: Fecha de nacimiento del representante autorizado
+        dni_document: DNI del representante autorizado
+        membership_number: Número de socio de aFFaC
+        nif_afa: NIF de la AFA
+      question:
+        decidim_scope_id: Sección
+        participatory_scope: Ámbito participativo
+        promoter_group: Grupo promotor
+        scope: Sección
+        subtitle: Subtítulo *
+  decidim:
+    admin:
+      consultations:
+        deprecation_warning: Si acabas de llegar, te invitamos a crear tu primera
+          consulta. Para facilitarte el aterrizaje, ya la hemos creado y solo necesitamos
+          que la modifiques y la adaptes a tus necesidades y requisitos. Podrás crear
+          consultas posteriores utilizando el botón "Nueva consulta".
+      menu:
+        scopes: Opciones de consulta
+        static_pages: Páginas de ayuda
+      models:
+        question:
+          fields:
+            title: Título *
+      titles:
+        scopes: Opciones de consulta
+        static_pages: Páginas de ayuda
+    authorization_handlers:
+      admin:
+        custom_csv_census_authorization_handler:
+          help:
+          - Los administradores cargan un CSV y crean un censo con datos aceptados.
+          - Solo se pueden verificar las participantes que hayan completado la información
+            requerida que aparezca en el censo.
+    consultations:
+      show:
+        badge_name:
+          open: Programada
+        footer_button_text:
+          view: Acceder
+          view_results: Ver resultados
+          vote: Votar
+    menu:
+      help: Más información
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body: Por una educación pública, de calidad, catalana, laica,
+            equitativa, inclusiva, gratuita, democrática, coeducativa, ambientalmente
+            sostenible y feminista
+      index:
+        title: Más información
+    system:
+      custom_templates:
+        invalid_message: Hay algun error en el formulario
+        new_from_template: Nuevo desde plantilla
+        new_organization_template: Crearás una nueva organización utilizando %{template}
+        no_template: La plantilla no existe
+        success_message: Nueva organización creada correctamente
+  errors:
+    messages:
+      birth_date_format: Debe seguir el formato dd/mm/aaaa
+      dni_document_format: Debe estar en mayúsculas y contener letras y/o números
+      nif_afa_format: Debe estar en mayúsculas y contener letras y/o números
