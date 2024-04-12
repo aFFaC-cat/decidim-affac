@@ -79,7 +79,7 @@ content_blocks:
 consultations:
   - manifest: consultations
     slug: consulta-%{year}
-    highlighted_scope: type
+    highlighted_scope: consultation_type
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}

@@ -31,10 +31,23 @@ module Decidim::System
       return unless template.fields && template.fields["scopes"]
 
       template.fields["scopes"].each do |scope|
-        Decidim::Scope.create!(
+        main_scope = Decidim::Scope.create!(
           organization: organization,
           name: scope["name"].transform_values { |val| interpolate(val) },
           code: scope["code"]
+        )
+
+        create_sub_scopes(main_scope, scope["sub_scopes"]) if scope["sub_scopes"].present?
+      end
+    end
+
+    def create_sub_scopes(parent_scope, sub_scopes)
+      sub_scopes.each do |sub_scope|
+        Decidim::Scope.create!(
+          organization: parent_scope.organization,
+          name: sub_scope["name"].transform_values { |val| interpolate(val) },
+          code: sub_scope["code"],
+          parent_id: parent_scope.id
         )
       end
     end
