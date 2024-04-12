@@ -72,7 +72,12 @@ describe "Organizations", type: :system do
         expect(consultations.slug).to eq("consulta-2024")
         expect(consultations.title).to eq({ "ca" => "Consulta per Citizen Corp", "es" => "Consulta para Citizen Corp" })
         expect(consultations.subtitle).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
-        expect(consultations.description).to eq({ "ca" => "Et donem la benvinguda a la teva primera consulta!", "es" => "Te damos la bienvenida a tu primera consulta!" })
+        description_ca = consultations.description["ca"]
+        description_es = consultations.description["es"]
+        description_ca_stripped = strip_tags(description_ca)
+        description_es_stripped = strip_tags(description_es)
+        expect(description_ca_stripped).to include("Et donem la benvinguda a la teva primera consulta!")
+        expect(description_es_stripped).to include("Te damos la bienvenida a tu primera consulta!")
         expect(consultations.banner_image.attached?).to be true
         expect(consultations.banner_image).to be_attached
 

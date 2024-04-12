@@ -70,17 +70,52 @@ module Decidim::System
           highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"]),
           start_voting_date: 1.month.from_now,
           end_voting_date: 2.months.from_now,
-          published_at: Time.now.utc
+          published_at: Time.now.utc,
+          banner_image: create_banner_image(participatory_space["banner_image"])
         }
-        if participatory_space["banner_image"]
-          params[:banner_image] = ActiveStorage::Blob.create_and_upload!(
-            io: File.open(File.join(templates_root, participatory_space["banner_image"]["file"])),
-            filename: participatory_space["banner_image"]["file"],
-            content_type: participatory_space["banner_image"]["content_type"],
-            metadata: nil
-          )
+
+        consultation = klass.create!(params)
+
+        create_questions(consultation, participatory_space["questions"]) if participatory_space["questions"].present?
+      end
+    end
+
+    def create_banner_image(banner_image)
+      return unless banner_image
+
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(File.join(templates_root, banner_image["file"])),
+        filename: banner_image["file"],
+        content_type: banner_image["content_type"],
+        metadata: nil
+      )
+    end
+
+    def create_questions(consultation, questions)
+      questions.each do |question|
+        new_question = consultation.questions.create!(
+          title: question["title"].transform_values { |val| interpolate(val) },
+          subtitle: question["subtitle"].transform_values { |val| interpolate(val) },
+          what_is_decided: question["what_is_decided"].transform_values { |val| interpolate(val) },
+          promoter_group: question["promoter_group"],
+          question_context: question["question_context"].transform_values { |val| interpolate(val) },
+          participatory_scope: question["participatory_scope"],
+          slug: question["slug"],
+          scope: question["scope"]
+        )
+
+        create_responses(new_question, question["responses"]) if question["responses"].present?
+      end
+    end
+
+    def create_responses(question, responses)
+      responses.each do |response_data|
+        response = {}
+        response_data["title"].each do |locale, title|
+          response[locale.to_sym] = interpolate(title)
         end
-        klass.create!(params)
+
+        question.responses.create!(response)
       end
     end
 
