@@ -12,28 +12,28 @@ scopes:
     name: 
       ca: Apartat
       es: Apartado
-    scopes:
+    sub_scopes:
       - code: 3actualitzacions
         name: 
           ca: Actualitzacions Internes
           es: Actualizaciones Internas
       - code: 9Altres
-          name: 
-            ca: Altres
-            es: Otros
+        name: 
+          ca: Altres
+          es: Otros
       - code: 1pressupost
-          name: 
-            ca: Pressupost
-            es: Presupuesto
+        name: 
+          ca: Pressupost
+          es: Presupuesto
       - code: 0rendiciocomptes
-          name: 
-            ca: Rendició de Comptes
-            es: Rendición de Cuentas
+        name: 
+          ca: Rendició de Comptes
+          es: Rendición de Cuentas
   - code: consultation_type
     name:
       ca: Tipus de consulta
       es: Tipo de consulta
-    scopes:
+    sub_scopes:
       - code: age
         name:
           ca: Assemblea General Extraordinària
@@ -79,7 +79,7 @@ content_blocks:
 consultations:
   - manifest: consultations
     slug: consulta-%{year}
-    highlighted_scope: consultation_type
+    highlighted_scope: type
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}
