@@ -16,10 +16,10 @@ module Decidim::System
     #
     # Returns nothing.
     def call
+      create_default_pages!
       create_content_blocks!
       create_scopes!
       create_consultations!
-      create_default_pages!
       broadcast(:ok)
     rescue StandardError => e
       broadcast(:invalid, e.message)
@@ -37,11 +37,13 @@ module Decidim::System
           code: scope["code"]
         )
 
-        create_sub_scopes(main_scope, scope["sub_scopes"]) if scope["sub_scopes"].present?
+        create_sub_scopes(main_scope, scope["sub_scopes"])
       end
     end
 
     def create_sub_scopes(parent_scope, sub_scopes)
+      return unless sub_scopes
+
       sub_scopes.each do |sub_scope|
         Decidim::Scope.create!(
           organization: parent_scope.organization,
@@ -76,7 +78,7 @@ module Decidim::System
 
         consultation = klass.create!(params)
 
-        create_questions(consultation, participatory_space["questions"]) if participatory_space["questions"].present?
+        create_questions(consultation, participatory_space["questions"])
       end
     end
 
@@ -92,6 +94,8 @@ module Decidim::System
     end
 
     def create_questions(consultation, questions)
+      return unless questions
+
       questions.each do |question|
         new_question = consultation.questions.create!(
           title: question["title"].transform_values { |val| interpolate(val) },
@@ -101,14 +105,16 @@ module Decidim::System
           question_context: question["question_context"].transform_values { |val| interpolate(val) },
           participatory_scope: question["participatory_scope"],
           slug: question["slug"],
-          scope: question["scope"]
+          scope: Decidim::Scope.find_by(code: question["scope"])
         )
 
-        create_responses(new_question, question["responses"]) if question["responses"].present?
+        create_responses(new_question, question["responses"])
       end
     end
 
     def create_responses(question, responses)
+      return unless responses
+
       responses.each do |response_data|
         response = {}
         response_data["title"].each do |locale, title|
