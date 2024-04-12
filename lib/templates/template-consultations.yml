@@ -8,10 +8,48 @@ organization:
     - es
   force_users_to_authenticate_before_access_organization: false
 scopes:
-  - code: type
+  - code: apartat
+    name: 
+      ca: Apartat
+      es: Apartado
+    scopes:
+      - code: 3actualitzacions
+        name: 
+          ca: Actualitzacions Internes
+          es: Actualizaciones Internas
+      - code: 9Altres
+          name: 
+            ca: Altres
+            es: Otros
+      - code: 1pressupost
+          name: 
+            ca: Pressupost
+            es: Presupuesto
+      - code: 0rendiciocomptes
+          name: 
+            ca: Rendició de Comptes
+            es: Rendición de Cuentas
+  - code: consultation_type
     name:
       ca: Tipus de consulta
       es: Tipo de consulta
+    scopes:
+      - code: age
+        name:
+          ca: Assemblea General Extraordinària
+          es: Asamblea General Extraordinaria
+      - code: ago
+        name:
+          ca: Assemblea General Ordinària
+          es: Asamblea General Ordinaria
+      - code: reu
+        name:
+          ca: Reunió
+          es: Reunión
+      - code: other
+        name:
+          ca: Un altre
+          es: Otro
 content_blocks:
   - manifest_name: hero
     weight: 1
@@ -41,7 +79,7 @@ content_blocks:
 consultations:
   - manifest: consultations
     slug: consulta-%{year}
-    highlighted_scope: type
+    highlighted_scope: consultation_type
     title: 
       ca: Consulta per %{organization_name}
       es: Consulta para %{organization_name}
@@ -72,6 +110,33 @@ consultations:
     banner_image:
       file: template-consultations/consultation_image.png
       content_type: image/png
+    questions:
+      - title: 
+          ca: Aprovació, si s'escau, de XXX (exemple)
+          es: Aprovación, en su caso, de XXX (ejemplo)
+        subtitle:
+          ca: Sí / No / En Blanc
+          es: Sí / No / En Blanco
+        what_is_decided:
+          ca: Aprovació, si escau, de XXX. Podeu consultar el document en aquest enllaç (exemple)
+          es: Aprobación, en su caso, de XXX. Puede consultar el documento en este enlace (ejemplo)
+        promoter_group: Nom_AFA
+        question_context:
+          ca: Aquesta és la una de les preguntes de la consulta. Actualitza'n tots els camps per adaptar-la a les teves necessitats!
+          es: Ésta es lo una de las preguntas de la consulta. ¡Actualiza todos los campos para adaptarla a tus necesidades!
+        participatory_scope: ago
+        slug: pregunta1
+        scope: apartat
+        responses:
+          - title:
+              ca: Sí
+              es: Sí
+          - title:
+              ca: No
+              es: No
+          - title:
+              ca: En Blanc
+              es: En Blanco
 page_topics: 
   - title:
       ca: Ajuda general
