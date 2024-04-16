@@ -98,6 +98,34 @@ describe "Organizations", type: :system do
         click_link "Què són les consultes?"
         expect(page).to have_content("Una consulta és un espai que permet realitzar una pregunta")
       end
+
+      it "creates questions and responses from a template" do
+        select "Votacions AFFaC", from: "customTemplateSelect"
+        find("#templateLink").click
+
+        fill_in "Name", with: "Citizen Corp"
+        fill_in "Reference prefix", with: "CCORP"
+        fill_in "Host", with: "whatever.lvh.me"
+        fill_in "Organization admin name", with: "City Mayor"
+        fill_in "Organization admin email", with: "mayor@example.org"
+        click_button "Create Organization"
+
+        organization = Decidim::Organization.first
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_link "Consultes"
+        click_link("Consulta per Citizen Corp", match: :first)
+
+        expect(page).to have_content("Et donem la benvinguda a la teva primera consulta!")
+        expect(page).to have_content("PREGUNTES PER A AQUESTA CONSULTA")
+        expect(page).to have_content("APARTAT")
+
+        click_link "Participar"
+        expect(page).to have_content("Consulta per Citizen Corp")
+        expect(page).to have_content("LA PREGUNTA")
+        expect(page).to have_content("DEIXA EL TEU COMENTARI")
+        expect(page).to have_content("Votació")
+      end
     end
   end
 end
