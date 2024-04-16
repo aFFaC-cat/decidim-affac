@@ -120,11 +120,15 @@ consultations:
         what_is_decided:
           ca: Aprovació, si escau, de XXX. Podeu consultar el document en aquest enllaç (exemple)
           es: Aprobación, en su caso, de XXX. Puede consultar el documento en este enlace (ejemplo)
-        promoter_group: Nom_AFA
+        promoter_group: 
+          ca: Nom_AFA
+          es: Nom_AFA
         question_context:
           ca: Aquesta és la una de les preguntes de la consulta. Actualitza'n tots els camps per adaptar-la a les teves necessitats!
           es: Ésta es lo una de las preguntas de la consulta. ¡Actualiza todos los campos para adaptarla a tus necesidades!
-        participatory_scope: ago
+        participatory_scope:
+          ca: AGO
+          es: AGO
         slug: pregunta1
         scope: apartat
         responses:

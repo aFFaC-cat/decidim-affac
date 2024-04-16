@@ -97,13 +97,15 @@ module Decidim::System
       return unless questions
 
       questions.each do |question|
-        new_question = consultation.questions.create!(
+        new_question = Decidim::Consultations::Question.create!(
+          organization: consultation.organization,
+          consultation: consultation,
           title: question["title"].transform_values { |val| interpolate(val) },
           subtitle: question["subtitle"].transform_values { |val| interpolate(val) },
           what_is_decided: question["what_is_decided"].transform_values { |val| interpolate(val) },
-          promoter_group: question["promoter_group"],
+          promoter_group: question["promoter_group"].transform_values { |val| interpolate(val) },
           question_context: question["question_context"].transform_values { |val| interpolate(val) },
-          participatory_scope: question["participatory_scope"],
+          participatory_scope: question["participatory_scope"].transform_values { |val| interpolate(val) },
           slug: question["slug"],
           scope: Decidim::Scope.find_by(code: question["scope"])
         )
