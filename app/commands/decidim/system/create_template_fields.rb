@@ -107,7 +107,8 @@ module Decidim::System
           question_context: question["question_context"].transform_values { |val| interpolate(val) },
           participatory_scope: question["participatory_scope"].transform_values { |val| interpolate(val) },
           slug: question["slug"],
-          scope: Decidim::Scope.find_by(code: question["scope"])
+          scope: Decidim::Scope.find_by(code: question["scope"]),
+          published_at: Time.current
         )
 
         create_responses(new_question, question["responses"])
