@@ -136,8 +136,8 @@ consultations:
               ca: Sí
               es: Sí
           - title:
-              ca: No
-              es: No
+              ca: "No"
+              es: "No"
           - title:
               ca: En Blanc
               es: En Blanco

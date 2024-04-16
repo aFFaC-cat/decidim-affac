@@ -118,13 +118,10 @@ module Decidim::System
     def create_responses(question, responses)
       return unless responses
 
-      responses.each do |response_data|
-        response = {}
-        response_data["title"].each do |locale, title|
-          response[locale.to_sym] = interpolate(title)
-        end
+      responses.each do |response|
+        new_response = response["title"].transform_values { |val| interpolate(val) }
 
-        question.responses.create!(response)
+        question.responses.create!(title: new_response)
       end
     end
 
