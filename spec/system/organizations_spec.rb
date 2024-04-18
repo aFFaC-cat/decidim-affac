@@ -66,7 +66,7 @@ describe "Organizations", type: :system do
         organization = Decidim::Organization.first
         expect(organization.default_locale).to eq("ca")
         expect(organization.users_registration_mode).to eq("enabled")
-        expect(organization.available_locales).to eq(%w(ca es))
+        expect(organization.available_locales).to eq(%w(ca))
         expect(organization.force_users_to_authenticate_before_access_organization).to be(false)
         consultations = Decidim::Consultation.first
         expect(consultations.slug).to eq("consulta-2024")
@@ -118,7 +118,7 @@ describe "Organizations", type: :system do
 
         expect(page).to have_content("Et donem la benvinguda a la teva primera consulta!")
         expect(page).to have_content("PREGUNTES PER A AQUESTA CONSULTA")
-        expect(page).to have_content("APARTAT")
+        expect(page).to have_content("RENDICIÓ DE COMPTES")
         question = Decidim::Consultations::Question.first
         expect(question.slug).to eq("pregunta1")
         expect(question.title).to eq({ "ca" => "Aprovació, si s'escau, de XXX (exemple)", "es" => "Aprovación, en su caso, de XXX (ejemplo)" })

@@ -15,7 +15,7 @@ organization:
     highlight: "#be6400"
     secondary: "#e6007e"
     highlight-alternative: "#ff5731"
-  external_domain_whitelist: 
+  external_domain_whitelist:
    - decidim.org
    - github.com
    - affac.cat

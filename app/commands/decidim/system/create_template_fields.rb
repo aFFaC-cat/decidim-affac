@@ -164,7 +164,10 @@ module Decidim::System
       end
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity:
     def create_default_pages!
+      return unless template.fields && template.fields["page_topics"]
+
       template.fields["page_topics"].each do |page_topic|
         topic = Decidim::StaticPageTopic.create!(
           title: page_topic["title"],
@@ -185,6 +188,7 @@ module Decidim::System
         end
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity:
 
     def interpolate(str)
       string = str.dup

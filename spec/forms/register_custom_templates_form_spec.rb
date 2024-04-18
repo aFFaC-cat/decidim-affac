@@ -25,44 +25,34 @@ module Decidim::System
 
     before do
       OrganizationTemplates.template_root = "lib/templates"
-      template_content = {
-        "id" => template_id
-      }
-      allow(YAML).to receive(:load_file).and_return(template_content)
     end
 
     context "with valid attributes" do
       it { is_expected.to be_valid }
     end
 
-    context "with missing attributes" do
-      shared_examples "invalid form" do
-        it { is_expected.to be_invalid }
-      end
+    context "when name is missing" do
+      let(:name) { nil }
 
-      context "when name is missing" do
-        let(:name) { nil }
+      it { is_expected.to be_invalid }
+    end
 
-        it_behaves_like "invalid form"
-      end
+    context "when host is missing" do
+      let(:host) { nil }
 
-      context "when host is missing" do
-        let(:host) { nil }
+      it { is_expected.to be_invalid }
+    end
 
-        it_behaves_like "invalid form"
-      end
+    context "when organization admin email is missing" do
+      let(:organization_admin_email) { nil }
 
-      context "when organization admin email is missing" do
-        let(:organization_admin_email) { nil }
+      it { is_expected.to be_invalid }
+    end
 
-        it_behaves_like "invalid form"
-      end
+    context "when organization admin name is missing" do
+      let(:organization_admin_name) { nil }
 
-      context "when organization admin name is missing" do
-        let(:organization_admin_name) { nil }
-
-        it_behaves_like "invalid form"
-      end
+      it { is_expected.to be_invalid }
     end
 
     describe "#default_locale" do

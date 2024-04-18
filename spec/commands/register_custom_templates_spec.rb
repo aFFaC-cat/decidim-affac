@@ -5,6 +5,10 @@ require "rails_helper"
 module Decidim::System
   describe RegisterCustomTemplates do
     describe "call" do
+      before do
+        OrganizationTemplates.template_root = "spec/fixtures/templates"
+      end
+
       let(:form) do
         RegisterCustomTemplatesForm.new(params)
       end
@@ -27,6 +31,7 @@ module Decidim::System
         let(:from_label) { "Decide Gotham" }
         let(:params) do
           {
+            template_id: "husker",
             name: "Gotham City",
             host: "decide.gotham.gov",
             reference_prefix: "JKR",
