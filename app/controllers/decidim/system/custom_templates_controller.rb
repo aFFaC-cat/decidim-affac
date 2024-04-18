@@ -4,7 +4,7 @@ module Decidim
   module System
     class CustomTemplatesController < Decidim::System::ApplicationController
       before_action :ensure_template_exists, only: [:new]
-      helper_method :template
+      helper_method :template_id, :template
 
       def new
         @form = form(RegisterCustomTemplatesForm).instance
@@ -19,8 +19,8 @@ module Decidim
             redirect_to organizations_path
           end
 
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message")
+          on(:invalid) do |message|
+            flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message", message: message)
             render :new
           end
         end
@@ -28,8 +28,12 @@ module Decidim
 
       private
 
+      def template_id
+        params[:template_id]
+      end
+
       def template
-        params[:template]
+        @template ||= OrganizationTemplates.new(template_id)
       end
 
       def ensure_template_exists

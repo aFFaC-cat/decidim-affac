@@ -1,2 +1,52 @@
 @import "affac-theme/fonts";
 @import "affac-theme/typography";
+
+/* hides helper in processes, assemblies and consults */
+.floating-helper-container {
+    display: none;
+  }
+
+/* hides creation date for consults cards */
+div[id^="consultation"] li.card-data__item.creation_date_status {
+    display: none;
+  }
+  
+  /* consultations banner image */
+  div#consultations div.card.card--consultation img.card__image {
+      object-fit: cover;
+  }
+  div.consultations-header.consultations-home-banner div.consultations-header__main {
+      background-color: var(--theme);
+      background-image: none !important;
+  }
+  div#consultation-details > div {
+    width: 100%;
+    padding: 0 5%;
+    left: 0;
+  }
+  div#consultation-details div.introductory-image {
+    min-height: 20px;
+  }
+  
+  /* hides extra details below question title */
+  div.consultations-title div#question-header-details {
+    display: none;
+  }
+  
+  /* hides number of attendees and meetings */
+  div.section div.card.extra div.definition-data div.definition-data__item:nth-child(3),
+  div.section div.card.extra div.definition-data div.definition-data__item:nth-child(4) {
+    display: none;
+  }
+  
+  div.show-more-panel > div.section:first-child h3:nth-child(2),
+  div.show-more-panel > div.section:first-child p:nth-child(3),
+  div.show-more-panel > div.section:first-child h3:nth-child(6),
+  div.show-more-panel > div.section:first-child p:nth-child(7) {
+    display: none;
+  }
+  
+  /* hides background image behind participate button */
+  div.card.consultations-card div.consultations-card__image {
+    background-image: none !important;
+  }

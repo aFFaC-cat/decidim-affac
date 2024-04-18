@@ -1,2 +1,12 @@
 id: two
 name: Second
+organization:
+  users_registration_mode: enabled
+  time_zone: Madrid
+  default_locale: ca
+  available_locales: 
+    - ca
+  force_users_to_authenticate_before_access_organization: false
+  colors: {}
+  external_domain_whitelist: {}
+  available_authorizations: {}
