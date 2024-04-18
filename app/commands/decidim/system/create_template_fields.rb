@@ -16,13 +16,15 @@ module Decidim::System
     #
     # Returns nothing.
     def call
-      create_default_pages!
-      create_content_blocks!
-      create_scopes!
-      create_consultations!
-      broadcast(:ok)
+      transaction do
+        create_default_pages!
+        create_content_blocks!
+        create_scopes!
+        create_consultations!
+        broadcast(:ok)
+      end
     rescue StandardError => e
-      broadcast(:invalid, e.message)
+      broadcast(:error, e.message)
     end
 
     private
@@ -69,7 +71,7 @@ module Decidim::System
           title: participatory_space["title"].transform_values { |val| interpolate(val) },
           description: participatory_space["description"].transform_values { |val| interpolate(val) },
           subtitle: participatory_space["subtitle"].transform_values { |val| interpolate(val) },
-          highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"]),
+          highlighted_scope: Decidim::Scope.find_by(code: participatory_space["highlighted_scope"], organization: organization),
           start_voting_date: 1.month.from_now,
           end_voting_date: 2.months.from_now,
           published_at: Time.now.utc,
@@ -107,10 +109,11 @@ module Decidim::System
           question_context: question["question_context"].transform_values { |val| interpolate(val) },
           participatory_scope: question["participatory_scope"].transform_values { |val| interpolate(val) },
           slug: question["slug"],
-          scope: Decidim::Scope.find_by(code: question["scope"]),
+          scope: Decidim::Scope.find_by(code: question["scope"], organization: organization),
           published_at: Time.current
         )
 
+        create_resource_permissions(new_question, question["resource_permissions"])
         create_responses(new_question, question["responses"])
       end
     end
@@ -123,6 +126,15 @@ module Decidim::System
 
         question.responses.create!(title: new_response)
       end
+    end
+
+    def create_resource_permissions(resource, permissions)
+      return unless permissions
+
+      Decidim::ResourcePermission.create!(
+        resource: resource,
+        permissions: permissions
+      )
     end
 
     def create_content_blocks!
@@ -156,7 +168,7 @@ module Decidim::System
       template.fields["page_topics"].each do |page_topic|
         topic = Decidim::StaticPageTopic.create!(
           title: page_topic["title"],
-          description: page_topic["description"].transform_values { |val| interpolate(val) },
+          description: page_topic["description"]&.transform_values { |val| interpolate(val) } || {},
           organization: organization,
           weight: page_topic["weight"]
         )

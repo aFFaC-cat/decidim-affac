@@ -19,8 +19,8 @@ module Decidim
             redirect_to organizations_path
           end
 
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message")
+          on(:invalid) do |message|
+            flash.now[:alert] = I18n.t("decidim.system.custom_templates.invalid_message", message: message)
             render :new
           end
         end

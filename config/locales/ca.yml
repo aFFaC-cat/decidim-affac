@@ -48,6 +48,7 @@ ca:
         badge_name:
           open: Programada
         footer_button_text:
+          debate: Accedeix
           view: Accedeix
           view_results: Veure resultats
           vote: Vota
@@ -63,7 +64,7 @@ ca:
         title: Més informació
     system:
       custom_templates:
-        invalid_message: Hi ha algun error al formulari
+        invalid_message: Hi ha algun error al formulari. %{message}
         new_from_template: Nou desde plantilla
         new_organization_template: Crearàs una nova organització utilitzant %{template}
         no_template: La plantilla no existeix

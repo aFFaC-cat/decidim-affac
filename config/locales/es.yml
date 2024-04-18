@@ -48,6 +48,7 @@ es:
         badge_name:
           open: Programada
         footer_button_text:
+          debate: Acceder
           view: Acceder
           view_results: Ver resultados
           vote: Votar
@@ -63,7 +64,7 @@ es:
         title: Más información
     system:
       custom_templates:
-        invalid_message: Hay algun error en el formulario
+        invalid_message: Hay algun error en el formulario. %{message}
         new_from_template: Nuevo desde plantilla
         new_organization_template: Crearás una nueva organización utilizando %{template}
         no_template: La plantilla no existe

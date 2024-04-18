@@ -20,25 +20,25 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid, form.errors.full_messages.join(". ")) if form.invalid?
 
-        @organization = nil
-        invite_form = nil
-        invitation_failed = false
-
-        transaction do
-          @organization = create_organization
-          CreateTemplateFields.call(@organization, form.template)
-          invite_form = invite_user_form(@organization)
-          invitation_failed = invite_form.invalid?
+        @organization = create_organization
+        CreateTemplateFields.call(@organization, form.template) do
+          on(:error) do |message|
+            @organization.destroy!
+            raise StandardError, message
+          end
         end
-        return broadcast(:invalid) if invitation_failed
+        invite_form = invite_user_form(@organization)
+        invitation_failed = invite_form.invalid?
+
+        return broadcast(:invalid, "invitation failed") if invitation_failed
 
         Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
         broadcast(:ok)
-      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
-        broadcast(:invalid)
+      rescue StandardError => e
+        broadcast(:invalid, e.message)
       end
 
       private
@@ -53,7 +53,13 @@ module Decidim
           available_locales: form.available_locales,
           default_locale: form.default_locale,
           users_registration_mode: form.users_registration_mode,
-          force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization
+          force_users_to_authenticate_before_access_organization: form.fields("force_users_to_authenticate_before_access_organization"),
+          colors: form.fields("colors"),
+          external_domain_whitelist: form.fields("external_domain_whitelist"),
+          available_authorizations: form.fields("available_authorizations"),
+          cta_button_path: form.fields("cta_button_path"),
+          time_zone: form.fields("time_zone"),
+          rich_text_editor_in_public_views: form.fields("rich_text_editor_in_public_views")
         )
       end
 

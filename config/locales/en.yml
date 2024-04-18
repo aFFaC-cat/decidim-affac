@@ -48,6 +48,7 @@ en:
         badge_name:
           open: Scheduled
         footer_button_text:
+          debate: Access
           view: Access
           view_results: View results
           vote: Vote
@@ -63,7 +64,7 @@ en:
         title: More information
     system:
       custom_templates:
-        invalid_message: There's an error in the form
+        invalid_message: There's an error in the form. %{message}
         new_from_template: New from template
         new_organization_template: You will create a new organization using %{template}
         no_template: Template does not exist

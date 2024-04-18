@@ -5,27 +5,44 @@ organization:
   users_registration_mode: enabled
   available_locales: 
     - ca
-    - es
   force_users_to_authenticate_before_access_organization: false
+  colors: 
+    alert: "#ec5840"
+    theme: "#70a343"
+    primary: "#4da42d"
+    success: "#57d685"
+    warning: "#ffae00"
+    highlight: "#be6400"
+    secondary: "#e6007e"
+    highlight-alternative: "#ff5731"
+  external_domain_whitelist: 
+   - decidim.org
+   - github.com
+   - affac.cat
+  available_authorizations:
+    - custom_csv_census_authorization_handler
+  cta_button_path: consultations
+  time_zone: Madrid
+  rich_text_editor_in_public_views: true
 scopes:
   - code: apartat
     name: 
       ca: Apartat
       es: Apartado
     sub_scopes:
-      - code: 3actualitzacions
+      - code: actualitzacions
         name: 
           ca: Actualitzacions Internes
           es: Actualizaciones Internas
-      - code: 9Altres
+      - code: altres
         name: 
           ca: Altres
           es: Otros
-      - code: 1pressupost
+      - code: pressupost
         name: 
           ca: Pressupost
           es: Presupuesto
-      - code: 0rendiciocomptes
+      - code: rendicio_comptes
         name: 
           ca: Rendició de Comptes
           es: Rendición de Cuentas
@@ -88,9 +105,12 @@ consultations:
       es: Te damos la bienvenida a tu primera consulta!
     description:
       ca: >
-        <p>Et donem la benvinguda a la teva primera consulta! Modifica'n els camps i adapta'ls als requisits de la teva votació.</p><p>Si és la primera vegada que entres a Decidim i encara no has accedit al panel d'administració, podràs fer-ho de la següent manera:</p><ol>
+        <p>Et donem la benvinguda a la teva primera consulta! Modifica'n els camps i adapta'ls als requisits de la teva votació.</p><p>Si és la primera vegada que entres a Decidim i encara no has accedit al panel d'administració
+        podràs fer-ho de la següent manera:</p><ol>
         <li>Entra amb l'usuari i contrasenya del compte admin.</li>
-        <li>Des de la pàgina de <a href="/consultations" rel="noopener noreferrer" target="_blank">Consultes</a>, veuràs que a la cantonada superior dreta, al costat del teu nom d'usuari, hi apareix el botó "Edita". Si no el veus, és que no tens permisos d'admins. Revisa que l'usuari amb el qual has accedit en té.</li>
+        <li>Des de la pàgina de <a href="/consultations" rel="noopener noreferrer" target="_blank">Consultes</a>
+        veuràs que a la cantonada superior dreta
+        al costat del teu nom d'usuari, hi apareix el botó "Edita". Si no el veus, és que no tens permisos d'admins. Revisa que l'usuari amb el qual has accedit en té.</li>
         <li>Clica "Edita". Accediràs al llistat de consultes. Si és la primera vegada que aquest usuari entra al panel d'administració hauràs d'acceptar, en primer lloc, els termes i condicions d'ús per admins. Ho podràs fer des de la pestanya "Tauler de control". Un cop acceptat, ves a la pestanya "Consultes" per veure'n el llistat.</li>
         </ol><p>Un cop al panel d'administració, modifica aquesta consulta per crear la teva primera consulta:</p><ol>
         <li>Des del llistat de "Consultes" clica "Títol de la Consulta". Accediràs al formulari d'edició d'aquesta consulta.</li>
@@ -130,7 +150,7 @@ consultations:
           ca: AGO
           es: AGO
         slug: pregunta1
-        scope: apartat
+        scope: rendicio_comptes
         responses:
           - title:
               ca: Sí
@@ -141,6 +161,13 @@ consultations:
           - title:
               ca: En Blanc
               es: En Blanco
+        resource_permissions:
+          vote:
+            authorization_handlers: 
+              custom_csv_census_authorization_handler: {}
+          comment: 
+            authorization_handlers:
+              custom_csv_census_authorization_handler: {}
 page_topics: 
   - title:
       ca: Ajuda general
@@ -193,9 +220,6 @@ page_topics:
   - title:
       ca: Informació General
       es: Información General
-    description:
-      ca: Llegeix més sobre %{organization_name} Template
-      es: Leer más sobre %{organization_name} Template
     weight: 2  
     pages: 
       - slug: terms-and-conditions

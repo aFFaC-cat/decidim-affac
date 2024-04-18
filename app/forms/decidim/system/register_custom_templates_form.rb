@@ -22,16 +22,16 @@ module Decidim
         template.fields&.dig("organization", "default_locale") || Decidim.default_locale
       end
 
-      def users_registration_mode
-        "enabled"
-      end
-
-      def force_users_to_authenticate_before_access_organization
-        false
-      end
-
       def available_locales
         template.fields&.dig("organization", "available_locales") || Decidim.available_locales
+      end
+
+      def fields(field)
+        template.fields&.dig("organization", field)
+      end
+
+      def users_registration_mode
+        fields("users_registration_mode")
       end
 
       def template
