@@ -4,10 +4,6 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-# DECIDIM_BRANCH = "release/0.27-stable"
-# DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: DECIDIM_BRANCH }.freeze
-
-# Force version in Gemfile:
 DECIDIM_VERSION = "0.27.6"
 
 gem "puma", ">= 5.0.0"
