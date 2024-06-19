@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.rbenv-vars
+
 /node_modules
 /yarn-error.log
 

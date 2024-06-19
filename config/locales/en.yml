@@ -8,7 +8,7 @@ en:
         button_save: Save
         invalid_message: It's invalid
         success_message: Great done
-        new: 
+        new:
           locale: Locale
           enabled: Enabled
           default: Default
