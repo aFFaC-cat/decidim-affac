@@ -4,10 +4,6 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-# DECIDIM_BRANCH = "release/0.27-stable"
-# DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: DECIDIM_BRANCH }.freeze
-
-# Force version in Gemfile:
 DECIDIM_VERSION = "0.27.6"
 
 gem "puma", ">= 5.0.0"
@@ -22,6 +18,8 @@ gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-modu
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 
 gem "deface", ">= 1.9"
+
+gem "strscan", ">=3.1.0"
 
 group :development, :test do
   gem "faker", "~> 2.14"
