@@ -19,6 +19,8 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 
 gem "deface", ">= 1.9"
 
+gem "strscan", ">=3.1.0"
+
 group :development, :test do
   gem "faker", "~> 2.14"
   gem "rubocop-faker"
