@@ -55,6 +55,7 @@ COPY ./config.ru /app/config.ru
 COPY ./Rakefile /app/Rakefile
 COPY ./babel.config.json /app/babel.config.json
 COPY ./postcss.config.js /app/postcss.config.js
+RUN mkdir -p /app/tmp
 
 # Compile assets with Webpacker or Sprockets
 #
