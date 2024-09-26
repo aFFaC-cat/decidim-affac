@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   authenticate(:admin) do
     namespace :system do
-      resources :custom_templates, only: [:new, :create]
       resources :caprover, only: [:index] do
         get :enable, on: :collection
         get :disable, on: :collection
@@ -28,4 +27,10 @@ Rails.application.routes.draw do
   end
 
   mount Decidim::Core::Engine => "/"
+end
+
+Decidim::System::Engine.routes.draw do
+  authenticate(:admin) do
+    resources :custom_templates, only: [:new, :create]
+  end
 end
