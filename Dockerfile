@@ -55,7 +55,8 @@ COPY ./config.ru /app/config.ru
 COPY ./Rakefile /app/Rakefile
 COPY ./babel.config.json /app/babel.config.json
 COPY ./postcss.config.js /app/postcss.config.js
-RUN mkdir -p /app/tmp
+RUN rm package-lock.json
+COPY ./package-caprover.json /app/package.json
 
 # Compile assets with Webpacker or Sprockets
 #
@@ -97,13 +98,6 @@ ENV RAILS_ENV production
 
 ARG RUN_RAILS
 ARG RUN_SIDEKIQ
-ARG COMMIT_SHA
-ARG COMMIT_TIME
-ARG COMMIT_VERSION
-
-ENV COMMIT_SHA ${COMMIT_SHA}
-ENV COMMIT_TIME ${COMMIT_TIME}
-ENV COMMIT_VERSION ${COMMIT_VERSION}
 
 # Add user
 RUN addgroup --system --gid 1000 app && \
@@ -116,6 +110,8 @@ COPY --from=builder --chown=app:app /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder --chown=app:app /app /app
 
 USER app
+# affac uses npm & caprover cli only
+RUN npm i caprover
 HEALTHCHECK --interval=1m --timeout=5s --start-period=30s \
     CMD (curl -sSH "Content-Type: application/json" -d '{"query": "{ decidim { version } }"}' http://127.0.0.1:3000/api) || exit 1
 
