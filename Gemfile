@@ -4,20 +4,18 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.27.6"
-
-gem "puma", ">= 5.0.0"
-gem "uglifier", "~> 4.1"
-# bug in version 1.9
-gem "i18n", "~> 1.8.1"
+DECIDIM_VERSION = "~> 0.27.9"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-custom_csv_census", git: "https://github.com/Platoniq/decidim-verifications-custom_csv_census", branch: "master"
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "release/0.27-stable"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 
+gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"
+gem "puma", ">= 5.0.0"
+gem "wicked_pdf", "~> 2.1"
 
 group :development, :test do
   gem "faker", "~> 2.14"
@@ -29,25 +27,14 @@ group :development, :test do
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
-  gem "listen", "~> 3.1"
+  gem "letter_opener_web"
+  gem "listen"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.5"
-
-  gem "capistrano", "~> 3.15"
-  gem "capistrano-bundler"
-  gem "capistrano-passenger"
-  gem "capistrano-rails"
-  gem "capistrano-rails-console"
-  gem "capistrano-rbenv"
-  gem "capistrano-sidekiq"
+  gem "spring-watcher-listen"
+  gem "web-console"
 end
 
 group :production do
-  gem "daemons", "~> 1.3"
-  gem "figaro", "~> 1.2"
-  gem "passenger", "~> 6.0"
-  gem "sidekiq", "~> 6.0"
+  gem "sidekiq"
   gem "sidekiq-cron"
 end
