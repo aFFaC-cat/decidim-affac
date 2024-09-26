@@ -47,5 +47,6 @@ yarn-debug.log*
 .idea
 /setup
 
-public/sw.js
-public/sw.js.map
+coverage/
+public/sw.js*
+public/sw.js.map*
