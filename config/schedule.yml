@@ -18,14 +18,6 @@ daily_clean_data_portability_job:
   cron: "33 3 * * *"
   class: "InvokeRakeTaskJob"
   queue: default
-  status: <%= ENV.fetch("DELETE_DATA_PORTABILITY_FILES", "enabled") %> # enabled by default
-  args:
-    task: decidim:delete_data_portability_files
-
-daily_clean_download_your_data_job:
-  cron: "33 4 * * *"
-  class: "InvokeRakeTaskJob"
-  queue: default
   status: <%= ENV.fetch("DELETE_DOWNLOAD_YOUR_DATA_FILES", "enabled") %> # enabled by default
   args:
     task: decidim:delete_download_your_data_files
