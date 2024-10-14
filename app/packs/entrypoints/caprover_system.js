@@ -19,11 +19,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
       element.innerHTML = found ? link("Stats", found.plausible, found.publicDomain) : plausible("No", element.dataset.host);
     });
   });
-
-  // fetch domains from plausible api
-  fetch("/system/plausible").then(response => {
-    return response.json();
-  }).then(json => {
-    console.log(json)
-  });
 });
