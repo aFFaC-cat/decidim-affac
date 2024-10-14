@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.rbenv-vars
+
 /node_modules
 /yarn-error.log
 
@@ -43,7 +45,9 @@ node_modules/
 yarn-debug.log*
 .yarn-integrity
 .idea
+/setup
 
-public/sw.js
-public/sw.js.map
 *.sql
+coverage/
+public/sw.js*
+public/sw.js.map*
