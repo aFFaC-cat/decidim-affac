@@ -37,7 +37,7 @@ module Decidim
       end
 
       def ensure_template_exists
-        return if template.present?
+        return if template.exists?
 
         flash.alert = I18n.t("decidim.system.custom_templates.no_template")
         redirect_to decidim_system.root_path

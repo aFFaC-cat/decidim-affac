@@ -64,7 +64,12 @@ ca:
         title: Més informació
     system:
       custom_templates:
+        button_save: Desa
         invalid_message: Hi ha algun error al formulari. %{message}
+        new:
+          default: Per defecte
+          enabled: Actiu
+          locale: Idioma
         new_from_template: Nou desde plantilla
         new_organization_template: Crearàs una nova organització utilitzant %{template}
         no_template: La plantilla no existeix

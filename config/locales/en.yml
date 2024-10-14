@@ -64,16 +64,15 @@ en:
         title: More information
     system:
       custom_templates:
+        button_save: Save
         invalid_message: There's an error in the form. %{message}
+        new:
+          default: Default
+          enabled: Enabled
+          locale: Locale
         new_from_template: New from template
         new_organization_template: You will create a new organization using %{template}
         no_template: Template does not exist
-        button_save: Save
-        success_message: New organization successfully created
-        new:
-          locale: Locale
-          enabled: Enabled
-          default: Default
         success_message: New organization successfully created
   errors:
     messages:

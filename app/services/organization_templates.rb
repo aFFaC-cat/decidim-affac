@@ -25,4 +25,8 @@ class OrganizationTemplates
   def fields
     @fields ||= OrganizationTemplates.all.detect { |item| item["id"] == template_id }
   end
+
+  def exists?
+    fields.present?
+  end
 end

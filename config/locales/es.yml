@@ -64,7 +64,12 @@ es:
         title: Más información
     system:
       custom_templates:
+        button_save: Guardar
         invalid_message: Hay algun error en el formulario. %{message}
+        new:
+          default: Por defecto
+          enabled: Activo
+          locale: Idioma
         new_from_template: Nuevo desde plantilla
         new_organization_template: Crearás una nueva organización utilizando %{template}
         no_template: La plantilla no existe
