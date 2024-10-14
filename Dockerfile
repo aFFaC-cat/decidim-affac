@@ -82,8 +82,13 @@ RUN rm -rf node_modules tmp/cache vendor/bundle test spec app/packs .git
 # This image is for production env only
 FROM ruby:3.0-slim AS final
 
-RUN apt-get update && \
-    apt-get install -y postgresql-client \
+RUN NODE_MAJOR=16 && \
+    apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    apt-get update && apt-get install -y nodejs \
+    postgresql-client \
     imagemagick \
     curl \
     supervisor && \
@@ -97,27 +102,29 @@ ENV RAILS_ENV production
 
 ARG RUN_RAILS
 ARG RUN_SIDEKIQ
-ARG COMMIT_SHA
-ARG COMMIT_TIME
-ARG COMMIT_VERSION
-
-ENV COMMIT_SHA ${COMMIT_SHA}
-ENV COMMIT_TIME ${COMMIT_TIME}
-ENV COMMIT_VERSION ${COMMIT_VERSION}
 
 # Add user
 RUN addgroup --system --gid 1000 app && \
     adduser --system --uid 1000 --home /app --group app
 
+USER app
 WORKDIR /app
 COPY ./entrypoint.sh /app/entrypoint.sh
-COPY ./supervisord.conf /etc/supervisord.conf 
+COPY ./supervisord.conf /etc/supervisord.conf
+COPY ./package-caprover.json /app/package-caprover.json
+COPY ./package-caprover-lock.json /app/package-caprover-lock.json
 COPY --from=builder --chown=app:app /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder --chown=app:app /app /app
+# affac uses npm & caprover cli only
+RUN mv package.json package-app.json && \
+    mv package-lock.json package-app-lock.json  && \
+    mv package-caprover.json package.json && \
+    mv package-caprover-lock.json package-lock.json && \
+    npm ci
 
-USER app
 HEALTHCHECK --interval=1m --timeout=5s --start-period=30s \
-    CMD (curl -sSH "Content-Type: application/json" -d '{"query": "{ decidim { version } }"}' http://127.0.0.1:3000/api) || exit 1
+    CMD (curl -sSH "Content-Type: application/json" -d '{"query": "{ decidim { version } }"}' http://localhost:3000/api) || exit 1
+
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["/usr/bin/supervisord"]
