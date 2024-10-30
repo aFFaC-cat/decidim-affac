@@ -199,8 +199,8 @@ ActiveRecord::Schema.define(version: 2024_09_12_121013) do
     t.string "youtube_handler"
     t.string "github_handler"
     t.bigint "decidim_assemblies_type_id"
-    t.integer "follows_count", default: 0, null: false
     t.integer "weight", default: 1, null: false
+    t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
@@ -914,12 +914,12 @@ ActiveRecord::Schema.define(version: 2024_09_12_121013) do
     t.string "decidim_author_type"
     t.integer "decidim_user_group_id"
     t.integer "comments_count", default: 0, null: false
+    t.string "salt"
     t.string "online_meeting_url"
     t.string "type_of_meeting", default: "in_person"
     t.string "registration_type", default: "registration_disabled", null: false
     t.string "registration_url"
     t.integer "follows_count", default: 0, null: false
-    t.string "salt"
     t.boolean "customize_registration_email", default: false
     t.jsonb "registration_email_custom_content"
     t.datetime "published_at"
@@ -1143,7 +1143,7 @@ ActiveRecord::Schema.define(version: 2024_09_12_121013) do
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
     t.string "external_domain_whitelist", default: [], array: true
-    t.boolean "enable_participatory_space_filters", default: true
+    t.boolean "enable_participatory_space_filters", default: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1243,8 +1243,8 @@ ActiveRecord::Schema.define(version: 2024_09_12_121013) do
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
-    t.integer "follows_count", default: 0, null: false
     t.integer "weight", default: 1, null: false
+    t.integer "follows_count", default: 0, null: false
     t.bigint "decidim_participatory_process_type_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
