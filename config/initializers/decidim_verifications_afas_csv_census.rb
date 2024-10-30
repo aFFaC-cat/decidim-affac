@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-Decidim::CustomCsvCensus.configure do |config|
+require "decidim/afas_csv_census"
+
+Decidim::AfasCsvCensus.configure do |config|
   config.fields = {
     # DNI sòcia
     dni_document: {
