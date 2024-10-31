@@ -1143,7 +1143,7 @@ ActiveRecord::Schema.define(version: 2024_09_12_121013) do
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
     t.string "external_domain_whitelist", default: [], array: true
-    t.boolean "enable_participatory_space_filters", default: false
+    t.boolean "enable_participatory_space_filters", default: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
