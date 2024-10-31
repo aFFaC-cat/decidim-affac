@@ -14,7 +14,7 @@
 
     <div class="column">
       <div class="afa-logo">
-        <%= image_pack_tag("media/images/Logo_aFFaC_2020_NEGATIU.png", alt: t("layouts.decidim.footer.affac_logo")) %>
+        <%= image_pack_tag("media/images/Logo_aFFaC_2020_NEGATIU.png", alt: t("layouts.decidim.footer.affac_logo"), style: "height: 100px;") %>
       </div>
     </div>
 
