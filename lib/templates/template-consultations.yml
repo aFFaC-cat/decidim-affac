@@ -24,6 +24,7 @@ organization:
   cta_button_path: consultations
   time_zone: Madrid
   rich_text_editor_in_public_views: true
+  enable_participatory_space_filters: false
 scopes:
   - code: apartat
     name: 
