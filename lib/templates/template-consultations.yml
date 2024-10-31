@@ -105,28 +105,19 @@ consultations:
       es: Te damos la bienvenida a tu primera consulta!
     description:
       ca: >
-        <p>Et donem la benvinguda a la teva primera consulta! Modifica'n els camps i adapta'ls als requisits de la teva votació.</p><p>Si és la primera vegada que entres a Decidim i encara no has accedit al panel d'administració
-        podràs fer-ho de la següent manera:</p><ol>
-        <li>Entra amb l'usuari i contrasenya del compte admin.</li>
-        <li>Des de la pàgina de <a href="/consultations" rel="noopener noreferrer" target="_blank">Consultes</a>
-        veuràs que a la cantonada superior dreta
-        al costat del teu nom d'usuari, hi apareix el botó "Edita". Si no el veus, és que no tens permisos d'admins. Revisa que l'usuari amb el qual has accedit en té.</li>
-        <li>Clica "Edita". Accediràs al llistat de consultes. Si és la primera vegada que aquest usuari entra al panel d'administració hauràs d'acceptar, en primer lloc, els termes i condicions d'ús per admins. Ho podràs fer des de la pestanya "Tauler de control". Un cop acceptat, ves a la pestanya "Consultes" per veure'n el llistat.</li>
-        </ol><p>Un cop al panel d'administració, modifica aquesta consulta per crear la teva primera consulta:</p><ol>
-        <li>Des del llistat de "Consultes" clica "Títol de la Consulta". Accediràs al formulari d'edició d'aquesta consulta.</li>
-        <li>Edita el títol, el subtítol, aquesta descripció i la data de votació adaptant-los a la informació relativa a la teva consulta. També pots modificar l'<em>[Abast destacat] (canviar literal)</em> i la imatge de capçalera, així com afegir un vídeo i/o imatge introductòria.</li>
-        <li>Clica al botó "Actualització" i, a continuació, ves a la pestanya "Preguntes" que trobaràs al menú lateral esquerra.</li>
+        <p>Et donem la benvinguda a la teva primera consulta! Modifica-la per crear la teva primera consulta:</p><ol>
+        <li>Clica "Entra", a la cantonada superior dreta, i entra amb l'usuari i contrasenya del compte admin. Després, clica "Edita".</li>
+        <li>Edita el títol, el subtítol, aquesta descripció i la data de votació adaptant-los a la informació relativa a la teva consulta. També pots modificar el tipus de consulta i la imatge de capçalera.</li>
+        <li>Clica al botó "Actualització" i, a continuació, ves a la pestanya "Preguntes" que trobaràs al menú lateral esquerra, per editar la pregunta actual o afegir-ne de noves.</li>
         </ol><p>Si decideixes mantenir aquesta consulta de prova i prefereixes crear-ne una de nova, despublica-la per no confondre les participants de la plataforma. Trobaràs el botó a sota de tot.</p>
+        <p>Per a més informació sobre com configurar una consulta, ves a l'<a href="/pages" rel="noopener noreferrer" target="_blank">Ajuda</a>.</p>
       es: >
-        <p>¡Te damos la bienvenida a tu primera consulta! Modifica los campos y adáptalos a los requisitos de tu votación.</p><p>Si es la primera vez que accedes a Decidim y aún no has accedido al panel de administración, podrás hacerlo de la siguiente manera:</p><ol>
-        <li>Entra con el usuario y contraseña de la cuenta admin.</li>
-        <li>Desde la página de <a href="/consultations" rel="noopener noreferrer" target="_blank">Consultas</a>, verás que en la esquina superior derecha, al lado de tu nombre de usuario, aparece el botón "Edita". Si no lo ves, es que no tienes permisos de admin. Revisa que el usuario con el que has accedido los tenga.</li>
-        <li>Haz clic en "Edita". Accederás al listado de consultas. Si es la primera vez que este usuario entra al panel de administración tendrás que aceptar, en primer lugar, los términos y condiciones de uso para admins. Podrás hacerlo desde la pestaña "Tablero de control". Una vez aceptado, ve a la pestaña "Consultas" para ver el listado.</li></ol>
-        <p>Una vez en el panel de administración, modifica esta consulta para crear tu primera consulta:</p><ol>
-        <li>Desde el listado de "Consultas" haz clic en "Título de la Consulta". Accederás al formulario de edición de esta consulta.</li>
-        <li>Edita el título, el subtítulo, esta descripción y la fecha de votación adaptándolos a la información relativa a tu consulta. También puedes modificar el <em>[Alcance destacado] (cambiar literal)</em> y la imagen de cabecera, así como añadir un vídeo y/o imagen introductoria.</li>
-        <li>Haz clic en el botón "Actualización" y, a continuación, ve a la pestaña "Preguntas" que encontrarás en el menú lateral izquierdo.</li></ol>
-        <p>Si decides mantener esta consulta de prueba y prefieres crear una nueva, despublica esta para no confundir a las participantes de la plataforma. Encontrarás el botón al final de todo.</p>
+        <p>¡Te damos la bienvenida a tu primera consulta! Modifícala para crear tu primera consulta:</p><ol>
+        <li>Clica "Entra", en la esquina superior derecha, y accede con el usuario y la contraseña de la cuenta admin. A continuación, clica "Edita".</li>
+        <li>Edita el título, el subtítulo, esta descripción y la fecha de votación adaptándolos a la información relativa a tu consulta. También puedes modificar el tipo de consulta y la imagen de cabecera.</li>
+        <li>Clica el botón "Actualización" y, a continuación, ve a la pestaña "Preguntas" que encontrarás en el menú lateral izquierdo, para editar la pregunta actual o añadir nuevas.</li>
+        </ol><p>Si decides mantener esta consulta de prueba y prefieres crear una nueva, despúblicala para no confundir a las participantes de la plataforma. Encontrarás el botón debajo de todo.</p>
+        <p>Para más información sobre cómo configurar una consulta, ve a la <a href="/pages" rel="noopener noreferrer" target="_blank">Ayuda</a>.</p>
     banner_image:
       file: template-consultations/consultation_image.png
       content_type: image/png
