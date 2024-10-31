@@ -77,8 +77,8 @@ content_blocks:
         content_type: image/png
     settings:
       welcome_text:
-        ca: Benvinguda %{organization_name}
-        es: Bienvenida %{organization_name}
+        ca: Participa %{organization_name}
+        es: Participa %{organization_name}
   - manifest_name: footer_sub_hero
     weight: 2
     scope_name: homepage
