@@ -82,3 +82,8 @@ en:
       birth_date_format: Must follow the format dd/mm/yyyy
       dni_document_format: Must be in uppercase and contain letters and/or numbers
       nif_afa_format: Must be in uppercase and contain letters and/or numbers
+  layouts:
+    decidim:
+      footer:
+        affac_logo: Logo aFFaC
+        pokecode: Made with ❤️ by Pokecode 

@@ -50,3 +50,12 @@ div[id^="consultation"] li.card-data__item.creation_date_status {
   div.card.consultations-card div.consultations-card__image {
     background-image: none !important;
   }
+
+/* apply styles to footer custom logos */
+div.afa-logo img{
+  display: block;
+  width: auto;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
