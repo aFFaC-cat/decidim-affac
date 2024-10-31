@@ -57,9 +57,8 @@ ca:
     pages:
       home:
         footer_sub_hero:
-          footer_sub_hero_body: Per una educació pública, de qualitat, catalana, laica,
-            equitativa, inclusiva, gratuïta, democràtica, coeducativa, ambientalment
-            sostenible i feminista
+          footer_sub_hero_body: Un espai on les famílies podeu fer sentir la vostra veu i treballar plegades per una educació pública, de qualitat, catalana, laica, equitativa, inclusiva, gratuïta, democràtica, coeducativa, ambientalment sostenible i feminista.
+          footer_sub_hero_headline: Benvinguda a la plataforma participativa de l'%{organization}.
       index:
         title: Més informació
     system:
@@ -74,6 +73,9 @@ ca:
         new_organization_template: Crearàs una nova organització utilitzant %{template}
         no_template: La plantilla no existeix
         success_message: Nova organització creada correctament
+    verifications:
+      authorizations:
+        skip_verification: Pots ometre la verificació per ara i <a href="/consultations">tornar al llistat de consultes</a>
   errors:
     messages:
       birth_date_format: Ha de seguir el format dd/mm/aaa
