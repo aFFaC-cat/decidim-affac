@@ -2,7 +2,7 @@
 en:
   activemodel:
     attributes:
-      afas_csv_census_authorization_handler:
+      afa_csv_census_authorization_handler:
         birth_date: Birth date of the authorized representative
         dni_document: DNI of the authorized representative
       consultation:

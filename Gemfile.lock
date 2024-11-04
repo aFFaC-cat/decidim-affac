@@ -29,6 +29,11 @@ GIT
       decidim-admin (~> 0.27.0)
       decidim-core (~> 0.27.0)
 
+PATH
+  remote: afa_csv_census
+  specs:
+    decidim-afa_csv_census (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -877,6 +882,7 @@ DEPENDENCIES
   bootsnap (~> 1.7)
   byebug
   decidim (~> 0.27.9)
+  decidim-afa_csv_census!
   decidim-consultations (~> 0.27.9)
   decidim-custom_csv_census!
   decidim-decidim_awesome!

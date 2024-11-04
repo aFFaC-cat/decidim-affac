@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-require "decidim/afas_csv_census/workflow"
+require "decidim/afa_csv_census/admin"
+require "decidim/afa_csv_census/engine"
+require "decidim/afa_csv_census/admin_engine"
+require "decidim/afa_csv_census/workflow"
 
 module Decidim
-  # This namespace holds the logic of the `afasCsvCensus` component. This component
-  # allows users to create afas_csv_census in a participatory space.
-  module AfasCsvCensus
+  module AfaCsvCensus
     class << self
       attr_accessor :configuration
     end

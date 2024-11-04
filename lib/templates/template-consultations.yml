@@ -23,7 +23,7 @@ organization:
    - github.com
    - affac.cat
   available_authorizations:
-    - afas_csv_census_authorization_handler
+    - afa_csv_census_authorization_handler
   cta_button_path: consultations
   time_zone: Madrid
   rich_text_editor_in_public_views: true
@@ -168,10 +168,10 @@ consultations:
         resource_permissions:
           vote:
             authorization_handlers: 
-              afas_csv_census_authorization_handler: {}
+              afa_csv_census_authorization_handler: {}
           comment: 
             authorization_handlers:
-              afas_csv_census_authorization_handler: {}
+              afa_csv_census_authorization_handler: {}
 page_topics: 
   - title:
       ca: Ajuda general
