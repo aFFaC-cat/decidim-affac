@@ -83,6 +83,9 @@ describe "Organizations", type: :system do
 
         switch_to_host(organization.host)
         visit decidim.root_path
+        expect(page).to have_css(".logo-wrapper")
+        expect(page).to have_css(".afa-logo")
+
         click_link "Més informació"
 
         expect(page).to have_content("Informació General")
@@ -97,11 +100,6 @@ describe "Organizations", type: :system do
 
         click_link "Què són les consultes?"
         expect(page).to have_content("Una consulta és un espai que permet realitzar una pregunta")
-
-        switch_to_host(organization.host)
-        visit decidim.root_path
-        expect(page).to have_css(".logo-wrapper")
-        expect(page).to have_css(".afa-logo")
       end
 
       it "creates questions and responses from a template" do
