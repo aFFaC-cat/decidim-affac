@@ -79,13 +79,17 @@ module Decidim
       def create_organization_logo
         logo_data = form.fields("logo")
 
-        return unless logo_data && File.exist?(logo_data["file"])
+        return unless logo_data
 
         ActiveStorage::Blob.create_and_upload!(
-          io: File.open(logo_data["file"]),
-          filename: File.basename(logo_data["file"]),
-          content_type: logo_data["content_type"] || "image/png"
+          io: File.open(File.join(templates_root, logo_data["file"])),
+          filename: logo_data["file"],
+          content_type: logo_data["content_type"]
         )
+      end
+
+      def templates_root
+        OrganizationTemplates.template_root
       end
     end
   end
