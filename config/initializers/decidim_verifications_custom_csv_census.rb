@@ -30,7 +30,7 @@ Decidim::CustomCsvCensus.configure do |config|
       search: true,
       encoded: false,
       format: %r{\d{2}/\d{2}/\d{4}},
-      parse: proc { |s| s.to_date }
+      parse: proc { |s| Time.zone.parse(s).to_date if s.present? }
     }
   }
 end
