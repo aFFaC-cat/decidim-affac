@@ -26,6 +26,9 @@ es:
           consulta. Para facilitarte el aterrizaje, ya la hemos creado y solo necesitamos
           que la modifiques y la adaptes a tus necesidades y requisitos. Podrás crear
           consultas posteriores utilizando el botón "Nueva consulta".
+        questions:
+          participatory_scope: AFA
+          promoter_group: AFA
       menu:
         scopes: Opciones de consulta
         static_pages: Páginas de ayuda

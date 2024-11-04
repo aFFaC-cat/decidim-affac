@@ -26,6 +26,9 @@ ca:
           consulta. Per a facilitar-te l'aterratge, ja l'hem creat i només cal que
           la modifiquis i l'adaptis a les teves necessitats i requisits. Les següents
           consultes les podràs crear fent ús del botó "Nova consulta".
+        questions:
+          participatory_scope: AFA
+          promoter_group: AFA
       menu:
         scopes: Opcions de consulta
         static_pages: Pàgines d'ajuda

@@ -29,6 +29,9 @@ en:
           consultation. To facilitate your landing, we have already created it and
           only need you to modify it and adapt it to your needs and requirements.
           You can create subsequent consultations using the "New consultation" button.
+        questions:
+          participatory_scope: AFA
+          promoter_group: AFA
       menu:
         scopes: Consultation options
         static_pages: Help pages
@@ -86,4 +89,4 @@ en:
     decidim:
       footer:
         affac_logo: Logo aFFaC
-        pokecode: Made with ❤️ by Pokecode 
+        pokecode: Made with ❤️ by Pokecode
