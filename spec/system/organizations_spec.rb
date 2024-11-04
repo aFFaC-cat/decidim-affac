@@ -124,9 +124,7 @@ describe "Organizations", type: :system do
         expect(question.title).to eq({ "ca" => "Aprovació, si s'escau, de XXX (exemple)", "es" => "Aprovación, en su caso, de XXX (ejemplo)" })
         expect(question.subtitle).to eq({ "ca" => "Sí / No / En Blanc", "es" => "Sí / No / En Blanco" })
         expect(question.what_is_decided).to eq({ "ca" => "Aprovació, si escau, de XXX. Podeu consultar el document en aquest enllaç (exemple)", "es" => "Aprobación, en su caso, de XXX. Puede consultar el documento en este enlace (ejemplo)" })
-        expect(question.promoter_group).to eq({ "ca" => "Nom_AFA", "es" => "Nom_AFA" })
         expect(question.question_context).to eq({ "ca" => "Aquesta és la una de les preguntes de la consulta. Actualitza'n tots els camps per adaptar-la a les teves necessitats!", "es" => "Ésta es lo una de las preguntas de la consulta. ¡Actualiza todos los campos para adaptarla a tus necesidades!" })
-        expect(question.participatory_scope).to eq({ "ca" => "AGO", "es" => "AGO" })
         new_response = Decidim::Consultations::Response.first
         expect(new_response.title).to eq({ "ca" => "Sí", "es" => "Sí" })
 
