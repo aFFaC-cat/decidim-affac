@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib,vendor,db}/**/*"]
 
   s.metadata["rubygems_mfa_required"] = "true"
+  s.required_ruby_version = ">= 2.7"
 end
