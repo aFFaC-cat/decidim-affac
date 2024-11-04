@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("decidim.custom_csv_census.admin.custom_csv_census.index.title") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <% if @status.records.any? %>
+      <p><%= t("decidim.custom_csv_census.admin.custom_csv_census.index.records", count: @status.records.size, due_date: l(@status.last_import_at, format: :long)) %></p>
+      <p><%= t("decidim.custom_csv_census.admin.custom_csv_census.index.authorized", count: @status.authorizations_count) %></p>
+      <%= link_to t("decidim.custom_csv_census.admin.custom_csv_census.index.destroy"),
+        custom_csv_census_path,
+        method: :delete,
+        class: "button alert",
+        data: { confirm: t("decidim.custom_csv_census.admin.custom_csv_census.index.confirm") } %>
+      <% else %>
+        <p><%= t("decidim.custom_csv_census.admin.custom_csv_census.index.empty") %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("decidim.custom_csv_census.admin.custom_csv_census.index.new") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <p><%= t("decidim.custom_csv_census.admin.custom_csv_census.index.info") %></p>
+    <ul>
+      <% Decidim::AfaCsvCensus.configuration.fields.keys.each do |key| %>
+        <li><%= key %></li>
+      <% end %>
+    </ul>
+    <%= form_tag custom_csv_census_path, multipart: true, class: "form" do %>
+      <%= label_tag :name, t("decidim.custom_csv_census.admin.custom_csv_census.index.file") %>
+      <%= file_field_tag :file %>
+      <%= submit_tag t("decidim.custom_csv_census.admin.custom_csv_census.index.submit"), class: "button" %>
+    <% end %>
+  </div>
+</div>
