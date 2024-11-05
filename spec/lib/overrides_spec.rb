@@ -11,6 +11,20 @@ checksums = [
     files: {
       "/app/views/decidim/forms/admin/questionnaires/_question.html.erb" => "70e923b1cc8bd98b63ba4e5819e74476"
     }
+  },
+  {
+    package: "decidim-core",
+    files: {
+      "/app/views/decidim/devise/registrations/new.html.erb" => "c83d4c7deefdb5859aa7356129502f50",
+      "/app/views/decidim/devise/invitations/edit.html.erb" => "e5762f86c0125adc6339400e1796216a",
+      "/app/views/layouts/decidim/_mini_footer.html.erb" => "5a842f3e880f24f49789ee2f72d96f60"
+    }
+  },
+  {
+    package: "decidim-consultations",
+    files: {
+      "/app/views/decidim/consultations/admin/questions/_form.html.erb" => "1eb11e33f7ffa2739d1c11ff9ab6dff4"
+    }
   }
 ]
 
