@@ -20,7 +20,7 @@ describe "Organizations", type: :system do
     it "selects a template and creates an organization" do
       OrganizationTemplates.template_root = "spec/fixtures/templates"
       select "Second", from: "customTemplateSelect"
-      find("#templateLink").click
+      click_on "New from template"
 
       expect(current_url).to include("/new?template_id=two")
       expect(page).to have_content("You will create a new organization using Second")
@@ -43,7 +43,7 @@ describe "Organizations", type: :system do
 
       it "creates and organization from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
-        find("#templateLink").click
+        click_on "New from template"
 
         expect(current_url).to include("/new?template_id=affac-votings")
         expect(page).to have_content("You will create a new organization using Votacions AFFaC")
@@ -104,7 +104,7 @@ describe "Organizations", type: :system do
 
       it "creates questions and responses from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
-        find("#templateLink").click
+        click_on "New from template"
 
         fill_in "Name", with: "Citizen Corp"
         fill_in "Reference prefix", with: "CCORP"

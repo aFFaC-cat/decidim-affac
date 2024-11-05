@@ -5,7 +5,7 @@
                 OrganizationTemplates.all.map { |template| [template["name"], template["id"]] },
                 { include_blank: false }, 
                 { id: 'customTemplateSelect' } %>
-    <a class="template-link alert button medium-down-expanded" id="templateLink">
+    <a class="template-link alert button medium-down-expanded" id="templateLink" href="#">
       <%= t("decidim.system.custom_templates.new_from_template") %>
     </a>
   </div>
