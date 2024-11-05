@@ -58,7 +58,7 @@ describe "Organizations", type: :system do
         blocks = Decidim::ContentBlock
         expect(blocks.count).to eq(5)
         block_hero = blocks.find_by(manifest_name: :hero)
-        expect(block_hero.settings.welcome_text).to eq({ "ca" => "Benvinguda Citizen Corp", "es" => "Bienvenida Citizen Corp" })
+        expect(block_hero.settings.welcome_text).to eq({ "ca" => "Participa Citizen Corp", "es" => "Participa Citizen Corp" })
         expect(block_hero.images_container.background_image.attached?).to be true
         expect(block_hero.images_container.attached_uploader(:background_image).path).not_to be_nil
         block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)

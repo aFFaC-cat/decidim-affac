@@ -3,7 +3,7 @@
 Decidim::AfaCsvCensus.configure do |config|
   config.fields = {
     # DNI sòcia
-    dni_document: {
+    dni: {
       type: String,
       search: true,
       encoded: true,
@@ -11,7 +11,7 @@ Decidim::AfaCsvCensus.configure do |config|
     },
     # data de naixement de la persona designada per l'AMPA/AFA per assistir a l'assemblea.
     # format dd/mm/yyyy
-    birth_date: {
+    naixement: {
       type: Date,
       search: true,
       encoded: false,
