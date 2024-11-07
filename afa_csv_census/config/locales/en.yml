@@ -1,0 +1,10 @@
+en:
+  decidim:
+    afa_csv_census:
+      admin:
+        custom_csv_census:
+          create:
+            error: S'ha produït un error en la importació del cens.
+            success: S'han importat amb èxit %{count} elements nous (%{errors} errors)
+          destroy:
+            success: S'han esborrat totes les dades censals

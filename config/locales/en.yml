@@ -2,6 +2,9 @@
 en:
   activemodel:
     attributes:
+      afa_csv_census_authorization_handler:
+        birth_date: Birth date of the authorized representative
+        dni_document: DNI of the authorized representative
       consultation:
         banner_image: Consultation image (recommended size 1280x720)
         decidim_highlighted_scope_id: Type of consultation
@@ -26,6 +29,9 @@ en:
           consultation. To facilitate your landing, we have already created it and
           only need you to modify it and adapt it to your needs and requirements.
           You can create subsequent consultations using the "New consultation" button.
+        questions:
+          participatory_scope: AFA
+          promoter_group: AFA
       menu:
         scopes: Consultation options
         static_pages: Help pages
@@ -79,3 +85,8 @@ en:
       birth_date_format: Must follow the format dd/mm/yyyy
       dni_document_format: Must be in uppercase and contain letters and/or numbers
       nif_afa_format: Must be in uppercase and contain letters and/or numbers
+  layouts:
+    decidim:
+      footer:
+        affac_logo: Logo aFFaC
+        pokecode: Made with ❤️ by Pokecode

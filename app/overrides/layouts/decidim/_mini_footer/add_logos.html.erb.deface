@@ -1,0 +1,38 @@
+<!-- replace_contents '.mini-footer' -->
+
+<div class="mini-footer">
+  <div class="row align-middle text-center small-up-2 medium-up-4">
+
+    <div class="column">
+      <a rel="license noopener" class="cc-badge"
+         href="http://creativecommons.org/licenses/by-sa/4.0/"
+         target="_blank">
+        <%= image_pack_tag("media/images/cc-badge.png", alt: t("layouts.decidim.footer.cc_by_license")) %>
+      </a>
+      <p><%= t("layouts.decidim.footer.made_with_open_source").html_safe %></p>
+    </div>
+
+    <div class="column">
+      <div class="afa-logo">
+        <%= image_pack_tag("media/images/Logo_aFFaC_2020_NEGATIU.png", alt: t("layouts.decidim.footer.affac_logo"), style: "height: 100px;") %>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="decidim-logo">
+        <a rel="decidim noopener" href="https://decidim.org/" target="_blank">
+          <%= image_pack_tag("media/images/decidim-logo.svg", alt: t("layouts.decidim.footer.decidim_logo")) %>
+        </a>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="pokecode-logo">
+        <a href="https://pokecode.net/" target="_blank">
+          <%= t("layouts.decidim.footer.pokecode") %>
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</div>

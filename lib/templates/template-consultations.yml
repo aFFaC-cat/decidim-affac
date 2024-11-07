@@ -1,6 +1,9 @@
 id: affac-votings
 name: Votacions AFFaC
-organization: 
+organization:
+  logo:
+    file: logo-affac/Logo_aFFaC_2020_NEGATIU_llarg.png
+    content_type: image/png
   default_locale: ca
   users_registration_mode: enabled
   available_locales: 
@@ -20,10 +23,11 @@ organization:
    - github.com
    - affac.cat
   available_authorizations:
-    - custom_csv_census_authorization_handler
+    - afa_csv_census_authorization_handler
   cta_button_path: consultations
   time_zone: Madrid
   rich_text_editor_in_public_views: true
+  enable_participatory_space_filters: false
 scopes:
   - code: apartat
     name: 
@@ -155,10 +159,10 @@ consultations:
         resource_permissions:
           vote:
             authorization_handlers: 
-              custom_csv_census_authorization_handler: {}
+              afa_csv_census_authorization_handler: {}
           comment: 
             authorization_handlers:
-              custom_csv_census_authorization_handler: {}
+              afa_csv_census_authorization_handler: {}
 page_topics: 
   - title:
       ca: Ajuda general

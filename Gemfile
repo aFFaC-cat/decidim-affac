@@ -12,6 +12,8 @@ gem "decidim-custom_csv_census", git: "https://github.com/Platoniq/decidim-verif
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "release/0.27-stable"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 
+gem "decidim-afa_csv_census", path: "./afa_csv_census"
+
 gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"
 gem "faraday"

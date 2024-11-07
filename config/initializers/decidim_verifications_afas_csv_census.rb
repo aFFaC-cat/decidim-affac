@@ -1,23 +1,9 @@
 # frozen_string_literal: true
 
-Decidim::CustomCsvCensus.configure do |config|
+Decidim::AfaCsvCensus.configure do |config|
   config.fields = {
-    # NIF de l'afa/ampa
-    nif_afa: {
-      type: String,
-      search: true,
-      encoded: false,
-      format: /\A[A-Z0-9]*\z/
-    },
-    # N. de sòcia
-    membership_number: {
-      type: String,
-      search: true,
-      encoded: false
-      # format: /\A[A-Z0-9]*\z/
-    },
     # DNI sòcia
-    dni_document: {
+    dni: {
       type: String,
       search: true,
       encoded: true,
@@ -25,7 +11,7 @@ Decidim::CustomCsvCensus.configure do |config|
     },
     # data de naixement de la persona designada per l'AMPA/AFA per assistir a l'assemblea.
     # format dd/mm/yyyy
-    birth_date: {
+    naixement: {
       type: Date,
       search: true,
       encoded: false,

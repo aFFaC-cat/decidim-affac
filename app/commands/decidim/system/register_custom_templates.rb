@@ -49,6 +49,7 @@ module Decidim
         Decidim::Organization.create!(
           name: form.name,
           host: form.host,
+          logo: create_organization_logo,
           reference_prefix: form.reference_prefix,
           available_locales: form.available_locales,
           default_locale: form.default_locale,
@@ -73,6 +74,22 @@ module Decidim
           current_user: form.current_user,
           current_organization: organization
         )
+      end
+
+      def create_organization_logo
+        logo_data = form.fields("logo")
+
+        return unless logo_data
+
+        ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(templates_root, logo_data["file"])),
+          filename: logo_data["file"],
+          content_type: logo_data["content_type"]
+        )
+      end
+
+      def templates_root
+        OrganizationTemplates.template_root
       end
     end
   end

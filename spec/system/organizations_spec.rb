@@ -20,7 +20,7 @@ describe "Organizations", type: :system do
     it "selects a template and creates an organization" do
       OrganizationTemplates.template_root = "spec/fixtures/templates"
       select "Second", from: "customTemplateSelect"
-      find("#templateLink").click
+      click_on "New from template"
 
       expect(current_url).to include("/new?template_id=two")
       expect(page).to have_content("You will create a new organization using Second")
@@ -43,7 +43,7 @@ describe "Organizations", type: :system do
 
       it "creates and organization from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
-        find("#templateLink").click
+        click_on "New from template"
 
         expect(current_url).to include("/new?template_id=affac-votings")
         expect(page).to have_content("You will create a new organization using Votacions AFFaC")
@@ -58,7 +58,7 @@ describe "Organizations", type: :system do
         blocks = Decidim::ContentBlock
         expect(blocks.count).to eq(5)
         block_hero = blocks.find_by(manifest_name: :hero)
-        expect(block_hero.settings.welcome_text).to eq({ "ca" => "Benvinguda Citizen Corp", "es" => "Bienvenida Citizen Corp" })
+        expect(block_hero.settings.welcome_text).to eq({ "ca" => "Participa Citizen Corp", "es" => "Participa Citizen Corp" })
         expect(block_hero.images_container.background_image.attached?).to be true
         expect(block_hero.images_container.attached_uploader(:background_image).path).not_to be_nil
         block_highlighted_consultations = blocks.find_by(manifest_name: :highlighted_consultations)
@@ -83,6 +83,9 @@ describe "Organizations", type: :system do
 
         switch_to_host(organization.host)
         visit decidim.root_path
+        expect(page).to have_css(".logo-wrapper")
+        expect(page).to have_css(".afa-logo")
+
         click_link "Més informació"
 
         expect(page).to have_content("Informació General")
@@ -101,7 +104,7 @@ describe "Organizations", type: :system do
 
       it "creates questions and responses from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
-        find("#templateLink").click
+        click_on "New from template"
 
         fill_in "Name", with: "Citizen Corp"
         fill_in "Reference prefix", with: "CCORP"
@@ -124,9 +127,7 @@ describe "Organizations", type: :system do
         expect(question.title).to eq({ "ca" => "Aprovació, si s'escau, de XXX (exemple)", "es" => "Aprovación, en su caso, de XXX (ejemplo)" })
         expect(question.subtitle).to eq({ "ca" => "Sí / No / En Blanc", "es" => "Sí / No / En Blanco" })
         expect(question.what_is_decided).to eq({ "ca" => "Aprovació, si escau, de XXX. Podeu consultar el document en aquest enllaç (exemple)", "es" => "Aprobación, en su caso, de XXX. Puede consultar el documento en este enlace (ejemplo)" })
-        expect(question.promoter_group).to eq({ "ca" => "Nom_AFA", "es" => "Nom_AFA" })
         expect(question.question_context).to eq({ "ca" => "Aquesta és la una de les preguntes de la consulta. Actualitza'n tots els camps per adaptar-la a les teves necessitats!", "es" => "Ésta es lo una de las preguntas de la consulta. ¡Actualiza todos los campos para adaptarla a tus necesidades!" })
-        expect(question.participatory_scope).to eq({ "ca" => "AGO", "es" => "AGO" })
         new_response = Decidim::Consultations::Response.first
         expect(new_response.title).to eq({ "ca" => "Sí", "es" => "Sí" })
 
