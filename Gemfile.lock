@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 51bc593da8fb72d14c2e5b5df55dbb686be1fbbe
-  branch: release/0.27-stable
+  revision: cf9a491c906b0f9d0a4d1530f8105cbb1cd2c769
+  branch: backport-manual_verifications
   specs:
     decidim-decidim_awesome (0.10.3)
       decidim-admin (>= 0.26.0, < 0.28)
