@@ -2,6 +2,9 @@
 ca:
   activemodel:
     attributes:
+      afa_csv_census_authorization_handler:
+        naixement: Data de naixement
+        dni: DNI
       consultation:
         banner_image: Imatge de la consulta (mida recomanada 1280x720)
         decidim_highlighted_scope_id: Tipus de consulta
@@ -79,6 +82,11 @@ ca:
         success_message: Nova organització creada correctament
   errors:
     messages:
-      birth_date_format: Ha de seguir el format dd/mm/aaa
-      dni_document_format: Ha d'estar en majúscules i contenir lletres i/o nombres
-      nif_afa_format: Ha d'estar en majúscules i contenir lletres i/o nombres
+      birth_date_format: Ha de seguir el format dd/mm/yyyy
+      dni_document_format: Ha de ser en majúscules i només contenir numeros i lletres
+      nif_afa_format: Ha de ser en majúscules i només contenir numeros i lletres
+  layouts:
+    decidim:
+      footer:
+        affac_logo: Logo aFFaC
+        pokecode: Made with ❤️ by Pokecode
