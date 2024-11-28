@@ -21,6 +21,7 @@ module Decidim::System
         create_content_blocks!
         create_scopes!
         create_consultations!
+        create_awesome_configs!
         broadcast(:ok)
       end
     rescue StandardError => e
@@ -164,7 +165,7 @@ module Decidim::System
       end
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity:
+    # rubocop:disable Metrics/CyclomaticComplexity
     def create_default_pages!
       return unless template.fields && template.fields["page_topics"]
 
@@ -173,6 +174,7 @@ module Decidim::System
           title: page_topic["title"],
           description: page_topic["description"]&.transform_values { |val| interpolate(val) } || {},
           organization: organization,
+          show_in_footer: page_topic["show_in_footer"].present?,
           weight: page_topic["weight"]
         )
 
@@ -188,7 +190,20 @@ module Decidim::System
         end
       end
     end
-    # rubocop:enable Metrics/CyclomaticComplexity:
+
+    # rubocop:enable Metrics/CyclomaticComplexity
+    #
+    def create_awesome_configs!
+      return unless template.fields && template.fields["awesome_configs"]
+
+      template.fields["awesome_configs"].each do |config|
+        Decidim::DecidimAwesome::AwesomeConfig.create!(
+          organization: organization,
+          var: config["var"],
+          value: config["value"]
+        )
+      end
+    end
 
     def interpolate(str)
       string = str.dup

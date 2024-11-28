@@ -136,6 +136,30 @@ describe "Organizations", type: :system do
         expect(page).to have_content("LA PREGUNTA")
         expect(page).to have_content("DEIXA EL TEU COMENTARI")
         expect(page).to have_content("Votació")
+
+        click_link "Ajuda general"
+        expect(page).to have_content("Què són les consultes?")
+        expect(page).to have_content("Com puc votar en una consulta?")
+        expect(page).to have_content("Què més puc fer si em registro?")
+
+        organization = Decidim::Organization.last
+        user = create(:user, :admin, :confirmed, :admin_terms_accepted, organization: organization)
+        login_as user, scope: :user
+        visit decidim_admin.root_path
+
+        expect(page).to have_content("Consultes")
+        expect(page).not_to have_content("Assemblees")
+        expect(page).not_to have_content("Processos")
+        click_on "Configuració"
+        expect(page).to have_content("Configuració")
+        expect(page).to have_content("Aparença")
+        expect(page).to have_content("Pàgina d'inici")
+        expect(page).to have_content("Opcions de consulta")
+        expect(page).to have_content("Dominis externs permesos")
+        expect(page).not_to have_content("Tipus d'àmbit")
+        expect(page).not_to have_content("Àrees")
+        expect(page).not_to have_content("Tipus d'àrees")
+        expect(page).not_to have_content("Seccions d'ajuda")
       end
     end
   end
