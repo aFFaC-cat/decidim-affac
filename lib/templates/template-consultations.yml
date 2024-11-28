@@ -2,7 +2,7 @@ id: affac-votings
 name: Votacions AFFaC
 organization:
   logo:
-    file: logo-affac/Logo_aFFaC_2020_NEGATIU_llarg.png
+    file: logo-affac/logo-horitzontal.png
     content_type: image/png
   default_locale: ca
   users_registration_mode: enabled
