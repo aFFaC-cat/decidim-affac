@@ -89,8 +89,8 @@ describe "Organizations", type: :system do
         expect(page).to have_content("Ajuda general")
         expect(page).to have_content("Termes i condicions d'ús")
 
-        click_link "Què és un procés participatiu?"
-        expect(page).to have_content("Un procés participatiu és una seqüència d'activitats participatives")
+        click_link "Què són les consultes?"
+        expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l’organització")
 
         click_link "Què són les coordinadores?"
         expect(page).to have_content("Una coordinadora és un grup format per membres d'una organització")
