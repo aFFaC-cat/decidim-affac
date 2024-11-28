@@ -62,6 +62,7 @@ ca:
             sostenible i feminista
       index:
         title: Més informació
+        subheading: Navega per les pàgines d'ajuda d'%{name}
     system:
       custom_templates:
         button_save: Desa

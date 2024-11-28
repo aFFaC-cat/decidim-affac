@@ -163,10 +163,8 @@ page_topics:
   - title:
       ca: Ajuda general
       es: Ayuda general
-    description:
-      ca: Llegeix més sobre %{organization_name} Template
-      es: Leer más sobre %{organization_name} Template
-    weight: 1 
+    weight: 1
+    show_in_footer: true 
     pages: 
       - slug: help
         title:

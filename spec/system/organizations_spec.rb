@@ -92,11 +92,11 @@ describe "Organizations", type: :system do
         click_link "Què són les consultes?"
         expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l’organització")
 
-        click_link "Què són les coordinadores?"
-        expect(page).to have_content("Una coordinadora és un grup format per membres d'una organització")
+        click_link "Com puc votar en una consulta?"
+        expect(page).to have_content("Per poder votar en les preguntes que formen part d’una consulta, primer cal registrar-se a l’aplicació")
 
-        click_link "Què són les consultes?"
-        expect(page).to have_content("Una consulta és un espai que permet realitzar una pregunta")
+        click_link "Què més puc fer si em registro?"
+        expect(page).to have_content("Tot i que no cal registrar-se per accedir al contingut del Participa, registrar-se obre un món de possibilitats")
       end
 
       it "creates questions and responses from a template" do
