@@ -93,15 +93,16 @@ describe "Organizations", type: :system do
         expect(page).to have_content("Termes i condicions d'ús")
 
         click_link "Què són les consultes?"
-        expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l’organització")
+        expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l'organització")
 
         click_link "Com puc votar en una consulta?"
-        expect(page).to have_content("Per poder votar en les preguntes que formen part d’una consulta, primer cal registrar-se a l’aplicació")
+        expect(page).to have_content("Per poder votar en les preguntes que formen part d'una consulta, primer cal registrar-se a l'aplicació. És necessari, a més, formar part del cens de participants")
 
         click_link "Què més puc fer si em registro?"
         expect(page).to have_content("Tot i que no cal registrar-se per accedir al contingut del Participa, registrar-se obre un món de possibilitats")
       end
 
+      # rubocop:disable RSpec/ExampleLength
       it "creates questions and responses from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
         click_on "New from template"
@@ -136,7 +137,32 @@ describe "Organizations", type: :system do
         expect(page).to have_content("LA PREGUNTA")
         expect(page).to have_content("DEIXA EL TEU COMENTARI")
         expect(page).to have_content("Votació")
+
+        click_link "Ajuda general"
+        expect(page).to have_content("Què són les consultes?")
+        expect(page).to have_content("Com puc votar en una consulta?")
+        expect(page).to have_content("Què més puc fer si em registro?")
+
+        organization = Decidim::Organization.last
+        user = create(:user, :admin, :confirmed, :admin_terms_accepted, organization: organization)
+        login_as user, scope: :user
+        visit decidim_admin.root_path
+
+        expect(page).to have_content("Consultes")
+        expect(page).not_to have_content("Assemblees")
+        expect(page).not_to have_content("Processos")
+        click_on "Configuració"
+        expect(page).to have_content("Configuració")
+        expect(page).to have_content("Aparença")
+        expect(page).to have_content("Pàgina d'inici")
+        expect(page).to have_content("Opcions de consulta")
+        expect(page).to have_content("Dominis externs permesos")
+        expect(page).not_to have_content("Tipus d'àmbit")
+        expect(page).not_to have_content("Àrees")
+        expect(page).not_to have_content("Tipus d'àrees")
+        expect(page).not_to have_content("Seccions d'ajuda")
       end
+      # rubocop:enable RSpec/ExampleLength
     end
   end
 end

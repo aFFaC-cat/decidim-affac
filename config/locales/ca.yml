@@ -67,7 +67,7 @@ ca:
           footer_sub_hero_headline: Benvinguda a la plataforma participativa de l'%{organization}.
       index:
         title: Més informació
-        subheading: Navega per les pàgines d'ajuda d'%{name}
+        subheading: Navega per les pàgines d'ajuda de l'%{name}
     system:
       custom_templates:
         button_save: Desa
