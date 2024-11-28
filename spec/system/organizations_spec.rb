@@ -93,10 +93,10 @@ describe "Organizations", type: :system do
         expect(page).to have_content("Termes i condicions d'ús")
 
         click_link "Què són les consultes?"
-        expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l’organització")
+        expect(page).to have_content("Una consulta és un espai que permet fer una o més preguntes de forma clara a totes les persones que formen part de l'organització")
 
         click_link "Com puc votar en una consulta?"
-        expect(page).to have_content("Per poder votar en les preguntes que formen part d’una consulta, primer cal registrar-se a l’aplicació")
+        expect(page).to have_content("Per poder votar en les preguntes que formen part d'una consulta, primer cal registrar-se a l'aplicació. És necessari, a més, formar part del cens de participants")
 
         click_link "Què més puc fer si em registro?"
         expect(page).to have_content("Tot i que no cal registrar-se per accedir al contingut del Participa, registrar-se obre un món de possibilitats")
