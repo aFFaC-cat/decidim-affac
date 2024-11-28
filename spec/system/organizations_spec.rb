@@ -102,6 +102,7 @@ describe "Organizations", type: :system do
         expect(page).to have_content("Tot i que no cal registrar-se per accedir al contingut del Participa, registrar-se obre un món de possibilitats")
       end
 
+      # rubocop:disable RSpec/ExampleLength
       it "creates questions and responses from a template" do
         select "Votacions AFFaC", from: "customTemplateSelect"
         click_on "New from template"
@@ -161,6 +162,7 @@ describe "Organizations", type: :system do
         expect(page).not_to have_content("Tipus d'àrees")
         expect(page).not_to have_content("Seccions d'ajuda")
       end
+      # rubocop:enable RSpec/ExampleLength
     end
   end
 end
