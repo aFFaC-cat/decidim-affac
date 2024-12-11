@@ -13,8 +13,10 @@
     </div>
 
     <div class="column">
-      <div class="afa-logo">
-        <%= image_pack_tag("media/images/logo-horitzontal.png", alt: t("layouts.decidim.footer.affac_logo")) %>
+      <div class="affac-logo">
+        <a rel="decidim noopener" href="https://affac.cat/" target="_blank">
+          <%= image_pack_tag("media/images/logo-horitzontal.png", alt: t("layouts.decidim.footer.affac_logo")) %>
+        </a>
       </div>
     </div>
 
@@ -28,7 +30,7 @@
 
     <div class="column">
       <div class="pokecode-logo">
-        <a href="https://pokecode.net/" target="_blank">
+        <a rel="decidim noopener" href="https://pokecode.net/" target="_blank">
           <%= t("layouts.decidim.footer.pokecode") %>
         </a>
       </div>

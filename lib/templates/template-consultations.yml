@@ -114,7 +114,7 @@ consultations:
         <li>Edita el títol, el subtítol, aquesta descripció i la data de votació adaptant-los a la informació relativa a la teva consulta. També pots modificar el tipus de consulta i la imatge de capçalera.</li>
         <li>Clica al botó "Actualització" i, a continuació, ves a la pestanya "Preguntes" que trobaràs al menú lateral esquerra, per editar la pregunta actual o afegir-ne de noves.</li>
         </ol><p>Si decideixes mantenir aquesta consulta de prova i prefereixes crear-ne una de nova, despublica-la per no confondre les participants de la plataforma. Trobaràs el botó a sota de tot.</p>
-        <p>Per a més informació sobre com configurar una consulta, ves a l'<a href="/pages" rel="noopener noreferrer" target="_blank">Ajuda</a>.</p>
+        <p>A la documentació trobareu més informació sobre com configurar una consulta.</p>
       es: >
         <p>¡Te damos la bienvenida a tu primera consulta! Modifícala para crear tu primera consulta:</p><ol>
         <li>Clica "Entra", en la esquina superior derecha, y accede con el usuario y la contraseña de la cuenta admin. A continuación, clica "Edita".</li>
@@ -122,6 +122,7 @@ consultations:
         <li>Clica el botón "Actualización" y, a continuación, ve a la pestaña "Preguntas" que encontrarás en el menú lateral izquierdo, para editar la pregunta actual o añadir nuevas.</li>
         </ol><p>Si decides mantener esta consulta de prueba y prefieres crear una nueva, despúblicala para no confundir a las participantes de la plataforma. Encontrarás el botón debajo de todo.</p>
         <p>Para más información sobre cómo configurar una consulta, ve a la <a href="/pages" rel="noopener noreferrer" target="_blank">Ayuda</a>.</p>
+        <p>A la documentación encontrarás más información sobre cómo configurar una consulta.</p>
     banner_image:
       file: template-consultations/consultation_image.png
       content_type: image/png
@@ -159,9 +160,6 @@ consultations:
         resource_permissions:
           vote:
             authorization_handlers: 
-              afa_csv_census_authorization_handler: {}
-          comment: 
-            authorization_handlers:
               afa_csv_census_authorization_handler: {}
 page_topics: 
   - title:
@@ -335,9 +333,10 @@ awesome_configs:
 
 
         /* MENU */
-        /* hides menu items 2: processes, 3: assemblies, 8: newsletter, 10: term customiser, 11: awesome */
+        /* hides menu items 2: processes, 3: assemblies, 6: pagines, 8: newsletter, 10: term customiser, 11: awesome */
         div.layout-nav nav.main-nav li:nth-child(2), 
         div.layout-nav nav.main-nav li:nth-child(3), 
+        div.layout-nav nav.main-nav li:nth-child(6), 
         div.layout-nav nav.main-nav li:nth-child(8), 
         div.layout-nav nav.main-nav li:nth-child(10), 
         div.layout-nav nav.main-nav li:nth-child(11){
@@ -345,10 +344,12 @@ awesome_configs:
         }
 
         /* hides configuration menu sub items */
-        a[href$='admin/scope_types'], 
-        a[href$='admin/areas'], 
-        a[href$='admin/area_types'], 
-        a[href$='admin/help_sections'] {
+        .secondary-nav a[href^='/admin/scope_types'], 
+        .secondary-nav a[href^='/admin/areas'], 
+        .secondary-nav a[href^='/admin/area_types'], 
+        .secondary-nav a[href^='/admin/help_sections'],
+        .secondary-nav a[href^='/admin/organization/homepage'],
+        .secondary-nav a[href^='/admin/organization/external_domain_whitelist'] {
             visibility: hidden;
             position: absolute;
         }

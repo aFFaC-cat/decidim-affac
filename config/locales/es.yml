@@ -19,6 +19,9 @@ es:
         promoter_group: Grupo promotor
         scope: Sección
         subtitle: Subtítulo *
+        title: Título *
+        order: Orden
+        what_is_decided: ¿Qué se decide? *
   decidim:
     admin:
       consultations:
@@ -41,6 +44,11 @@ es:
         static_pages: Páginas de ayuda
     authorization_handlers:
       admin:
+        afa_csv_census_authorization_handler:
+          help:
+          - Los administradores cargan un CSV y crean un censo con datos aceptados.
+          - Solo se pueden verificar las participantes que hayan completado la información
+            requerida que aparezca en el censo.
         custom_csv_census_authorization_handler:
           help:
           - Los administradores cargan un CSV y crean un censo con datos aceptados.

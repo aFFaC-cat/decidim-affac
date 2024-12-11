@@ -84,7 +84,7 @@ describe "Organizations", type: :system do
         switch_to_host(organization.host)
         visit decidim.root_path
         expect(page).to have_css(".logo-wrapper")
-        expect(page).to have_css(".afa-logo")
+        expect(page).to have_css(".affac-logo")
 
         click_link "Més informació"
 

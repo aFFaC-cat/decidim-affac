@@ -43,6 +43,10 @@ en:
         scopes: Consultation options
         static_pages: Help pages
     authorization_handlers:
+      custom_csv_census_authorization_handler:
+        name: Censo aFFaC
+      afa_csv_census_authorization_handler:
+        name: Censo de la AFA
       admin:
         custom_csv_census_authorization_handler:
           help:

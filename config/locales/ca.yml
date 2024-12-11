@@ -22,6 +22,9 @@ ca:
         promoter_group: Grup promotor
         scope: Apartat
         subtitle: Subtítol *
+        title: Títol *
+        order: Ordre
+        what_is_decided: Què es decideix *
   decidim:
     admin:
       consultations:
@@ -43,7 +46,16 @@ ca:
         scopes: Opcions de consulta
         static_pages: Pàgines d'ajuda
     authorization_handlers:
+      custom_csv_census_authorization_handler:
+        name: Cens aFFaC
+      afa_csv_census_authorization_handler:
+        name: Cens de l'AFA
       admin:
+        afa_csv_census_authorization_handler:
+          help:
+          - Els administradors carreguen un CSV i creen un cens amb dades acceptades.
+          - Només es poden verificar les participants que hagin omplert la informació
+            requerida que figuri en el cens.
         custom_csv_census_authorization_handler:
           help:
           - Els administradors carreguen un CSV i creen un cens amb dades acceptades.

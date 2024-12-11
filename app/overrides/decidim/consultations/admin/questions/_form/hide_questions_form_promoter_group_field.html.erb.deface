@@ -1,3 +1,3 @@
 <!-- replace 'erb[loud]:contains("form.translated :text_field, :promoter_group ")' -->
 
-<%= form.hidden_field :promoter_group, value: t("promoter_group", scope: "decidim.admin.consultations.questions") %>
+<%= form.hidden_field "promoter_group_#{current_organization.default_locale}", value: t("promoter_group", scope: "decidim.admin.consultations.questions") %>
