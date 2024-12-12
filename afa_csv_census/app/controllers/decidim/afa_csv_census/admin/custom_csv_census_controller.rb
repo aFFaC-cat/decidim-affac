@@ -15,7 +15,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = t(".error")
+              flash[:alert] = t(".error", error: form.errors.full_messages.first)
             end
           end
 

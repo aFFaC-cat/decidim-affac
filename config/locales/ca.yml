@@ -48,14 +48,10 @@ ca:
     authorization_handlers:
       custom_csv_census_authorization_handler:
         name: Cens aFFaC
-      afa_csv_census_authorization_handler:
-        name: Cens de l'AFA
+        explanation: 'El cens de l''aFFaC és un document que conté la llista de totes les
+          famílies associades a l''aFFaC. Aquest cens és necessari per a poder participar
+          en les consultes de l''aFFaC.'  
       admin:
-        afa_csv_census_authorization_handler:
-          help:
-          - Els administradors carreguen un CSV i creen un cens amb dades acceptades.
-          - Només es poden verificar les participants que hagin omplert la informació
-            requerida que figuri en el cens.
         custom_csv_census_authorization_handler:
           help:
           - Els administradors carreguen un CSV i creen un cens amb dades acceptades.

@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Decidim::AfaCsvCensus.configure do |config|
+  config.col_sep = ";"
   config.fields = {
     # DNI sòcia
     dni: {
+      column: "dni_document",
       type: String,
       search: true,
       encoded: true,
@@ -12,6 +14,7 @@ Decidim::AfaCsvCensus.configure do |config|
     # data de naixement de la persona designada per l'AMPA/AFA per assistir a l'assemblea.
     # format dd/mm/yyyy
     naixement: {
+      column: "birth_date",
       type: Date,
       search: true,
       encoded: false,
