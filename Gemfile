@@ -40,4 +40,5 @@ end
 group :production do
   gem "sidekiq"
   gem "sidekiq-cron"
+  gem "appsignal"
 end
