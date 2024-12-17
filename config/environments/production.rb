@@ -106,10 +106,14 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger = ActiveSupport::Logger.new($stdout)
+    logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new($stdout))
     logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
+
+    # Use AppSignal's logger and a STDOUT logger
+    appsignal_logger = ActiveSupport::TaggedLogging.new(Appsignal::Logger.new("rails"))
+    config.logger = logger.extend(ActiveSupport::Logger.broadcast(appsignal_logger))
   end
 
   # Do not dump schema after migrations.
