@@ -310,23 +310,23 @@ awesome_configs:
       amagats: |
         /* CONSULTATIONS */
         /* hides fields from consultation */
-        form[id*=\"_consultation\"] label[for=\"consultation_introductory_video_url\"], form[id*=\"_consultation\"] div.upload-container-for-introductory_image {
+        form[id*='_consultation'] label[for='consultation_introductory_video_url'], form[id*='_consultation'] div.upload-container-for-introductory_image {
           display: none;
         }
 
         /* CONSULTATIONS - QUESTION */
         /* hides fields from consultation question form */
         /* Grup promotor, Àmbit participatiu, Àmbit, Origen, URL d'origen, External voting, URL del sistema de votació externa, Hashtag, Imatge de la pàgina d'inici i imatge del banner */
-        form[id*=\"_question\"] label[for=\"question_promoter_group_ca\"],
-        form[id*=\"_question\"] label[for=\"question_participatory_scope_ca\"],
-        form[id*=\"_question\"] label[for=\"question_origin_scope_ca\"],
-        form[id*=\"_question\"] label[for=\"question_origin_title_ca\"],
-        form[id*=\"_question\"] label[for=\"question_origin_url\"],
-        form[id*=\"_question\"] label[for=\"question_external_voting\"],
-        form[id*=\"_question\"] label[for=\"question_i_frame_url\"],
-        form[id*=\"_question\"] label[for=\"question_hashtag\"],
-        form[id*=\"_question\"] div.upload-container-for-hero_image,
-        form[id*=\"_question\"] div.upload-container-for-banner_image
+        form[id*='_question'] label[for='question_promoter_group_ca'],
+        form[id*='_question'] label[for='question_participatory_scope_ca'],
+        form[id*='_question'] label[for='question_origin_scope_ca'],
+        form[id*='_question'] label[for='question_origin_title_ca'],
+        form[id*='_question'] label[for='question_origin_url'],
+        form[id*='_question'] label[for='question_external_voting'],
+        form[id*='_question'] label[for='question_i_frame_url'],
+        form[id*='_question'] label[for='question_hashtag'],
+        form[id*='_question'] div.upload-container-for-hero_image,
+        form[id*='_question'] div.upload-container-for-banner_image
         {
           display: none;
         }
