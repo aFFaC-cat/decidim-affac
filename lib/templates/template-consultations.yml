@@ -1,9 +1,6 @@
 id: affac-votings
 name: Votacions AFFaC
 organization:
-  logo:
-    file: logo-affac/logo-horitzontal.png
-    content_type: image/png
   default_locale: ca
   users_registration_mode: enabled
   available_locales: 
