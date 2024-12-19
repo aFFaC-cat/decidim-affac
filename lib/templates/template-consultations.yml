@@ -19,6 +19,8 @@ organization:
    - decidim.org
    - github.com
    - affac.cat
+   - pokecode.net
+   - creativecommons.org
   available_authorizations:
     - afa_csv_census_authorization_handler
   cta_button_path: consultations
