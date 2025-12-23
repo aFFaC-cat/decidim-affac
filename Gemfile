@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.27.9"
+DECIDIM_VERSION = "~> 0.27.10"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
@@ -19,6 +19,7 @@ gem "deface", ">= 1.9"
 gem "faraday"
 gem "puma", ">= 5.0.0"
 gem "wicked_pdf", "~> 2.1"
+gem "rails_semantic_logger"
 
 group :development, :test do
   gem "faker", "~> 2.14"
@@ -40,5 +41,4 @@ end
 group :production do
   gem "sidekiq"
   gem "sidekiq-cron"
-  gem "appsignal"
 end
