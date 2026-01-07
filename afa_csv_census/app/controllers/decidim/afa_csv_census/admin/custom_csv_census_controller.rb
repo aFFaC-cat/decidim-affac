@@ -4,6 +4,11 @@ module Decidim
   module AfaCsvCensus
     module Admin
       class CustomCsvCensusController < Decidim::CustomCsvCensus::Admin::CustomCsvCensusController
+        def index
+          enforce_permission_to :index, :authorization
+          @status = Status.new(current_organization)
+        end
+
         def create
           enforce_permission_to :create, :authorization
 
@@ -20,6 +25,16 @@ module Decidim
           end
 
           redirect_to custom_csv_census_path
+        end
+
+        def destroy
+          enforce_permission_to :destroy, :authorization
+
+          DestroyCensusData.call(current_user) do
+            on(:ok) do
+              redirect_to custom_csv_census_path, notice: t(".success")
+            end
+          end
         end
       end
     end
