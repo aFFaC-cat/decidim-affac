@@ -19,7 +19,7 @@ gem "deface", ">= 1.9"
 gem "faraday"
 gem "nokogiri", "~> 1.16.0"
 gem "puma", ">= 5.0.0"
-gem "rails_semantic_logger"
+gem "rails_semantic_logger", require: ENV.fetch("DISABLE_SEMANTIC_LOGGER", nil) != "true"
 gem "wicked_pdf", "~> 2.1"
 
 group :development, :test do
