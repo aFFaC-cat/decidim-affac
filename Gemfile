@@ -17,9 +17,10 @@ gem "decidim-afa_csv_census", path: "./afa_csv_census"
 gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"
 gem "faraday"
+gem "nokogiri", "~> 1.16.0"
 gem "puma", ">= 5.0.0"
-gem "wicked_pdf", "~> 2.1"
 gem "rails_semantic_logger"
+gem "wicked_pdf", "~> 2.1"
 
 group :development, :test do
   gem "faker", "~> 2.14"
